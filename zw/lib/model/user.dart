@@ -2,10 +2,10 @@
 
 class User {
   String username;
-  String
+  String usercode;
   String password;
 
-  User(this.username, this.password);
+  User(this.username,this.usercode, this.password);
 
 
 }
