@@ -1,9 +1,17 @@
-class API {
+class Api {
+  /// OSS prefix
+String ossPath = 'http://zw-oss.oss-cn-shenzhen.aliyuncs.com/';
+
+/// service url prefix
+String serviceUrl = 'https://zwln.com/api/';
 //   static const String BASE_URL = 'http://flutter-go.alibaba.net/';
+  // ignore: constant_identifier_names
   static const String BASE_URL = 'https://flutter-go.pub/api/';
 
+  // ignore: constant_identifier_names, prefer_interpolation_to_compose_strings
   static const String DO_LOGIN = BASE_URL + 'doLogin'; //登陆
 
+  // ignore: constant_identifier_names, prefer_interpolation_to_compose_strings
   static const String CHECK_LOGIN = BASE_URL + 'checkLogin'; //验证登陆
 
   static const String LOGOUT = BASE_URL + 'logout'; //退出登陆
@@ -32,5 +40,6 @@ class API {
 
   static const String GET_WIDGET_TREE = BASE_URL + 'getCateList'; //获取widget列表树
 
+  // ignore: prefer_interpolation_to_compose_strings, constant_identifier_names
   static const String SEARCH_WIDGET = BASE_URL + 'searchWidget'; //搜索组件
 }
