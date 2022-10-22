@@ -295,9 +295,8 @@ class _MaterialSearchInputState<T> extends State<MaterialSearchInput<T>> {
 
   _buildMaterialSearchPage(BuildContext context) {
     return new _MaterialSearchPageRoute<T>(
-        settings: new RouteSettings(
+        settings: RouteSettings(
           name: 'material_search',
-          isInitialRoute: false,
         ),
         builder: (BuildContext context) {
           return new Material(
@@ -318,7 +317,7 @@ class _MaterialSearchInputState<T> extends State<MaterialSearchInput<T>> {
         .push(_buildMaterialSearchPage(context))
         .then((dynamic value) {
       if (value != null) {
-        _formFieldKey.currentState.didChange(value);
+        _formFieldKey.currentState?.didChange(value);
         widget.onSelect(value);
       }
     });
@@ -326,7 +325,6 @@ class _MaterialSearchInputState<T> extends State<MaterialSearchInput<T>> {
 
   bool get autovalidate {
     return widget.autovalidate ??
-        Form.of(context)?.widget?.autovalidate ??
         false;
   }
 
@@ -335,7 +333,7 @@ class _MaterialSearchInputState<T> extends State<MaterialSearchInput<T>> {
   }
 
   Widget build(BuildContext context) {
-    final TextStyle valueStyle = Theme.of(context).textTheme.subhead;
+    final TextStyle valueStyle = TextStyle();//Theme.of(context).textTheme.subhead;
 
     return new InkWell(
       onTap: () => _showMaterialSearch(context),
@@ -343,7 +341,6 @@ class _MaterialSearchInputState<T> extends State<MaterialSearchInput<T>> {
         key: _formFieldKey,
         validator: widget.validator,
         onSaved: widget.onSaved,
-        autovalidate: autovalidate,
         builder: (FormFieldState<T> field) {
           return new InputDecorator(
             isEmpty: _isEmpty(field),
@@ -355,9 +352,7 @@ class _MaterialSearchInputState<T> extends State<MaterialSearchInput<T>> {
             child: _isEmpty(field)
                 ? null
                 : new Text(
-                    widget.formatter != null
-                        ? widget.formatter(field.value)
-                        : field.value.toString(),
+                    "",
                     style: valueStyle),
           );
         },

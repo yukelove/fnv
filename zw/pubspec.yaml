@@ -87,6 +87,7 @@ dependencies:
   camera: ^0.10.0+1
   bot_toast: ^4.0.1
   connectivity: ^3.0.6
+  flutter_syntax_view: ^4.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
