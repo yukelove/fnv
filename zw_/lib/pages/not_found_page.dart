@@ -10,6 +10,15 @@ class NotFoundPage extends StatefulWidget {
 class _NotFoundPageState extends State<NotFoundPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("未找到页面"),
+        ),
+        body: Container(
+          child: Text(
+            "未找到此页面"
+          ),
+        ),
+    );
   }
 }

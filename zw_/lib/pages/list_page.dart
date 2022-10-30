@@ -10,6 +10,13 @@ class ListPage extends StatefulWidget {
 class _ListPageState extends State<ListPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("设备详情页"),
+      ),
+      body: Container(
+        child: Text("设备详情也"),
+      ),
+    );
   }
 }
