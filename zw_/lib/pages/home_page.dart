@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:zw_/pages/login_page.dart';
-import 'package:zw_/pages/register_page.dart';
+import 'package:zw_/pages/user_login/login_page.dart';
+import 'package:zw_/pages/user_register/register_page.dart';
 import 'package:zw_/router/router_manager.dart';
 
 class HomePage extends StatefulWidget {

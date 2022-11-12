@@ -1,6 +1,6 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'package:zw_/pages/register_page.dart';
+import 'package:zw_/pages/user_register/register_page.dart';
 import 'package:zw_/router/router_manager.dart';
 
 class LoginPage extends StatefulWidget {
@@ -80,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                                     BorderRadius.all(Radius.circular(10))),
                             child: TextButton(
                                 onPressed: () {
-                                  RouterManager.jump(context, LIST_PAGE);
+                                  RouterManager.jump(context, EQUIPMENT_LIST_PAGE);
                                 },
                                 child: Text(
                                   "登录",

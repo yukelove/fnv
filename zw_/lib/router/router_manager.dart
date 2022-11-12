@@ -1,17 +1,18 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'package:zw_/pages/forget_password.dart';
-import 'package:zw_/pages/list_page.dart';
-import 'package:zw_/pages/login_page.dart';
-import 'package:zw_/pages/register_page.dart';
+import 'package:zw_/pages/equipment_detail/equipment_detail_page.dart';
+import 'package:zw_/pages/user_register/forget_password.dart';
+import 'package:zw_/pages/equipment_list/list_page.dart';
+import 'package:zw_/pages/user_login/login_page.dart';
+import 'package:zw_/pages/user_register/register_page.dart';
 
-import '../pages/not_found_page.dart';
+import 'not_found_page.dart';
 
 
 const LOGIN_PAGE = "LOGIN_PAGE";
 const REGISTER_PAGE = "REGISTER_PAGE";
 const FORGET_PAGE = "FORGET_PAGE";
-const LIST_PAGE = "LISTPAGE";
+const EQUIPMENT_LIST_PAGE = "EQUIPMENT_LISTPAGE";
 const EQUIPMENT_DETAIL_PAGE = "EQUIPMENT_DETAIL_PAGE";
 
 class RouterManager {
@@ -41,14 +42,14 @@ class RouterManager {
     }));
 
     //列表页
-    router.define(LIST_PAGE, handler: Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> parameters){
+    router.define(EQUIPMENT_LIST_PAGE, handler: Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> parameters){
       return ListPage();
     }));
     
 
     //设备详情
     router.define(EQUIPMENT_DETAIL_PAGE, handler: Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> parameters){
-      return ListPage();
+      return EquipmentDetail();
     }));
 
 
