@@ -27,10 +27,12 @@ class _ListPageState extends State<ListPage> {
             leadingIcon: ImageAssetsConfig.IMAGE_USRE,
             actionIcon:  ImageAssetsConfig.IMAGE_PLUS,
             leadingCallBack: (){
-
+              //用户信息
+              RouterManager.jump(context, USER_INFO_PAGE);
             },
             actionCallBack: (){
-
+              //添加设备
+              RouterManager.jump(context, EQUIPMENT_ADD_PAGE);
             },
           )),
       body: Container(

@@ -8,11 +8,15 @@ import '../config/colors_config/color_config.dart';
 
 class CustomAppBar extends StatefulWidget {
   Function leadingCallBack;
-  Function actionCallBack;
-  String leadingIcon;
-  String actionIcon;
+  Function? actionCallBack;
+  late String leadingIcon;
+  late String? actionIcon;
   String title;
-  CustomAppBar({required this.title,required this.leadingIcon, required this.actionIcon,required this.leadingCallBack,required this.actionCallBack,Key? key}) : super(key: key);
+  CustomAppBar({required this.title,String leadingIcon = ImageAssetsConfig.IMAGE_LEFT_ARROR, String? actionIcon,required this.leadingCallBack,Function? actionCallBack,Key? key}) : super(key: key){
+    this.leadingIcon = leadingIcon;
+    this.actionIcon = actionIcon;
+    this.actionCallBack = actionCallBack;
+  }
   @override
   State<CustomAppBar> createState() => _CustomAppBarState();
 }
@@ -29,7 +33,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              GestureDetector(
+              widget.leadingIcon.length == 0 ? Container() : GestureDetector(
                 onTap: (){
                   widget.leadingCallBack();
                 },
@@ -47,14 +51,14 @@ class _CustomAppBarState extends State<CustomAppBar> {
                   ),
                 ),
               ),
-              GestureDetector(
+              (widget.actionIcon == null || widget.actionIcon?.length == 0) ? Container() : GestureDetector(
                 onTap: (){
-                  widget.actionCallBack();
+                  widget.actionCallBack?.call();
                 },
                 child: Container(
                   margin: EdgeInsets.symmetric(horizontal: 10.0.w),
                   child: ImageAssets.image(
-                      imgName: widget.actionIcon,
+                      imgName: widget.actionIcon!,
                       size: Size(20.0.w, 20.0.w)),
                 ),
               ),

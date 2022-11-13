@@ -6,6 +6,7 @@ class ColorsRes {
   static const Color color_929090 = Color(0xFF929090);
   static const Color color_9C9494 = Color(0xFF9C9494);
   static const Color color_92937E = Color(0xFF92937E);
+  static const Color color_3D3D3D = Color(0xFF3D3D3D);
   static const Color color_white = Colors.white;
   static const Color color_black = Colors.black;
   static const Color color_black12 = Colors.black12;

@@ -28,7 +28,9 @@ class _EquipmentDetailState extends State<EquipmentDetail> {
             leadingCallBack: () {
               RouterManager.goBack(context);
             },
-            actionCallBack: () {},
+            actionCallBack: () {
+              RouterManager.jump(context, EQUIPMENT_INFO_EDIT_PAGE);
+            },
           )),
       body: Container(
         color: ColorsRes.color_black12,
