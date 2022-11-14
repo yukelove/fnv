@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zw_/generated/l10n.dart';
 import 'package:zw_/config/img_config/image_assets.dart';
 import 'package:zw_/config/img_config/image_config.dart';
 import 'package:zw_/config/screen_util.dart';
@@ -28,7 +29,7 @@ class _RegisterPageState extends State<RegisterPage> {
               Container(
                 padding: EdgeInsets.only(left: 30, top: 30),
                 child: Text(
-                  '注册',
+                  S.of(context).register,
                   style: TextStyle(color: Colors.black, fontSize: 33),
                 ),
               ),
@@ -62,7 +63,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                     color: Colors.black,
                                   ),
                                 ),
-                                hintText: "用户",
+                                hintText: S.of(context).mobilephone,
                                 hintStyle: TextStyle(color: Colors.black),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
@@ -90,7 +91,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                     color: Colors.black,
                                   ),
                                 ),
-                                hintText: "邮箱",
+                                hintText: S.of(context).email,
                                 hintStyle: TextStyle(color: Colors.black),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
@@ -116,7 +117,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                     color: Colors.black,
                                   ),
                                 ),
-                                hintText: "密码",
+                                hintText: S.of(context).password,
                                 hintStyle: TextStyle(color: Colors.black),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
@@ -124,6 +125,34 @@ class _RegisterPageState extends State<RegisterPage> {
                           ),
                           SizedBox(
                             height: 40,
+                          ),
+                          TextField(
+                            cursorColor: Colors.black,
+                            style: TextStyle(color: Colors.black),
+                            decoration: InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: BorderSide(
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: BorderSide(
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                hintText: S.of(context).invitecode,
+                                hintStyle: TextStyle(color: Colors.black),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: BorderSide(
+                                    color: Colors.black,
+                                  ),
+                                )),
+                          ),
+                          SizedBox(
+                            height: 30,
                           ),
                           GestureDetector(
                             child: Container(
@@ -137,7 +166,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                     RouterManager.jump(context, LOGIN_PAGE);
                                   },
                                   child: Text(
-                                    "注册",
+                                    S.of(context).register,
                                     style: TextStyle(
                                         fontSize: 16, color: Colors.white),
                                   )),

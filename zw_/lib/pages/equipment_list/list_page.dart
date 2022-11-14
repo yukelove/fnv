@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zw_/generated/l10n.dart';
 import 'package:zw_/components/app_bar.dart';
 import 'package:zw_/config/font_config/font_config.dart';
 import 'package:zw_/config/img_config/image_config.dart';
@@ -23,7 +24,7 @@ class _ListPageState extends State<ListPage> {
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(54), child: CustomAppBar(
-            title: "设备列表",
+            title: S.of(context).devicelist,
             leadingIcon: ImageAssetsConfig.IMAGE_USRE,
             actionIcon:  ImageAssetsConfig.IMAGE_PLUS,
             leadingCallBack: (){
@@ -46,7 +47,7 @@ class _ListPageState extends State<ListPage> {
                   Container(
                     margin: EdgeInsets.only(left: 10.0.w),
                     child: Text(
-                      "Device",
+                      S.of(context).device,
                       style: TextStyle(
                         fontSize: FontRes.font_sp16,
                         fontWeight: FontWeight.w800

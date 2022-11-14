@@ -1,4 +1,7 @@
 import 'package:fluro/fluro.dart';
+import 'package:flutter/gestures.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:zw_/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:zw_/config/img_config/image_assets.dart';
 import 'package:zw_/config/img_config/image_config.dart';
@@ -6,16 +9,50 @@ import 'package:zw_/config/screen_util.dart';
 import 'package:zw_/pages/user_register/register_page.dart';
 import 'package:zw_/router/router_manager.dart';
 
+
 class LoginPage extends StatefulWidget {
   LoginPage({Key? key}) : super(key: key);
-
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+  TapGestureRecognizer? _tapServer;
+  TapGestureRecognizer? _tapPolicy;
+
+  @override
+  void initState() {
+    super.initState();
+    _tapServer=TapGestureRecognizer()..onTap=(){
+      print('点击 服务条款');
+      final Uri url = new Uri(scheme: "https", host: "www.baidu.com");
+      _launchUrl(url);
+    };
+    _tapPolicy = TapGestureRecognizer()..onTap=(){
+    print('点击 隐私政策');
+    final Uri url = new Uri(scheme: "https", host: "www.baidu.com");
+    _launchUrl(url);
+    };
+  }
+
+  @override
+  void dispose() {
+    _tapServer?.dispose(); // 销毁对象
+    _tapPolicy?.dispose(); // 销毁对象
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
+    final TextStyle linkStyle = const TextStyle(
+        color: Colors.blue,
+        decoration: TextDecoration.underline,
+        decorationColor: Colors.blue);
+
+    final TextStyle defaultStyle = const TextStyle(
+        color: Colors.black);
+
     return Scaffold(
       body: Column(
         children: [
@@ -29,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
               Container(
                 padding: EdgeInsets.only(left: 30, top: 30),
                 child: Text(
-                  '登录',
+                  S.of(context).login,
                   style: TextStyle(color: Colors.black, fontSize: 33),
                 ),
               ),
@@ -57,7 +94,7 @@ class _LoginPageState extends State<LoginPage> {
                                     color: Colors.black,
                                   ),
                                 ),
-                                hintText: "用户名",
+                                hintText: S.of(context).emailorphonenumer,
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 )),
@@ -76,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
                                     color: Colors.black,
                                   ),
                                 ),
-                                hintText: "密码",
+                                hintText: S.of(context).password,
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 )),
@@ -96,7 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                                     RouterManager.jump(context, EQUIPMENT_LIST_PAGE);
                                   },
                                   child: Text(
-                                    "登录",
+                                    S.of(context).login,
                                     style: TextStyle(
                                         fontSize: 16, color: Colors.white),
                                   )),
@@ -108,12 +145,37 @@ class _LoginPageState extends State<LoginPage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
+                              _colorfulCheckBox(),
+                              Expanded(
+                              //   child: Text(S.of(context).agrementdesc,
+                              //   textAlign: TextAlign.left,
+                              //   style: TextStyle(
+                              //       decoration: TextDecoration.underline,
+                              //       color: Color(0xff4c505b),
+                              //       fontSize: 12),
+                              // ),
+                                child: Text.rich(TextSpan(children: [
+                                  TextSpan(text: S.of(context).agrementdesc, style: defaultStyle),
+                                  TextSpan(text: S.of(context).serviceagreement, style: linkStyle,recognizer: _tapServer),
+                                  TextSpan(text: '&', style: defaultStyle),
+                                  TextSpan(text: S.of(context).privacypolicy, style: linkStyle,recognizer: _tapPolicy),
+                                  TextSpan(text: '.', style: defaultStyle),
+                                ]))
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
                               TextButton(
                                 onPressed: () {
                                   RouterManager.jump(context, REGISTER_PAGE);
                                 },
                                 child: Text(
-                                  '注册',
+                                  S.of(context).register,
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
                                       decoration: TextDecoration.underline,
@@ -127,7 +189,7 @@ class _LoginPageState extends State<LoginPage> {
                                     RouterManager.jump(context, FORGET_PAGE);
                                   },
                                   child: Text(
-                                    '忘记密码',
+                                    S.of(context).forgotpassword,
                                     style: TextStyle(
                                       decoration: TextDecoration.underline,
                                       color: Color(0xff4c505b),
@@ -147,5 +209,26 @@ class _LoginPageState extends State<LoginPage> {
         ],
       ),
     );
+  }
+
+  bool checkboxSelected = false;
+
+  Checkbox _colorfulCheckBox() {
+    return Checkbox(
+        value: checkboxSelected,
+        onChanged: (value) {
+          checkboxSelected = !checkboxSelected;
+          setState(() {});
+        }
+    );
+  }
+
+  _launchUrl(Uri url) async {
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      setState(() {
+      });
+    }
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:zw_/generated/l10n.dart';
 
 
 class ForgetPasswrod extends StatefulWidget {
@@ -14,7 +14,7 @@ class _ForgetPasswrodState extends State<ForgetPasswrod> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(
-        "忘记密码"
+        S.of(context).forgotpassword
       ),
       ),
       body: Container(
