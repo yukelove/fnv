@@ -6,10 +6,12 @@ String ossPath = 'http://zw-oss.oss-cn-shenzhen.aliyuncs.com/';
 String serviceUrl = 'https://zwln.com/api/';
 //   static const String BASE_URL = 'http://flutter-go.alibaba.net/';
   // ignore: constant_identifier_names
-  static const String BASE_URL = 'https://flutter-go.pub/api/';
+  static const String BASE_URL = 'http://183.215.45.226:28081/';
 
   // ignore: constant_identifier_names, prefer_interpolation_to_compose_strings
-  static const String DO_LOGIN = BASE_URL + 'doLogin'; //登陆
+  static const String DO_LOGIN = BASE_URL + 'ZWUserLongin/UserLogin'; //登陆
+
+  static const String User_Register = BASE_URL + 'ZWUserRegister/UserRegister'; //用户注册
 
   // ignore: constant_identifier_names, prefer_interpolation_to_compose_strings
   static const String CHECK_LOGIN = BASE_URL + 'checkLogin'; //验证登陆

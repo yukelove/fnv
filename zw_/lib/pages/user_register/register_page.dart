@@ -3,6 +3,7 @@ import 'package:zw_/generated/l10n.dart';
 import 'package:zw_/config/img_config/image_assets.dart';
 import 'package:zw_/config/img_config/image_config.dart';
 import 'package:zw_/config/screen_util.dart';
+import 'package:zw_/pages/user_login/networking/user_networking.dart';
 import 'package:zw_/router/router_manager.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -13,6 +14,12 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  TextEditingController textController = TextEditingController();
+  String mobilePhone = "";
+  String email = "";
+  String password = "";
+  String inviteCode = "";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,6 +78,10 @@ class _RegisterPageState extends State<RegisterPage> {
                                     color: Colors.black,
                                   ),
                                 )),
+                                // controller: textController,
+                                onChanged: (value){
+                                  this.mobilePhone = value;
+                                },
                           ),
                           SizedBox(
                             height: 30,
@@ -96,6 +107,9 @@ class _RegisterPageState extends State<RegisterPage> {
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 )),
+                                onChanged: (value){
+                                  this.email = value;
+                                },
                           ),
                           SizedBox(
                             height: 30,
@@ -122,6 +136,9 @@ class _RegisterPageState extends State<RegisterPage> {
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 )),
+                                onChanged: (value){
+                                  this.password = value;
+                                },
                           ),
                           SizedBox(
                             height: 40,
@@ -150,6 +167,9 @@ class _RegisterPageState extends State<RegisterPage> {
                                     color: Colors.black,
                                   ),
                                 )),
+                                onChanged: (value){
+                                  this.inviteCode = value;
+                                },
                           ),
                           SizedBox(
                             height: 30,
@@ -163,7 +183,13 @@ class _RegisterPageState extends State<RegisterPage> {
                                       BorderRadius.all(Radius.circular(10))),
                               child: TextButton(
                                   onPressed: () {
-                                    RouterManager.jump(context, LOGIN_PAGE);
+                                    UserNetworking.userRegister(mobilePhone: this.mobilePhone,email: this.email,password: this.password,inviteCode: this.inviteCode).then((value) {
+                                      if(value){
+                                        Future.delayed(Duration(seconds: 2),(){
+                                          RouterManager.jump(context, LOGIN_PAGE);
+                                        });
+                                      }
+                                    });
                                   },
                                   child: Text(
                                     S.of(context).register,

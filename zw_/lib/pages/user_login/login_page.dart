@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:zw_/config/img_config/image_assets.dart';
 import 'package:zw_/config/img_config/image_config.dart';
 import 'package:zw_/config/screen_util.dart';
+import 'package:zw_/pages/user_login/networking/user_networking.dart';
 import 'package:zw_/pages/user_register/register_page.dart';
 import 'package:zw_/router/router_manager.dart';
-
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key? key}) : super(key: key);
@@ -17,23 +17,26 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
   TapGestureRecognizer? _tapServer;
   TapGestureRecognizer? _tapPolicy;
+  String emailOrMobilePhone = "";
+  String password = "";
 
   @override
   void initState() {
     super.initState();
-    _tapServer=TapGestureRecognizer()..onTap=(){
-      print('点击 服务条款');
-      final Uri url = new Uri(scheme: "https", host: "www.baidu.com");
-      _launchUrl(url);
-    };
-    _tapPolicy = TapGestureRecognizer()..onTap=(){
-    print('点击 隐私政策');
-    final Uri url = new Uri(scheme: "https", host: "www.baidu.com");
-    _launchUrl(url);
-    };
+    _tapServer = TapGestureRecognizer()
+      ..onTap = () {
+        print('点击 服务条款');
+        final Uri url = new Uri(scheme: "https", host: "www.baidu.com");
+        _launchUrl(url);
+      };
+    _tapPolicy = TapGestureRecognizer()
+      ..onTap = () {
+        print('点击 隐私政策');
+        final Uri url = new Uri(scheme: "https", host: "www.baidu.com");
+        _launchUrl(url);
+      };
   }
 
   @override
@@ -50,8 +53,7 @@ class _LoginPageState extends State<LoginPage> {
         decoration: TextDecoration.underline,
         decorationColor: Colors.blue);
 
-    final TextStyle defaultStyle = const TextStyle(
-        color: Colors.black);
+    final TextStyle defaultStyle = const TextStyle(color: Colors.black);
 
     return Scaffold(
       body: Column(
@@ -59,7 +61,8 @@ class _LoginPageState extends State<LoginPage> {
           Container(
             padding: EdgeInsets.only(top: 70),
             child: ImageAssets.image(
-                              imgName: ImageAssetsConfig.IMAGE_LOGO,size: Size(330.0.w,85.0.w)),
+                imgName: ImageAssetsConfig.IMAGE_LOGO,
+                size: Size(330.0.w, 85.0.w)),
           ),
           Row(
             children: [
@@ -98,6 +101,9 @@ class _LoginPageState extends State<LoginPage> {
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 )),
+                            onChanged: (value) {
+                              this.emailOrMobilePhone = value;
+                            },
                           ),
                           SizedBox(
                             height: 30,
@@ -117,6 +123,9 @@ class _LoginPageState extends State<LoginPage> {
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 )),
+                            onChanged: (value) {
+                              this.password = password;
+                            },
                           ),
                           SizedBox(
                             height: 40,
@@ -130,7 +139,16 @@ class _LoginPageState extends State<LoginPage> {
                                       BorderRadius.all(Radius.circular(10))),
                               child: TextButton(
                                   onPressed: () {
-                                    RouterManager.jump(context, EQUIPMENT_LIST_PAGE);
+                                    UserNetworking.userLogin(
+                                            emailOrMobilePhone:
+                                                emailOrMobilePhone,
+                                            password: password)
+                                        .then((value) {
+                                      if (value) {
+                                        RouterManager.jump(
+                                            context, EQUIPMENT_LIST_PAGE);
+                                      }
+                                    });
                                   },
                                   child: Text(
                                     S.of(context).login,
@@ -147,21 +165,28 @@ class _LoginPageState extends State<LoginPage> {
                             children: [
                               _colorfulCheckBox(),
                               Expanded(
-                              //   child: Text(S.of(context).agrementdesc,
-                              //   textAlign: TextAlign.left,
-                              //   style: TextStyle(
-                              //       decoration: TextDecoration.underline,
-                              //       color: Color(0xff4c505b),
-                              //       fontSize: 12),
-                              // ),
-                                child: Text.rich(TextSpan(children: [
-                                  TextSpan(text: S.of(context).agrementdesc, style: defaultStyle),
-                                  TextSpan(text: S.of(context).serviceagreement, style: linkStyle,recognizer: _tapServer),
-                                  TextSpan(text: '&', style: defaultStyle),
-                                  TextSpan(text: S.of(context).privacypolicy, style: linkStyle,recognizer: _tapPolicy),
-                                  TextSpan(text: '.', style: defaultStyle),
-                                ]))
-                              ),
+                                  //   child: Text(S.of(context).agrementdesc,
+                                  //   textAlign: TextAlign.left,
+                                  //   style: TextStyle(
+                                  //       decoration: TextDecoration.underline,
+                                  //       color: Color(0xff4c505b),
+                                  //       fontSize: 12),
+                                  // ),
+                                  child: Text.rich(TextSpan(children: [
+                                TextSpan(
+                                    text: S.of(context).agrementdesc,
+                                    style: defaultStyle),
+                                TextSpan(
+                                    text: S.of(context).serviceagreement,
+                                    style: linkStyle,
+                                    recognizer: _tapServer),
+                                TextSpan(text: '&', style: defaultStyle),
+                                TextSpan(
+                                    text: S.of(context).privacypolicy,
+                                    style: linkStyle,
+                                    recognizer: _tapPolicy),
+                                TextSpan(text: '.', style: defaultStyle),
+                              ]))),
                             ],
                           ),
                           SizedBox(
@@ -219,16 +244,14 @@ class _LoginPageState extends State<LoginPage> {
         onChanged: (value) {
           checkboxSelected = !checkboxSelected;
           setState(() {});
-        }
-    );
+        });
   }
 
   _launchUrl(Uri url) async {
     if (await canLaunchUrl(url)) {
       await launchUrl(url);
     } else {
-      setState(() {
-      });
+      setState(() {});
     }
   }
 }
