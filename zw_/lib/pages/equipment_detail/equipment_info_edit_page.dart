@@ -52,7 +52,6 @@ class _EquipmentInfoEditPageState extends State<EquipmentInfoEditPage> {
         preferredSize: Size.fromHeight(54),
       ),
       body: Container(
-        color: ColorsRes.color_black12,
         child: ListView.builder(
             itemCount: items.length,
             itemBuilder: (context, index) {

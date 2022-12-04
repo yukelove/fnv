@@ -24,7 +24,6 @@ class _EquipmentAddPageState extends State<EquipmentAddPage> {
         preferredSize: Size.fromHeight(54),
       ),
       body: Container(
-        color: ColorsRes.color_black12,
         child: Column(
           children: [
             Container()

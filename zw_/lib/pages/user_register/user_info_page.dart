@@ -53,7 +53,6 @@ class _UserInfoPageState extends State<UserInfoPage> {
         preferredSize: Size.fromHeight(54),
       ),
       body: Container(
-        color: ColorsRes.color_black12,
         child: Column(
           children: [
             itemWidgets.first,

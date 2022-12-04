@@ -25,7 +25,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: ColorsRes.color_black12,
+      color: ColorsRes.color_grey200,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [

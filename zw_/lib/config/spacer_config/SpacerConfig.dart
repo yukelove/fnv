@@ -1,6 +1,10 @@
 import 'package:zw_/config/screen_util.dart';
 
 class SpacerConfig {
+  static double SPACER_5() {
+    return 5.0.w;
+  }
+
   static double SPACER_10() {
     return 10.0.w;
   }

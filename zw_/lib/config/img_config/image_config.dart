@@ -21,5 +21,11 @@ class ImageAssetsConfig {
   static const String IMAGE_SWITCH_OFF_BG = "switch_off_bg";
   static const String IMAGE_SWITCH_OFF = "switch-off";
   static const String IMAGE_UPDATE_DEVICE = "update_device_name";
+  static const String IMAGE_AC = "ac";
+  static const String IMAGE_Cloud = "cloud";
+  static const String IMAGE_SUNSHINE = "sunshine";
+  static const String IMAGE_BOX = "box";
+  static const String IMAGE_VOICEMAIL = "voicemail";
+  static const String IMAGE_PLUG = "plug";
 
 }

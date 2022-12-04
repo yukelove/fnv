@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:zw_/config/colors_config/color_config.dart';
 import 'package:zw_/config/screen_util.dart';
 import 'package:zw_/pages/home_page.dart';
 import 'package:zw_/router/router_manager.dart';
@@ -25,6 +26,9 @@ class MyAppPage extends StatelessWidget {
           GlobalCupertinoLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate
         ],
+        theme: ThemeData(
+          scaffoldBackgroundColor: Colors.grey[200]
+        ),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: RouterManager.router.generator,
       home: HomePage(),

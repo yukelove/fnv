@@ -37,7 +37,6 @@ class _ListPageState extends State<ListPage> {
             },
           )),
       body: Container(
-        color: ColorsRes.color_black12,
         child: Column(
           children: [
             Container(
