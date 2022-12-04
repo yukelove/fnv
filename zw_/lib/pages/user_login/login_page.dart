@@ -139,16 +139,18 @@ class _LoginPageState extends State<LoginPage> {
                                       BorderRadius.all(Radius.circular(10))),
                               child: TextButton(
                                   onPressed: () {
-                                    UserNetworking.userLogin(
-                                            emailOrMobilePhone:
-                                                emailOrMobilePhone,
-                                            password: password)
-                                        .then((value) {
-                                      if (value) {
-                                        RouterManager.jump(
+                                    RouterManager.jump(
                                             context, EQUIPMENT_LIST_PAGE);
-                                      }
-                                    });
+                                    // UserNetworking.userLogin(
+                                    //         emailOrMobilePhone:
+                                    //             emailOrMobilePhone,
+                                    //         password: password)
+                                    //     .then((value) {
+                                    //   if (value) {
+                                    //     RouterManager.jump(
+                                    //         context, EQUIPMENT_LIST_PAGE);
+                                    //   }
+                                    // });
                                   },
                                   child: Text(
                                     S.of(context).login,
