@@ -140,7 +140,7 @@ class _LoginPageState extends State<LoginPage> {
                                       BorderRadius.all(Radius.circular(10))),
                               child: TextButton(
                                   onPressed: () {
-                                    if(emailOrMobilePhone.isNotEmpty && password.isNotEmpty){
+                                    if(emailOrMobilePhone.isNotEmpty && password.isNotEmpty && checkboxSelected){
                                       UserNetworking.userLogin(
                                           emailOrMobilePhone:
                                           emailOrMobilePhone,
@@ -152,7 +152,16 @@ class _LoginPageState extends State<LoginPage> {
                                         }
                                       });
                                     }else{
-                                      ZWHud.showText(S.of(context).name_password_need);
+                                      if(emailOrMobilePhone.isEmpty && password.isEmpty) {
+                                        ZWHud.showText(S
+                                            .of(context)
+                                            .name_password_need);
+                                      }else if(!checkboxSelected){
+                                        ZWHud.showText(S
+                                            .of(context)
+                                            .user_agree_select_need);
+                                      }
+
                                     }
                                   },
                                   child: Text(

@@ -34,5 +34,7 @@
 "others": "Others",
 "toast_requesting":"Requesting...",
 "register_success":"Account registration succeeded!",
-"name_password_need":"Username or password cannot be empty!"
+"name_password_need":"Username or password cannot be empty!",
+"mobilephone_password_need":"Mobilephone and email and password can not empty!",
+"user_agree_select_need":"You need to check Agree to User Agreement and Privacy Policy!"
  }

@@ -45,6 +45,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginpassword": MessageLookupByLibrary.simpleMessage("密码"),
         "logout": MessageLookupByLibrary.simpleMessage("退出登录"),
         "mobilephone": MessageLookupByLibrary.simpleMessage("电话号码"),
+        "mobilephone_password_need":
+            MessageLookupByLibrary.simpleMessage("电话号码、邮箱、密码不能为空！"),
         "name_password_need":
             MessageLookupByLibrary.simpleMessage("账号和密码不能为空！"),
         "nickname": MessageLookupByLibrary.simpleMessage("昵称"),
@@ -58,6 +60,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "standbytime": MessageLookupByLibrary.simpleMessage("待机时间"),
         "toast_requesting": MessageLookupByLibrary.simpleMessage("请求中..."),
         "updatedevicename": MessageLookupByLibrary.simpleMessage("更新设备名称"),
+        "user_agree_select_need":
+            MessageLookupByLibrary.simpleMessage("需勾选同意用户协议和隐私政策！"),
         "wechat": MessageLookupByLibrary.simpleMessage("微信")
       };
 }

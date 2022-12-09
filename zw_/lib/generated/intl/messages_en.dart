@@ -53,6 +53,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginpassword": MessageLookupByLibrary.simpleMessage("Password"),
         "logout": MessageLookupByLibrary.simpleMessage("Log Out"),
         "mobilephone": MessageLookupByLibrary.simpleMessage("Mobile Phone"),
+        "mobilephone_password_need": MessageLookupByLibrary.simpleMessage(
+            "Mobilephone and email and password can not empty!"),
         "name_password_need": MessageLookupByLibrary.simpleMessage(
             "Username or password cannot be empty!"),
         "nickname": MessageLookupByLibrary.simpleMessage("Nick Name"),
@@ -73,6 +75,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Requesting..."),
         "updatedevicename":
             MessageLookupByLibrary.simpleMessage("Update device name"),
+        "user_agree_select_need": MessageLookupByLibrary.simpleMessage(
+            "You need to check Agree to User Agreement and Privacy Policy!"),
         "wechat": MessageLookupByLibrary.simpleMessage("Wechat")
       };
 }

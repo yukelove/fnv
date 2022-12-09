@@ -7,6 +7,11 @@ import 'package:zw_/utils/zw_hud.dart';
 class UserNetworking {
   static Future<bool> userRegister({required String mobilePhone,required String email,required String password,String? inviteCode}) async{
     // {"userid":"","username":"测试2","email":"12345@qq.com","mobilephone":"17312344325","password":"123456","invitecode":"","language":"CN"}
+    if(mobilePhone.isEmpty || email.isEmpty || password.isEmpty){
+      ZWHud.showText(S.current.mobilephone_password_need);
+      return false;
+    }
+
     ZWHud.showLoading(S.current.toast_requesting);
     var param = {"userid":"","username":"","mobilephone":mobilePhone,"email":email,"password":password,"invitecode":inviteCode,"language":"CN"};
     var result = await NetworkingManager.shared().postAsync(url: Api.User_Register, data: param);

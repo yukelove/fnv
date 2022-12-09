@@ -409,6 +409,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Mobilephone and email and password can not empty!`
+  String get mobilephone_password_need {
+    return Intl.message(
+      'Mobilephone and email and password can not empty!',
+      name: 'mobilephone_password_need',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You need to check Agree to User Agreement and Privacy Policy!`
+  String get user_agree_select_need {
+    return Intl.message(
+      'You need to check Agree to User Agreement and Privacy Policy!',
+      name: 'user_agree_select_need',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

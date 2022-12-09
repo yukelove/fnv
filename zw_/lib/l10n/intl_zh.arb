@@ -33,5 +33,7 @@
 "others": "其他",
 "toast_requesting":"请求中...",
 "register_success":"账号注册成功！",
-"name_password_need":"账号和密码不能为空！"
+"name_password_need":"账号和密码不能为空！",
+"mobilephone_password_need":"电话号码、邮箱、密码不能为空！",
+"user_agree_select_need":"需勾选同意用户协议和隐私政策！"
 }
