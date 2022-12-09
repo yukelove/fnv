@@ -5,7 +5,7 @@
 "privacypolicy": "隐私政策",
 "register": "注册",
 "forgotpassword": "忘记密码",
-"password": "密码",
+"loginpassword": "密码",
 "confirm": "确认",
 "cancel": "取消",
 "devicelist": "设备列表",
@@ -30,5 +30,8 @@
 "buzzer": "蜂鸣",
 "screenbrightness": "屏幕亮度",
 "standbytime": "待机时间",
-"others": "其他"
+"others": "其他",
+"toast_requesting":"请求中...",
+"register_success":"账号注册成功！",
+"name_password_need":"账号和密码不能为空！"
 }

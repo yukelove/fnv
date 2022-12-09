@@ -9,6 +9,7 @@ import 'package:zw_/config/screen_util.dart';
 import 'package:zw_/pages/user_login/networking/user_networking.dart';
 import 'package:zw_/pages/user_register/register_page.dart';
 import 'package:zw_/router/router_manager.dart';
+import 'package:zw_/utils/zw_hud.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key? key}) : super(key: key);
@@ -119,12 +120,12 @@ class _LoginPageState extends State<LoginPage> {
                                     color: Colors.black,
                                   ),
                                 ),
-                                hintText: S.of(context).password,
+                                hintText: S.of(context).loginpassword,
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 )),
                             onChanged: (value) {
-                              this.password = password;
+                              this.password = value;
                             },
                           ),
                           SizedBox(
@@ -139,18 +140,20 @@ class _LoginPageState extends State<LoginPage> {
                                       BorderRadius.all(Radius.circular(10))),
                               child: TextButton(
                                   onPressed: () {
-                                    RouterManager.jump(
-                                            context, EQUIPMENT_LIST_PAGE);
-                                    // UserNetworking.userLogin(
-                                    //         emailOrMobilePhone:
-                                    //             emailOrMobilePhone,
-                                    //         password: password)
-                                    //     .then((value) {
-                                    //   if (value) {
-                                    //     RouterManager.jump(
-                                    //         context, EQUIPMENT_LIST_PAGE);
-                                    //   }
-                                    // });
+                                    if(emailOrMobilePhone.isNotEmpty && password.isNotEmpty){
+                                      UserNetworking.userLogin(
+                                          emailOrMobilePhone:
+                                          emailOrMobilePhone,
+                                          password: password)
+                                          .then((value) {
+                                        if (value) {
+                                          RouterManager.jump(
+                                              context, EQUIPMENT_LIST_PAGE);
+                                        }
+                                      });
+                                    }else{
+                                      ZWHud.showText(S.of(context).name_password_need);
+                                    }
                                   },
                                   child: Text(
                                     S.of(context).login,

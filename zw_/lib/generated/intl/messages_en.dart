@@ -50,21 +50,27 @@ class MessageLookup extends MessageLookupByLibrary {
         "limitdischargeandcharge":
             MessageLookupByLibrary.simpleMessage("Lismits discharge/charge"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "loginpassword": MessageLookupByLibrary.simpleMessage("Password"),
         "logout": MessageLookupByLibrary.simpleMessage("Log Out"),
         "mobilephone": MessageLookupByLibrary.simpleMessage("Mobile Phone"),
+        "name_password_need": MessageLookupByLibrary.simpleMessage(
+            "Username or password cannot be empty!"),
         "nickname": MessageLookupByLibrary.simpleMessage("Nick Name"),
         "others": MessageLookupByLibrary.simpleMessage("Others"),
-        "password": MessageLookupByLibrary.simpleMessage("Password"),
         "personalsettings":
             MessageLookupByLibrary.simpleMessage("Personal Settings"),
         "privacypolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
+        "register_success": MessageLookupByLibrary.simpleMessage(
+            "Account registration succeeded!"),
         "screenbrightness":
             MessageLookupByLibrary.simpleMessage("Screen Brightness"),
         "serviceagreement":
             MessageLookupByLibrary.simpleMessage("Service Agreement"),
         "standbytime":
             MessageLookupByLibrary.simpleMessage("Stand by time of equipment"),
+        "toast_requesting":
+            MessageLookupByLibrary.simpleMessage("Requesting..."),
         "updatedevicename":
             MessageLookupByLibrary.simpleMessage("Update device name"),
         "wechat": MessageLookupByLibrary.simpleMessage("Wechat")

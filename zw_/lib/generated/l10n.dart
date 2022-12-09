@@ -121,10 +121,10 @@ class S {
   }
 
   /// `Password`
-  String get password {
+  String get loginpassword {
     return Intl.message(
       'Password',
-      name: 'password',
+      name: 'loginpassword',
       desc: '',
       args: [],
     );
@@ -375,6 +375,36 @@ class S {
     return Intl.message(
       'Others',
       name: 'others',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Requesting...`
+  String get toast_requesting {
+    return Intl.message(
+      'Requesting...',
+      name: 'toast_requesting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account registration succeeded!`
+  String get register_success {
+    return Intl.message(
+      'Account registration succeeded!',
+      name: 'register_success',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Username or password cannot be empty!`
+  String get name_password_need {
+    return Intl.message(
+      'Username or password cannot be empty!',
+      name: 'name_password_need',
       desc: '',
       args: [],
     );

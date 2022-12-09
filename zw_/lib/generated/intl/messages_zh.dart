@@ -42,17 +42,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "limitdischargeandcharge":
             MessageLookupByLibrary.simpleMessage("放电/充电上下限"),
         "login": MessageLookupByLibrary.simpleMessage("登录"),
+        "loginpassword": MessageLookupByLibrary.simpleMessage("密码"),
         "logout": MessageLookupByLibrary.simpleMessage("退出登录"),
         "mobilephone": MessageLookupByLibrary.simpleMessage("电话号码"),
+        "name_password_need":
+            MessageLookupByLibrary.simpleMessage("账号和密码不能为空！"),
         "nickname": MessageLookupByLibrary.simpleMessage("昵称"),
         "others": MessageLookupByLibrary.simpleMessage("其他"),
-        "password": MessageLookupByLibrary.simpleMessage("密码"),
         "personalsettings": MessageLookupByLibrary.simpleMessage("个人信息设置"),
         "privacypolicy": MessageLookupByLibrary.simpleMessage("隐私政策"),
         "register": MessageLookupByLibrary.simpleMessage("注册"),
+        "register_success": MessageLookupByLibrary.simpleMessage("账号注册成功！"),
         "screenbrightness": MessageLookupByLibrary.simpleMessage("屏幕亮度"),
         "serviceagreement": MessageLookupByLibrary.simpleMessage("服务协议"),
         "standbytime": MessageLookupByLibrary.simpleMessage("待机时间"),
+        "toast_requesting": MessageLookupByLibrary.simpleMessage("请求中..."),
         "updatedevicename": MessageLookupByLibrary.simpleMessage("更新设备名称"),
         "wechat": MessageLookupByLibrary.simpleMessage("微信")
       };

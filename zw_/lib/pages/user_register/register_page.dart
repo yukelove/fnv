@@ -131,7 +131,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                     color: Colors.black,
                                   ),
                                 ),
-                                hintText: S.of(context).password,
+                                hintText: S.of(context).loginpassword,
                                 hintStyle: TextStyle(color: Colors.black),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
