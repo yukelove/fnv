@@ -37,7 +37,7 @@ class UserNetworking {
       return true;
     }else {
       if(null != msg){
-        ZWHud.showLoading(msg.toString());
+        ZWHud.showText(msg.toString());
       }
       return false;
     }
