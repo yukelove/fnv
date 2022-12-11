@@ -272,7 +272,6 @@ class NetworkingManager {
     } catch (e, s) {
       print("请求结果为");
       ZWLogUtil.d("请求结果为 ${e} ${s}");
-      // throw (HttpError(HttpError.UNKNOWN, "网络异常，请稍后重试！"));
     }
   }
 }
