@@ -7,8 +7,7 @@ import 'package:zw_/config/screen_util.dart';
 import 'package:zw_/config/spacer_config/SpacerConfig.dart';
 import 'package:zw_/pages/equipment_list/widgets/equipment_grid_item.dart';
 import 'package:zw_/router/router_manager.dart';
-
-import '../../config/colors_config/color_config.dart';
+import 'package:zw_/pages/equipment_add/networking/equipment_add_networking.dart';
 
 class ListPage extends StatefulWidget {
   ListPage({Key? key}) : super(key: key);
@@ -33,7 +32,11 @@ class _ListPageState extends State<ListPage> {
             },
             actionCallBack: (){
               //添加设备
-              RouterManager.jump(context, EQUIPMENT_ADD_PAGE);
+              RouterManager.jump(context, EQUIPMENT_ADD_PAGE).then((value) {
+                //路由返回时添加设备
+                String equipmentCode = value["qrcode"] as String;
+                EquipmentAddNetworking.addEquipment(equipmentCode: equipmentCode);
+              });
             },
           )),
       body: Container(

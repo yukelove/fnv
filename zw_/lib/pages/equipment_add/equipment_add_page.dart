@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:zw_/components/app_bar.dart';
-import 'package:zw_/config/colors_config/color_config.dart';
 import 'package:zw_/router/router_manager.dart';
+import 'package:zw_/utils/zw_hud.dart';
 
 class EquipmentAddPage extends StatefulWidget {
   EquipmentAddPage({Key? key}) : super(key: key);
@@ -11,6 +14,23 @@ class EquipmentAddPage extends StatefulWidget {
 }
 
 class _EquipmentAddPageState extends State<EquipmentAddPage> {
+  final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
+  QRViewController? qrController;
+  Barcode? result;
+  bool isOpen = false; //是否打开
+  bool isJump = false; //是否已跳转
+
+  @override
+  void reassemble() {
+    // TODO: implement reassemble
+    super.reassemble();
+    if (Platform.isAndroid) {
+      qrController!.pauseCamera();
+    } else if (Platform.isIOS) {
+      qrController!.resumeCamera();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,13 +43,38 @@ class _EquipmentAddPageState extends State<EquipmentAddPage> {
         ),
         preferredSize: Size.fromHeight(54),
       ),
-      body: Container(
-        child: Column(
-          children: [
-            Container()
-          ],
-        ),
+      body: Column(
+        children: [
+          Expanded(
+            child: QRView(
+              key: qrKey,
+              overlay: QrScannerOverlayShape(borderColor: Colors.white),
+              onQRViewCreated: (contrller) {
+                this.qrController = contrller;
+                if (!this.isOpen) {
+                  this.qrController?.resumeCamera();
+                }
+                this.qrController?.scannedDataStream.listen((scanData) {
+                  this.result = scanData;
+                  String code = scanData.code ?? "";
+                  if(scanData.code!.length > 10 && !this.isJump){
+                    var param = {"qrcode":code};
+                    this.isJump = true;
+                    RouterManager.goBackWithParam(context, param);
+                  }
+                });
+              },
+            ),
+          ),
+        ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    qrController?.dispose();
+    super.dispose();
   }
 }

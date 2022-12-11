@@ -1,0 +1,7 @@
+/*
+所有常量声明在此处理，便于管理
+*/
+
+const USERINFO_KEY = "USERINFO_KEY"; //缓存用户信息
+// const USERINFO_USER_NAME_KEY = "USERINFO_USER_NAME_KEY";
+// const USERINFO_USER_EMAIL_KEY = "USERINFO_USER_EMAIL_KEY";

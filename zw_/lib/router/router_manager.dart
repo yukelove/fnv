@@ -86,7 +86,7 @@ class RouterManager {
   }
 
   //路由跳转
-  static jump(BuildContext context,String path){
+  static Future jump(BuildContext context,String path){
     return router.navigateTo(context, path,transition: TransitionType.inFromRight);
   }
   

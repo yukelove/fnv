@@ -1,6 +1,7 @@
 import 'package:zw_/api/api.dart';
 import 'package:zw_/generated/l10n.dart';
 import 'package:zw_/networking/networking_manager.dart';
+import 'package:zw_/pages/user_login/user_info/user_info.dart';
 import 'package:zw_/utils/log_utils.dart';
 import 'package:zw_/utils/zw_hud.dart';
 
@@ -39,6 +40,7 @@ class UserNetworking {
     }
   }
 
+  // 测试账号：13455667788   密码：111111  邮箱：55667788@163.com
   static Future<bool> userLogin(
       {required String emailOrMobilePhone, required String password}) async {
     ZWHud.showLoading(S.current.toast_requesting);
@@ -56,6 +58,11 @@ class UserNetworking {
       if (null != code &&
           code.toString().isNotEmpty &&
           code.toString().compareTo("1") > -1) {
+        var userInfo = result["data"];
+        if(userInfo is Map){
+          Map map = userInfo as Map;
+          UserInfo.saveUser(map);
+        }
         return true;
       } else {
         if (null != msg) {
