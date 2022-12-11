@@ -37,6 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("邮箱"),
         "emailorphonenumer": MessageLookupByLibrary.simpleMessage("邮箱 或 手机号码"),
         "forgotpassword": MessageLookupByLibrary.simpleMessage("忘记密码"),
+        "get_validate_code": MessageLookupByLibrary.simpleMessage("获取验证码"),
         "headavatar": MessageLookupByLibrary.simpleMessage("头像"),
         "invitecode": MessageLookupByLibrary.simpleMessage("邀请码"),
         "limitdischargeandcharge":
@@ -45,16 +46,24 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginpassword": MessageLookupByLibrary.simpleMessage("密码"),
         "logout": MessageLookupByLibrary.simpleMessage("退出登录"),
         "mobilephone": MessageLookupByLibrary.simpleMessage("电话号码"),
+        "mobilephone_email_need":
+            MessageLookupByLibrary.simpleMessage("电话或邮箱不能为空！"),
         "mobilephone_password_need":
             MessageLookupByLibrary.simpleMessage("电话号码、邮箱、密码不能为空！"),
         "name_password_need":
             MessageLookupByLibrary.simpleMessage("账号和密码不能为空！"),
         "nickname": MessageLookupByLibrary.simpleMessage("昵称"),
         "others": MessageLookupByLibrary.simpleMessage("其他"),
+        "password_need": MessageLookupByLibrary.simpleMessage("密码不能为空"),
         "personalsettings": MessageLookupByLibrary.simpleMessage("个人信息设置"),
         "privacypolicy": MessageLookupByLibrary.simpleMessage("隐私政策"),
         "register": MessageLookupByLibrary.simpleMessage("注册"),
         "register_success": MessageLookupByLibrary.simpleMessage("账号注册成功！"),
+        "reset_password": MessageLookupByLibrary.simpleMessage("重置密码"),
+        "reset_password_fail": MessageLookupByLibrary.simpleMessage("重置密码失败"),
+        "reset_password_success":
+            MessageLookupByLibrary.simpleMessage("重置密码成功"),
+        "retrieve_password": MessageLookupByLibrary.simpleMessage("找回密码"),
         "screenbrightness": MessageLookupByLibrary.simpleMessage("屏幕亮度"),
         "serviceagreement": MessageLookupByLibrary.simpleMessage("服务协议"),
         "standbytime": MessageLookupByLibrary.simpleMessage("待机时间"),
@@ -62,6 +71,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "updatedevicename": MessageLookupByLibrary.simpleMessage("更新设备名称"),
         "user_agree_select_need":
             MessageLookupByLibrary.simpleMessage("需勾选同意用户协议和隐私政策！"),
+        "validate_code": MessageLookupByLibrary.simpleMessage("验证码"),
+        "validate_code_need": MessageLookupByLibrary.simpleMessage("验证码不能为空"),
+        "validate_code_send_success":
+            MessageLookupByLibrary.simpleMessage("验证码发送成功"),
         "wechat": MessageLookupByLibrary.simpleMessage("微信")
       };
 }

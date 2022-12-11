@@ -35,6 +35,16 @@
 "toast_requesting":"Requesting...",
 "register_success":"Account registration succeeded!",
 "name_password_need":"Username or password cannot be empty!",
-"mobilephone_password_need":"Mobilephone and email and password can not empty!",
-"user_agree_select_need":"You need to check Agree to User Agreement and Privacy Policy!"
+"mobilephone_email_need":"Mobile Phone or email can not empty！",
+"mobilephone_password_need":"Mobile Phone and email and password can not empty!",
+"user_agree_select_need":"You need to check Agree to User Agreement and Privacy Policy!",
+"retrieve_password":"Retrieve password",
+"validate_code":"Validate code",
+"get_validate_code":"get validate code",
+"validate_code_send_success":"Validate code send success !",
+"reset_password":" Reset Password ",
+"reset_password_success":" Reset password success!",
+"reset_password_fail":" Reset password fail!",
+"validate_code_need":"Validate code can not be empty!",
+"password_need":"password can not be empty!"
  }

@@ -12,6 +12,10 @@ class Api {
   static const String User_Register =
       BASE_URL + 'ZWUserRegister/UserRegister'; //用户注册
 
+  static const String GET_VALIDATE_CODE = BASE_URL + 'ZWGetValidateCode/GetValidateCode'; //获取校验码
+
+  static const String RETRIEVE_PASSWORD = BASE_URL + 'ZWRetrievePassword/RetrievePassword'; //找回密码接口
+
   static const String Equipment_ADD = BASE_URL + 'ZWAddDevice/AddDevices'; //添加设备
 
 }
