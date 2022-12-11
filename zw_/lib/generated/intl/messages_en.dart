@@ -45,6 +45,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Email or Phone Number"),
         "forgotpassword":
             MessageLookupByLibrary.simpleMessage("Forgot Password"),
+        "get_validate_code":
+            MessageLookupByLibrary.simpleMessage("get validate code"),
         "headavatar": MessageLookupByLibrary.simpleMessage("Head Avater"),
         "invitecode": MessageLookupByLibrary.simpleMessage("Invite Code"),
         "limitdischargeandcharge":
@@ -53,18 +55,30 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginpassword": MessageLookupByLibrary.simpleMessage("Password"),
         "logout": MessageLookupByLibrary.simpleMessage("Log Out"),
         "mobilephone": MessageLookupByLibrary.simpleMessage("Mobile Phone"),
+        "mobilephone_email_need": MessageLookupByLibrary.simpleMessage(
+            "Mobile Phone or email can not empty！"),
         "mobilephone_password_need": MessageLookupByLibrary.simpleMessage(
-            "Mobilephone and email and password can not empty!"),
+            "Mobile Phone and email and password can not empty!"),
         "name_password_need": MessageLookupByLibrary.simpleMessage(
             "Username or password cannot be empty!"),
         "nickname": MessageLookupByLibrary.simpleMessage("Nick Name"),
         "others": MessageLookupByLibrary.simpleMessage("Others"),
+        "password_need":
+            MessageLookupByLibrary.simpleMessage("password can not be empty!"),
         "personalsettings":
             MessageLookupByLibrary.simpleMessage("Personal Settings"),
         "privacypolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "register_success": MessageLookupByLibrary.simpleMessage(
             "Account registration succeeded!"),
+        "reset_password":
+            MessageLookupByLibrary.simpleMessage(" Reset Password "),
+        "reset_password_fail":
+            MessageLookupByLibrary.simpleMessage(" Reset password fail!"),
+        "reset_password_success":
+            MessageLookupByLibrary.simpleMessage(" Reset password success!"),
+        "retrieve_password":
+            MessageLookupByLibrary.simpleMessage("Retrieve password"),
         "screenbrightness":
             MessageLookupByLibrary.simpleMessage("Screen Brightness"),
         "serviceagreement":
@@ -77,6 +91,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Update device name"),
         "user_agree_select_need": MessageLookupByLibrary.simpleMessage(
             "You need to check Agree to User Agreement and Privacy Policy!"),
+        "validate_code": MessageLookupByLibrary.simpleMessage("Validate code"),
+        "validate_code_need": MessageLookupByLibrary.simpleMessage(
+            "Validate code can not be empty!"),
+        "validate_code_send_success": MessageLookupByLibrary.simpleMessage(
+            "Validate code send success !"),
         "wechat": MessageLookupByLibrary.simpleMessage("Wechat")
       };
 }

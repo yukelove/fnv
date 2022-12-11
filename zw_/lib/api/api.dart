@@ -13,6 +13,10 @@ String serviceUrl = 'https://zwln.com/api/';
 
   static const String User_Register = BASE_URL + 'ZWUserRegister/UserRegister'; //用户注册
 
+  static const String GET_VALIDATE_CODE = BASE_URL + 'ZWGetValidateCode/GetValidateCode'; //获取校验码
+
+  static const String RETRIEVE_PASSWORD = BASE_URL + 'ZWRetrievePassword/RetrievePassword'; //找回密码接口
+
   // ignore: constant_identifier_names, prefer_interpolation_to_compose_strings
   static const String CHECK_LOGIN = BASE_URL + 'checkLogin'; //验证登陆
 

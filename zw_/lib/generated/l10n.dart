@@ -410,10 +410,20 @@ class S {
     );
   }
 
-  /// `Mobilephone and email and password can not empty!`
+  /// `Mobile Phone or email can not empty！`
+  String get mobilephone_email_need {
+    return Intl.message(
+      'Mobile Phone or email can not empty！',
+      name: 'mobilephone_email_need',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mobile Phone and email and password can not empty!`
   String get mobilephone_password_need {
     return Intl.message(
-      'Mobilephone and email and password can not empty!',
+      'Mobile Phone and email and password can not empty!',
       name: 'mobilephone_password_need',
       desc: '',
       args: [],
@@ -425,6 +435,96 @@ class S {
     return Intl.message(
       'You need to check Agree to User Agreement and Privacy Policy!',
       name: 'user_agree_select_need',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Retrieve password`
+  String get retrieve_password {
+    return Intl.message(
+      'Retrieve password',
+      name: 'retrieve_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Validate code`
+  String get validate_code {
+    return Intl.message(
+      'Validate code',
+      name: 'validate_code',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `get validate code`
+  String get get_validate_code {
+    return Intl.message(
+      'get validate code',
+      name: 'get_validate_code',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Validate code send success !`
+  String get validate_code_send_success {
+    return Intl.message(
+      'Validate code send success !',
+      name: 'validate_code_send_success',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` Reset Password `
+  String get reset_password {
+    return Intl.message(
+      ' Reset Password ',
+      name: 'reset_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` Reset password success!`
+  String get reset_password_success {
+    return Intl.message(
+      ' Reset password success!',
+      name: 'reset_password_success',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` Reset password fail!`
+  String get reset_password_fail {
+    return Intl.message(
+      ' Reset password fail!',
+      name: 'reset_password_fail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Validate code can not be empty!`
+  String get validate_code_need {
+    return Intl.message(
+      'Validate code can not be empty!',
+      name: 'validate_code_need',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `password can not be empty!`
+  String get password_need {
+    return Intl.message(
+      'password can not be empty!',
+      name: 'password_need',
       desc: '',
       args: [],
     );

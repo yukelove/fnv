@@ -34,6 +34,16 @@
 "toast_requesting":"请求中...",
 "register_success":"账号注册成功！",
 "name_password_need":"账号和密码不能为空！",
+"mobilephone_email_need":"电话或邮箱不能为空！",
 "mobilephone_password_need":"电话号码、邮箱、密码不能为空！",
-"user_agree_select_need":"需勾选同意用户协议和隐私政策！"
+"user_agree_select_need":"需勾选同意用户协议和隐私政策！",
+"retrieve_password":"找回密码",
+"validate_code":"验证码",
+"get_validate_code":"获取验证码",
+"validate_code_send_success":"验证码发送成功",
+"reset_password":"重置密码",
+"reset_password_success":"重置密码成功",
+"reset_password_fail":"重置密码失败",
+"validate_code_need":"验证码不能为空",
+"password_need":"密码不能为空"
 }

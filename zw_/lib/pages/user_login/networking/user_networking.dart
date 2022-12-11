@@ -42,4 +42,54 @@ class UserNetworking {
       return false;
     }
   }
+
+  static Future<bool> getValidateCode({required String mobilePhone, required String email}) async {
+    ZWHud.showLoading(S.current.toast_requesting);
+    var param = {"mobilePhone":mobilePhone,"email":email};
+    try {
+      var result = await NetworkingManager.shared().postAsync(
+          url: Api.GET_VALIDATE_CODE, data: param);
+      var code = result['code'];
+      var msg = result['msg'];
+      if (null != code && code
+          .toString()
+          .isNotEmpty && code.toString().compareTo("1") > -1) {
+        return true;
+      } else {
+        if (null != msg) {
+          ZWHud.showText(msg.toString());
+        }
+        return false;
+      }
+    }catch(e){
+      ZWHud.showText(e.toString());
+    return false;
+    }finally{
+    }
+  }
+
+  static Future<bool> retrievePassword({required String mobilePhone, required String email, required String validateCode, required String password}) async{
+    ZWHud.showLoading(S.current.toast_requesting);
+    var param = {"mobilePhone":mobilePhone,"email":email};
+    try {
+      var result = await NetworkingManager.shared().postAsync(
+          url: Api.RETRIEVE_PASSWORD, data: param);
+      var code = result['code'];
+      var msg = result['msg'];
+      if (null != code && code
+          .toString()
+          .isNotEmpty && code.toString().compareTo("1") > -1) {
+        return true;
+      } else {
+        if (null != msg) {
+          ZWHud.showText(msg.toString());
+        }
+        return false;
+      }
+    }catch(e){
+      ZWHud.showText(e.toString());
+      return false;
+    }finally{
+    }
+  }
 }
