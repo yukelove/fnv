@@ -529,6 +529,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Add device success!`
+  String get add_device_success {
+    return Intl.message(
+      'Add device success!',
+      name: 'add_device_success',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add device fail, please retry!`
+  String get add_device_fail {
+    return Intl.message(
+      'Add device fail, please retry!',
+      name: 'add_device_fail',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

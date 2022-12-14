@@ -45,5 +45,7 @@
 "reset_password_success":"重置密码成功",
 "reset_password_fail":"重置密码失败",
 "validate_code_need":"验证码不能为空",
-"password_need":"密码不能为空"
+"password_need":"密码不能为空",
+"add_device_success":"设备添加成功!",
+"add_device_fail":"设备添加失败，请重新扫描二维码!"
 }

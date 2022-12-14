@@ -29,6 +29,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "accountmanage": MessageLookupByLibrary.simpleMessage("Account Manage"),
         "accountsettings":
             MessageLookupByLibrary.simpleMessage("Account Settings"),
+        "add_device_fail": MessageLookupByLibrary.simpleMessage(
+            "Add device fail, please retry!"),
+        "add_device_success":
+            MessageLookupByLibrary.simpleMessage("Add device success!"),
         "agrementdesc": MessageLookupByLibrary.simpleMessage(
             "I have read and agreed to all contents of the"),
         "buzzer": MessageLookupByLibrary.simpleMessage("Buzzer"),
