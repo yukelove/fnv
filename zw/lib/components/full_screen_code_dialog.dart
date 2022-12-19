@@ -4,13 +4,13 @@
 /// @Last Modified time: 2019-01-14 14:42:00
 
 import 'package:flutter/material.dart';
-
+import 'package:flutter_syntax_view/flutter_syntax_view.dart';
 import 'package:zw/utils/example_code_parser.dart';
-// import 'package:zw/utils/syntax_highlighter.dart';
 import 'package:zw/utils/net_utils.dart';
 
 class FullScreenCodeDialog extends StatefulWidget {
-  const FullScreenCodeDialog({required Key key,this.filePath, this.remoteFilePath});
+  // ignore: use_key_in_widget_constructors
+  const FullScreenCodeDialog({required Key key,required this.filePath, required this.remoteFilePath});
 
   final String filePath;
   final String remoteFilePath;
@@ -18,7 +18,7 @@ class FullScreenCodeDialog extends StatefulWidget {
 }
 
 class _FullScreenCodeDialogState extends State<FullScreenCodeDialog> {
-  String _exampleCode;
+  late String _exampleCode;
 
   @override
   void didChangeDependencies() {
@@ -52,10 +52,10 @@ class _FullScreenCodeDialogState extends State<FullScreenCodeDialog> {
 
   @override
   Widget build(BuildContext context) {
-    final SyntaxHighlighterStyle style =
-        Theme.of(context).brightness == Brightness.dark
-            ? SyntaxHighlighterStyle.darkThemeStyle()
-            : SyntaxHighlighterStyle.lightThemeStyle();
+    // final SyntaxHighlighterStyle style =
+    //     Theme.of(context).brightness == Brightness.dark
+    //         ? SyntaxHighlighterStyle.darkThemeStyle()
+    //         : SyntaxHighlighterStyle.lightThemeStyle();
 
     Widget body;
     if (_exampleCode == null) {
@@ -63,12 +63,12 @@ class _FullScreenCodeDialogState extends State<FullScreenCodeDialog> {
     } else {
       Widget _codeWidget;
       try {
-        DartSyntaxHighlighter(style).format(_exampleCode);
+        DartSyntaxHighlighter().format(_exampleCode);
         _codeWidget = RichText(
           text: TextSpan(
             style: const TextStyle(fontFamily: 'monospace', fontSize: 10.0),
             children: <TextSpan>[
-              DartSyntaxHighlighter(style).format(_exampleCode)
+              DartSyntaxHighlighter().format(_exampleCode)
             ],
           ),
         );

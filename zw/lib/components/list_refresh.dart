@@ -155,7 +155,8 @@ class _ListRefreshState extends State<ListRefresh> {
 
   @override
   Widget build(BuildContext context) {
-    return new RefreshIndicator(
+    return RefreshIndicator(
+      // ignore: sort_child_properties_last
       child: ListView.builder(
         itemCount: items.length + 1,
         itemBuilder: (context, index) {
@@ -176,7 +177,7 @@ class _ListRefreshState extends State<ListRefresh> {
               return widget.renderItem(index, items[index]);
             }
           }
-          return null;
+          return Container();
         },
         controller: _scrollController,
       ),

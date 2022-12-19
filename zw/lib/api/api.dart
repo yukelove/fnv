@@ -1,4 +1,4 @@
-class Api {
+class API {
 //   static const String BASE_URL = 'http://flutter-go.alibaba.net/';
   static const String BASE_URL = 'https://flutter-go.pub/api/';
 

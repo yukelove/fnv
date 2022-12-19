@@ -5,18 +5,19 @@ void main() => runApp(new MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    
     return  MaterialApp(
       //定义路由
       routes: {
         //Map<String, WidgetBuilder>
         "/splash": (context) =>  SplashPage(),
         "/login": (context) =>  LoginPage(),
-        "/home": (context) =>  HomePage(),
+        "/home": (context) =>   const HomePage(title: '',),
         "/detail": (context) =>  DetailPage(),
       },
       //没有路由可以进行匹配的时候
       onUnknownRoute: (RouteSettings setting) {
-        String name = setting.name;
+        String? name = setting.name;
         print("onUnknownRoute:$name");
         return new MaterialPageRoute(builder: (context) {
           return new NotFoundPage();
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
 
 //主页，显示一个列表
 class HomePage extends StatelessWidget {
-  HomePage({Key key, this.title}) : super(key: key);
+  const HomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -76,14 +77,14 @@ class _DetailPageState extends State<DetailPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              new Text("详细界面"),
-              new RaisedButton(
-                onPressed: () {
-                  Navigator.of(context).pushNamedAndRemoveUntil(
-                      "/login", (Route<dynamic> route) => false);
-                },
-                child: new Text("点击退出登录"),
-              ),
+              Text("详细界面"),
+              // RaisedButton(
+              //   onPressed: () {
+              //     Navigator.of(context).pushNamedAndRemoveUntil(
+              //         "/login", (Route<dynamic> route) => false);
+              //   },
+              //   child: new Text("点击退出登录"),
+              // ),
             ],
           ),
         ),
