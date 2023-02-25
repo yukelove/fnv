@@ -8,6 +8,13 @@ class LocalCache {
       prefs.setString(key, value);
     });
   }
+
+  static Future<String> getStringValueForKey({required String key}){
+    return LocalCache._prefs.then((prefs) {
+      var stringValue = prefs.getString(key);
+      return Future.value(stringValue);
+    });
+  }
   
   
 

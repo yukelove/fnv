@@ -39,6 +39,7 @@ dependencies:
   bot_toast: ^4.0.1
   qr_code_scanner: ^1.0.1
   shared_preferences: ^2.0.15
+  flutter_bloc: ^8.0.1
 
 
 

@@ -1,7 +1,9 @@
 import 'package:zw_/api/api.dart';
+import 'package:zw_/constant/constant_declare.dart';
 import 'package:zw_/generated/l10n.dart';
 import 'package:zw_/networking/networking_manager.dart';
 import 'package:zw_/pages/user_login/user_info/user_info.dart';
+import 'package:zw_/utils/local_cache.dart';
 import 'package:zw_/utils/log_utils.dart';
 import 'package:zw_/utils/zw_hud.dart';
 
@@ -50,6 +52,10 @@ class UserNetworking {
           Map map = userInfo as Map;
           UserInfo.saveUser(map);
         }
+        //保存登录凭证
+        var token = (result['token'] ?? "") as String;
+        UserInfo.token = token;
+        LocalCache.saveStringValueForKey(key: USERTOKEN_KEY, value: token);
         return true;
       } else {
         if (null != msg) {
