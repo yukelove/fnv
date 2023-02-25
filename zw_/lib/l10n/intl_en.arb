@@ -46,5 +46,7 @@
 "reset_password_success":" Reset password success!",
 "reset_password_fail":" Reset password fail!",
 "validate_code_need":"Validate code can not be empty!",
-"password_need":"password can not be empty!"
+"password_need":"password can not be empty!",
+"add_device_success":"Add device success!",
+"add_device_fail":"Add device fail, please retry!"
  }

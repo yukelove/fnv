@@ -89,6 +89,11 @@ class RouterManager {
   static Future jump(BuildContext context,String path){
     return router.navigateTo(context, path,transition: TransitionType.inFromRight);
   }
-  
+
+  //退出登录
+  static Future logOut(BuildContext context,String path){
+    return Navigator.of(context).pushNamedAndRemoveUntil(
+        LOGIN_PAGE, ModalRoute.withName(LOGIN_PAGE));
+  }
   
 }

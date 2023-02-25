@@ -26,6 +26,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "accountcancel": MessageLookupByLibrary.simpleMessage("注销账号"),
         "accountmanage": MessageLookupByLibrary.simpleMessage("账户管理"),
         "accountsettings": MessageLookupByLibrary.simpleMessage("账号设置"),
+        "add_device_fail":
+            MessageLookupByLibrary.simpleMessage("设备添加失败，请重新扫描二维码!"),
+        "add_device_success": MessageLookupByLibrary.simpleMessage("设备添加成功!"),
         "agrementdesc": MessageLookupByLibrary.simpleMessage("已认真阅读并同意"),
         "buzzer": MessageLookupByLibrary.simpleMessage("蜂鸣"),
         "cancel": MessageLookupByLibrary.simpleMessage("取消"),
