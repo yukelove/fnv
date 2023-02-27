@@ -3,9 +3,11 @@ import 'package:zw_/pages/equipment_list/state/equipment_model.dart';
 
 class EquipmentState extends BaseState{
 
-  final List<EquipmentModel> list = [];
+List<EquipmentModel> list = [];
 
-EquipmentState({required List<EquipmentModel> list});
+EquipmentState({required List<EquipmentModel> list}){
+  this.list = list;
+}
 
 
  EquipmentState copyWith(List<EquipmentModel> models){

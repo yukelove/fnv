@@ -12,8 +12,9 @@ class EquipmentCubit extends BaseCubit<EquipmentState> {
   void getEquipmentList(){
     EquipmentNetworking.equipmentList().then((value) {
       if(value != null){
-        List<EquipmentModel> list = value.map((Map element){
-          return EquipmentModel.fromJson(element as Map<String,dynamic>);
+        List<EquipmentModel> list = value.map((element){
+          print("${element}");
+          return EquipmentModel.fromJson(element as Map);
         }).toList();
         emit(state.copyWith(list));
       }

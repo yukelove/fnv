@@ -21,6 +21,9 @@ class ListPage extends StatefulWidget {
 }
 
 class _ListPageState extends State<ListPage> {
+  late EquipmentCubit cubit;
+
+
   @override
   void initState() {
     // TODO: implement initState
@@ -29,7 +32,6 @@ class _ListPageState extends State<ListPage> {
 
   @override
   Widget build(BuildContext context) {
-    int count = 10;
     return BlocProvider(
       lazy: false,
       create: (_) {
@@ -37,7 +39,7 @@ class _ListPageState extends State<ListPage> {
       },
       child: BlocBuilder<EquipmentCubit, EquipmentState>(
         builder: (ctx, state) {
-
+          cubit = BlocProvider.of<EquipmentCubit>(ctx);
           return Scaffold(
             appBar: PreferredSize(
                 preferredSize: Size.fromHeight(54),
@@ -56,7 +58,11 @@ class _ListPageState extends State<ListPage> {
                       //路由返回时添加设备
                       String equipmentCode = value["qrcode"] as String;
                       EquipmentAddNetworking.addEquipment(
-                          equipmentCode: equipmentCode);
+                          equipmentCode: equipmentCode).then((val){
+                            //添加完成后重新加载设备列表
+                            cubit.getEquipmentList();
+                          });
+                      
                     });
                   },
                 )),
@@ -85,7 +91,7 @@ class _ListPageState extends State<ListPage> {
                     child: GridView.builder(
                         padding: EdgeInsets.symmetric(
                             horizontal: SpacerConfig.SPACER_15()),
-                        itemCount: count,
+                        itemCount: state.list.length,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
                           childAspectRatio: 1.3,

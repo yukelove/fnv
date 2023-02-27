@@ -57,7 +57,9 @@ class _EquipmentAddPageState extends State<EquipmentAddPage> {
                 this.qrController?.scannedDataStream.listen((scanData) {
                   this.result = scanData;
                   String code = scanData.code ?? "";
-                  if(scanData.code!.length > 10 && !this.isJump){
+                  code = code.replaceAll("MD", "");
+                  code = code.replaceAll("&", "");
+                  if(code.length > 10 && !this.isJump){
                     var param = {"qrcode":code};
                     this.isJump = true;
                     RouterManager.goBackWithParam(context, param);
