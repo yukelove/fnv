@@ -99,12 +99,14 @@ class _ListPageState extends State<ListPage> {
                           // mainAxisSpacing: SpacerConfig.SPACER_10(),
                         ),
                         itemBuilder: (ctx, index) {
+                          var model = state.list[index];
                           return EquipmentGridItem(
-                            itemModel: "",
+                            itemModel: model,
                             itemClick: (itemModel) {
                               //进入设备详情
+                              String path = "${EQUIPMENT_DETAIL_PAGE}?serialnumber=${model.serialnumber}";
                               RouterManager.jump(
-                                  context, EQUIPMENT_DETAIL_PAGE);
+                                  context, path);
                             },
                           );
                         }),

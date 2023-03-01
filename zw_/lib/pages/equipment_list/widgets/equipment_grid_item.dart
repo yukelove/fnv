@@ -7,11 +7,12 @@ import 'package:zw_/config/img_config/image_assets.dart';
 import 'package:zw_/config/img_config/image_config.dart';
 import 'package:zw_/config/screen_util.dart';
 import 'package:zw_/config/spacer_config/SpacerConfig.dart';
+import 'package:zw_/pages/equipment_list/state/equipment_model.dart';
 
 class EquipmentGridItem extends StatefulWidget {
 
   Function itemClick;
-  dynamic itemModel;
+  EquipmentModel itemModel;
 
   EquipmentGridItem({required this.itemModel,required this.itemClick,Key? key}) : super(key: key);
 

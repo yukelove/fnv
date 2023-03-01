@@ -20,4 +20,6 @@ class Api {
 
   static const String Equipment_LIST = BASE_URL + 'ZWAddDevice/DevicesList'; //设备列表
 
+  static const String Equipment_DETAIL = BASE_URL + 'ZWAddDevice/ZW_DEVICE_DETAIL'; //设备详情页
+
 }
