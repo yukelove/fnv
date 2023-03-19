@@ -1,17 +1,20 @@
 import 'package:zw_/base/bloc_provider/base_state.dart';
+import 'package:zw_/pages/equipment_list/state/equipment_model.dart';
 
 class EquipmentDetailState extends BaseState {
   String serialnumber = "";
-  Map info = {};
+  late EquipmentModel model;
+  bool isEditInfo = false;
 
-  EquipmentDetailState({required String serialnumber,required Map info}){
+  EquipmentDetailState({required String serialnumber,required EquipmentModel model,bool isEditInfo = false}){
     this.serialnumber = serialnumber;
-    this.info = info;
+    this.model = model;
+    this.isEditInfo = isEditInfo;
   }
 
 
-  EquipmentDetailState copyWith(String serialnumber,Map info){
-    return EquipmentDetailState(serialnumber: serialnumber,info: info);
+  EquipmentDetailState copyWith(String serialnumber,EquipmentModel model){
+    return EquipmentDetailState(serialnumber: serialnumber,model: model);
   }
 
   @override

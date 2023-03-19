@@ -59,11 +59,15 @@ class RouterManager {
 
     //设备详情
     router.define(EQUIPMENT_DETAIL_PAGE, handler: Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> parameters){
-      return EquipmentDetail();
+      List data = (parameters["serialnumber"] ?? []);
+      String serialNum = data.length == 0 ? "" : data.first as String;
+      return EquipmentDetail(serialnumber: serialNum,);
     }));
 
     //设备信息修改
     router.define(EQUIPMENT_INFO_EDIT_PAGE, handler: Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> parameters){
+      List data = (parameters["serialnumber"] ?? []);
+      String serialNum = data.length == 0 ? "" : data.first as String;
       return EquipmentInfoEditPage();
     }));
 
