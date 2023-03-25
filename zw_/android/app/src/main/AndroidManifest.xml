@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.zw_">
    <application
-        android:label="zw_"
+        android:label="泛能"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

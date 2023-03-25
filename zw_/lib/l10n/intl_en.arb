@@ -48,5 +48,11 @@
 "validate_code_need":"Validate code can not be empty!",
 "password_need":"password can not be empty!",
 "add_device_success":"Add device success!",
-"add_device_fail":"Add device fail, please retry!"
+"add_device_fail":"Add device fail, please retry!",
+
+"device_detail":"Device Detail",
+"input":"Input",
+"type":"Type",
+"out":"Out",
+"pv_input":"PV Input"
  }

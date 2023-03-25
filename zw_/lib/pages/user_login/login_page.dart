@@ -35,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
     _tapPolicy = TapGestureRecognizer()
       ..onTap = () {
         print('点击 隐私政策');
-        final Uri url = new Uri(scheme: "https", host: "www.baidu.com");
+        final Uri url = Uri.parse("http://101.43.96.59/fnv_yszc.html");
         _launchUrl(url);
       };
   }

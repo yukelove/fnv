@@ -549,6 +549,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Device Detail`
+  String get device_detail {
+    return Intl.message(
+      'Device Detail',
+      name: 'device_detail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Input`
+  String get input {
+    return Intl.message(
+      'Input',
+      name: 'input',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Type`
+  String get type {
+    return Intl.message(
+      'Type',
+      name: 'type',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Out`
+  String get out {
+    return Intl.message(
+      'Out',
+      name: 'out',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `PV Input`
+  String get pv_input {
+    return Intl.message(
+      'PV Input',
+      name: 'pv_input',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

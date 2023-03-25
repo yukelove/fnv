@@ -47,5 +47,10 @@
 "validate_code_need":"验证码不能为空",
 "password_need":"密码不能为空",
 "add_device_success":"设备添加成功!",
-"add_device_fail":"设备添加失败，请重新扫描二维码!"
+"add_device_fail":"设备添加失败，请重新扫描二维码!",
+"device_detail":"设备详情",
+"input":"输入",
+"type":"类型",
+"out":"输出",
+"pv_input":"太阳能输入"
 }

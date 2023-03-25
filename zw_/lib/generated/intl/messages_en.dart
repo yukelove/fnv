@@ -43,6 +43,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "config": MessageLookupByLibrary.simpleMessage("Config"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
         "device": MessageLookupByLibrary.simpleMessage("Device"),
+        "device_detail": MessageLookupByLibrary.simpleMessage("Device Detail"),
         "devicelist": MessageLookupByLibrary.simpleMessage("Device List"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emailorphonenumer":
@@ -52,6 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "get_validate_code":
             MessageLookupByLibrary.simpleMessage("get validate code"),
         "headavatar": MessageLookupByLibrary.simpleMessage("Head Avater"),
+        "input": MessageLookupByLibrary.simpleMessage("Input"),
         "invitecode": MessageLookupByLibrary.simpleMessage("Invite Code"),
         "limitdischargeandcharge":
             MessageLookupByLibrary.simpleMessage("Lismits discharge/charge"),
@@ -67,11 +69,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Username or password cannot be empty!"),
         "nickname": MessageLookupByLibrary.simpleMessage("Nick Name"),
         "others": MessageLookupByLibrary.simpleMessage("Others"),
+        "out": MessageLookupByLibrary.simpleMessage("Out"),
         "password_need":
             MessageLookupByLibrary.simpleMessage("password can not be empty!"),
         "personalsettings":
             MessageLookupByLibrary.simpleMessage("Personal Settings"),
         "privacypolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
+        "pv_input": MessageLookupByLibrary.simpleMessage("PV Input"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "register_success": MessageLookupByLibrary.simpleMessage(
             "Account registration succeeded!"),
@@ -91,6 +95,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Stand by time of equipment"),
         "toast_requesting":
             MessageLookupByLibrary.simpleMessage("Requesting..."),
+        "type": MessageLookupByLibrary.simpleMessage("Type"),
         "updatedevicename":
             MessageLookupByLibrary.simpleMessage("Update device name"),
         "user_agree_select_need": MessageLookupByLibrary.simpleMessage(
