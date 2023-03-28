@@ -34,7 +34,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancel": MessageLookupByLibrary.simpleMessage("取消"),
         "carcharge": MessageLookupByLibrary.simpleMessage("车充"),
         "changepassword": MessageLookupByLibrary.simpleMessage("修改密码"),
+        "charge_config": MessageLookupByLibrary.simpleMessage("电池充电配置"),
+        "config": MessageLookupByLibrary.simpleMessage("配置"),
         "confirm": MessageLookupByLibrary.simpleMessage("确认"),
+        "conserve_energy_config":
+            MessageLookupByLibrary.simpleMessage("节能运行配置"),
         "device": MessageLookupByLibrary.simpleMessage("设备"),
         "device_detail": MessageLookupByLibrary.simpleMessage("设备详情"),
         "devicelist": MessageLookupByLibrary.simpleMessage("设备列表"),
@@ -62,6 +66,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "out": MessageLookupByLibrary.simpleMessage("输出"),
         "password_need": MessageLookupByLibrary.simpleMessage("密码不能为空"),
         "personalsettings": MessageLookupByLibrary.simpleMessage("个人信息设置"),
+        "power_supply_setting": MessageLookupByLibrary.simpleMessage("供电配置"),
         "privacypolicy": MessageLookupByLibrary.simpleMessage("隐私政策"),
         "pv_input": MessageLookupByLibrary.simpleMessage("太阳能输入"),
         "register": MessageLookupByLibrary.simpleMessage("注册"),
@@ -71,6 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "reset_password_success":
             MessageLookupByLibrary.simpleMessage("重置密码成功"),
         "retrieve_password": MessageLookupByLibrary.simpleMessage("找回密码"),
+        "save": MessageLookupByLibrary.simpleMessage("保存"),
         "screenbrightness": MessageLookupByLibrary.simpleMessage("屏幕亮度"),
         "serviceagreement": MessageLookupByLibrary.simpleMessage("服务协议"),
         "standbytime": MessageLookupByLibrary.simpleMessage("待机时间"),

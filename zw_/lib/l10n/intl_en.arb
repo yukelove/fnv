@@ -5,6 +5,7 @@
 "serviceagreement": "Service Agreement",
 "privacypolicy": "Privacy Policy",
 "register": "Register",
+"save": "Save",
 "forgotpassword": "Forgot Password",
 "loginpassword": "Password",
 "confirm": "Confirm",
@@ -54,5 +55,8 @@
 "input":"Input",
 "type":"Type",
 "out":"Out",
-"pv_input":"PV Input"
+"pv_input":"PV Input",
+"conserve_energy_config":"Conserve Energy Config",
+"power_supply_setting":"Power Supply Setting",
+"charge_config":"Charge Config"
  }

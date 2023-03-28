@@ -21,7 +21,12 @@ class Api {
   static const String Equipment_LIST = BASE_URL + 'ZWAddDevice/DevicesList'; //设备列表
 
   static const String Equipment_DETAIL = BASE_URL + 'ZWAddDevice/DevicesDetail'; //设备详情页
+
   static const String Equipment_EDIT_INFO = BASE_URL + 'ZWAddDevice/DevicesQueryConfig'; //获取设备编辑信息
+
   static const String Edit_Equipment_INFO = BASE_URL + 'ZWAddDevice/DevicesUpdateConfig'; //编辑设备信息
 
+  static const String SET_DEVICES_SWITCH_CONFIG = BASE_URL+'ZWDeviceSwitch/SetDevicesSwitchConfig';//节能运行设置
+
+  static const String QUERY_DEVICES_SWITCH_CONFIG = BASE_URL+'ZWDeviceSwitch/QueryDevicesSwitchConfig'; //查询节能设置
 }

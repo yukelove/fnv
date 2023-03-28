@@ -1,5 +1,6 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:zw_/pages/charge_time/conserve_energy_config_page.dart';
 import 'package:zw_/pages/equipment_add/equipment_add_page.dart';
 import 'package:zw_/pages/equipment_detail/equipment_info_edit_page.dart';
 import 'package:zw_/pages/equipment_detail/equipment_detail_page.dart';
@@ -8,6 +9,8 @@ import 'package:zw_/pages/equipment_list/list_page.dart';
 import 'package:zw_/pages/user_login/login_page.dart';
 import 'package:zw_/pages/user_register/register_page.dart';
 import 'package:zw_/pages/user_register/user_info_page.dart';
+import 'package:zw_/pages/charge_time/conserve_energy_config_form_page.dart';
+import 'package:zw_/pages/charge_time/charge_config_form_page.dart';
 import 'not_found_page.dart';
 
 
@@ -19,6 +22,9 @@ const EQUIPMENT_DETAIL_PAGE = "EQUIPMENT_DETAIL_PAGE";
 const EQUIPMENT_INFO_EDIT_PAGE = "EQUIPMENT_INFO_EDIT_PAGE";
 const EQUIPMENT_ADD_PAGE = "EQUIPMENT_ADD_PAGE";
 const USER_INFO_PAGE = "USER_INFO_PAGE";
+const CONSERVE_ENERGY_CONFIG_PAGE = "CONSERVE_ENERGY_CONFIG_PAGE";
+const CONSERVE_ENERGY_CONFIG_FORM_PAGE = "CONSERVE_ENERGY_CONFIG_FORM_PAGE";
+const CHARGE_CONFIG_FORM_PAGE = "CHARGE_CONFIG_FORM_PAGE";
 
 class RouterManager {
   static final FluroRouter router = FluroRouter();
@@ -68,7 +74,7 @@ class RouterManager {
     router.define(EQUIPMENT_INFO_EDIT_PAGE, handler: Handler(handlerFunc: (BuildContext? context, Map<String, List<String>> parameters){
       List data = (parameters["serialnumber"] ?? []);
       String serialNum = data.length == 0 ? "" : data.first as String;
-      return EquipmentInfoEditPage();
+      return EquipmentInfoEditPage(serialnumber: serialNum,);
     }));
 
 
@@ -77,7 +83,25 @@ class RouterManager {
       return EquipmentAddPage();
     }));
 
+    router.define(CONSERVE_ENERGY_CONFIG_PAGE,handler:Handler(handlerFunc: (BuildContext? context,Map<String,List<String>> parameters){
 
+      List data = (parameters["serialnumber"] ?? []);
+      String serialNum = data.length == 0 ? "" : data.first as String;
+      return ConserveEnergyConfigPage(serialnumber: serialNum,);
+    }));
+
+    router.define(CONSERVE_ENERGY_CONFIG_FORM_PAGE,handler:Handler(handlerFunc: (BuildContext? context,Map<String,List<String>> parameters){
+
+      List data = (parameters["serialnumber"] ?? []);
+      String serialNum = data.length == 0 ? "" : data.first as String;
+      return ConserveEnergyConfigFormPage(serialnumber: serialNum,);
+    }));
+
+    router.define(CHARGE_CONFIG_FORM_PAGE,handler:Handler(handlerFunc: (BuildContext? context,Map<String,List<String>> parameters){
+      List data = (parameters["serialnumber"] ?? []);
+      String serialNum = data.length == 0 ? "" : data.first as String;
+      return ChargeConfigFormPage(serialnumber: serialNum,);
+    }));
   }
 
   //返回

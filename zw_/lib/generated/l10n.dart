@@ -110,6 +110,16 @@ class S {
     );
   }
 
+  /// `Save`
+  String get save {
+    return Intl.message(
+      'Save',
+      name: 'save',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Forgot Password`
   String get forgotpassword {
     return Intl.message(
@@ -595,6 +605,36 @@ class S {
     return Intl.message(
       'PV Input',
       name: 'pv_input',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Conserve Energy Config`
+  String get conserve_energy_config {
+    return Intl.message(
+      'Conserve Energy Config',
+      name: 'conserve_energy_config',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Power Supply Setting`
+  String get power_supply_setting {
+    return Intl.message(
+      'Power Supply Setting',
+      name: 'power_supply_setting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Charge Config`
+  String get charge_config {
+    return Intl.message(
+      'Charge Config',
+      name: 'charge_config',
       desc: '',
       args: [],
     );

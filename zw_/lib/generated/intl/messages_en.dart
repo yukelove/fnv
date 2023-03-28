@@ -40,8 +40,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "carcharge": MessageLookupByLibrary.simpleMessage("Car charge"),
         "changepassword":
             MessageLookupByLibrary.simpleMessage("Change Password"),
+        "charge_config": MessageLookupByLibrary.simpleMessage("Charge Config"),
         "config": MessageLookupByLibrary.simpleMessage("Config"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
+        "conserve_energy_config":
+            MessageLookupByLibrary.simpleMessage("Conserve Energy Config"),
         "device": MessageLookupByLibrary.simpleMessage("Device"),
         "device_detail": MessageLookupByLibrary.simpleMessage("Device Detail"),
         "devicelist": MessageLookupByLibrary.simpleMessage("Device List"),
@@ -74,6 +77,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("password can not be empty!"),
         "personalsettings":
             MessageLookupByLibrary.simpleMessage("Personal Settings"),
+        "power_supply_setting":
+            MessageLookupByLibrary.simpleMessage("Power Supply Setting"),
         "privacypolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
         "pv_input": MessageLookupByLibrary.simpleMessage("PV Input"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
@@ -87,6 +92,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(" Reset password success!"),
         "retrieve_password":
             MessageLookupByLibrary.simpleMessage("Retrieve password"),
+        "save": MessageLookupByLibrary.simpleMessage("Save"),
         "screenbrightness":
             MessageLookupByLibrary.simpleMessage("Screen Brightness"),
         "serviceagreement":

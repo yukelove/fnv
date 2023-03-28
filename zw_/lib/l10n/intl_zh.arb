@@ -4,6 +4,7 @@
 "serviceagreement": "服务协议",
 "privacypolicy": "隐私政策",
 "register": "注册",
+"save": "保存",
 "forgotpassword": "忘记密码",
 "loginpassword": "密码",
 "confirm": "确认",
@@ -22,6 +23,7 @@
 "wechat": "微信",
 "accountcancel": "注销账号",
 "logout": "退出登录",
+"config":"配置",
 
 "updatedevicename": "更新设备名称",
 "limitdischargeandcharge": "放电/充电上下限",
@@ -52,5 +54,8 @@
 "input":"输入",
 "type":"类型",
 "out":"输出",
-"pv_input":"太阳能输入"
+"pv_input":"太阳能输入",
+"conserve_energy_config":"节能运行配置",
+"power_supply_setting":"供电配置",
+"charge_config":"电池充电配置"
 }

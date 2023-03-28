@@ -27,5 +27,7 @@ class ImageAssetsConfig {
   static const String IMAGE_BOX = "box";
   static const String IMAGE_VOICEMAIL = "voicemail";
   static const String IMAGE_PLUG = "plug";
+  static const String IMAGE_CONSERVE_ENERGY_CONFIG = "conserve_energy_config";
+  static const String IMAGE_CHARGE_CONFIG = "charge_config";
 
 }
