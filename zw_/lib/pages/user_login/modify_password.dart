@@ -7,14 +7,14 @@ import 'package:zw_/utils/zw_hud.dart';
 import 'package:zw_/pages/user_login/networking/user_networking.dart';
 
 
-class ForgetPasswrod extends StatefulWidget {
-  ForgetPasswrod({Key? key}) : super(key: key);
+class ModifyPassword extends StatefulWidget {
+  ModifyPassword({Key? key}) : super(key: key);
 
   @override
-  State<ForgetPasswrod> createState() => _ForgetPasswrodState();
+  State<ModifyPassword> createState() => _ModifyPasswordState();
 }
 
-class _ForgetPasswrodState extends State<ForgetPasswrod> {
+class _ModifyPasswordState extends State<ModifyPassword> {
   TextEditingController textController = TextEditingController();
   String mobilePhone = "";
   String email = "";
@@ -27,7 +27,7 @@ class _ForgetPasswrodState extends State<ForgetPasswrod> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(
-        S.of(context).forgotpassword
+        S.of(context).modify_password
       ),
       ),
       body: Column(
@@ -37,17 +37,6 @@ class _ForgetPasswrodState extends State<ForgetPasswrod> {
             child: ImageAssets.image(
                 imgName: ImageAssetsConfig.IMAGE_LOGO,
                 size: Size(330.0.w, 85.0.w)),
-          ),
-          Row(
-            children: [
-              Container(
-                padding: EdgeInsets.only(left: 30, top: 30),
-                child: Text(
-                  S.of(context).retrieve_password,
-                  style: TextStyle(color: Colors.black, fontSize: 33),
-                ),
-              ),
-            ],
           ),
           Expanded(
               child: SingleChildScrollView(
@@ -187,6 +176,37 @@ class _ForgetPasswrodState extends State<ForgetPasswrod> {
                               SizedBox(
                                 height: 30,
                               ),
+                              TextField(
+                                cursorColor: Colors.black,
+                                style: TextStyle(color: Colors.black),
+                                obscureText: true,
+                                decoration: InputDecoration(
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                      borderSide: BorderSide(
+                                        color: Colors.grey,
+                                      ),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                      borderSide: BorderSide(
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                    hintText: S.of(context).new_password,
+                                    hintStyle: TextStyle(color: Colors.black),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    )),
+                                onChanged: (value){
+                                  setState(() {
+                                    this.confirmPassword = value;
+                                  });
+                                },
+                              ),
+                              SizedBox(
+                                height: 30,
+                              ),
                               GestureDetector(
                                 child: Container(
                                   width: double.infinity,
@@ -196,16 +216,16 @@ class _ForgetPasswrodState extends State<ForgetPasswrod> {
                                       BorderRadius.all(Radius.circular(10))),
                                   child: TextButton(
                                       onPressed: () {
-                                        if((mobilePhone.isNotEmpty || email.isNotEmpty) && validateCode.isNotEmpty &&  password.isNotEmpty){
+                                        if(validateCode.isNotEmpty &&  password.isNotEmpty &&  confirmPassword.isNotEmpty){
                                           ZWHud.showLoading(S.current.toast_requesting);
-                                          UserNetworking.retrievePassword(mobilePhone: this.mobilePhone,email: this.email,validateCode:this.validateCode,password:this.password).then((value) {
+                                          UserNetworking.modifyPassword(validateCode:this.validateCode,password:this.password, confirmPassword: confirmPassword).then((value) {
                                             if(value){
-                                              ZWHud.showText(S.current.reset_password_success);
+                                              ZWHud.showText(S.current.modify_password_success);
                                             }
                                           });
                                         }else{
-                                          if(mobilePhone.isEmpty && email.isEmpty){
-                                            ZWHud.showText(S.current.mobilephone_email_need);
+                                          if(confirmPassword.isEmpty){
+                                            ZWHud.showText(S.current.password_need);
                                           }else if(validateCode.isEmpty){
                                             ZWHud.showText(S.current.validate_code_need);
                                           }else if(password.isEmpty){
@@ -214,7 +234,7 @@ class _ForgetPasswrodState extends State<ForgetPasswrod> {
                                         }
                                       },
                                       child: Text(
-                                        S.current.reset_password,
+                                        S.current.modify_password,
                                         style: TextStyle(
                                             fontSize: 16, color: Colors.white),
                                       )),

@@ -26,6 +26,14 @@ class EquipmentInfoEditPage extends StatefulWidget {
 class _EquipmentInfoEditPageState extends State<EquipmentInfoEditPage> {
   List<Map<String, String>> items = [
     {
+      "icon": ImageAssetsConfig.IMAGE_CONSERVE_ENERGY_CONFIG,
+      "name": S.current.conserve_energy_config
+    },
+    {
+      "icon": ImageAssetsConfig.IMAGE_CHARGE_CONFIG,
+      "name": S.current.charge_config
+    },
+    {
       "icon": ImageAssetsConfig.IMAGE_UPDATE_DEVICE,
       "name": S.current.updatedevicename
     },
@@ -55,14 +63,7 @@ class _EquipmentInfoEditPageState extends State<EquipmentInfoEditPage> {
       "icon": ImageAssetsConfig.IMAGE_UPDATE_DEVICE,
       "name": S.current.others
     },
-    {
-      "icon": ImageAssetsConfig.IMAGE_CONSERVE_ENERGY_CONFIG,
-      "name": S.current.conserve_energy_config
-    },
-    {
-      "icon": ImageAssetsConfig.IMAGE_CHARGE_CONFIG,
-      "name": S.current.charge_config
-    },
+
   ];
 
   @override
@@ -135,7 +136,7 @@ class _EquipmentInfoEditPageState extends State<EquipmentInfoEditPage> {
         onTap: (){
           print("点击到第"+index.toString()+"-"+serialnumber.toString());
           setState(() {
-          onItemClick(index);
+          onItemClick(serialnumber,index);
           });
         },
         //item 长按事件
@@ -148,13 +149,7 @@ class _EquipmentInfoEditPageState extends State<EquipmentInfoEditPage> {
     );
   }
 
-  void  onItemClick(int index){
-    ZWHud.showText("你点击到第"+index.toString()+"条数据");
-  }
-
-  ///* item长按
-
-  void _onItemLongPressed(var serialnumber,int index) {
+  void  onItemClick(var serialnumber,int index){
     setState(() {
       var m = items[index];
       print("--"+m["icon"].toString());
@@ -168,9 +163,16 @@ class _EquipmentInfoEditPageState extends State<EquipmentInfoEditPage> {
         String path = "${CHARGE_CONFIG_FORM_PAGE}?serialnumber=${serialnumber}";
         RouterManager.jump(context, path);
       }else{
-          showCustomDialog(context, index);
+        showCustomDialog(context, index);
       }
     });
+
+  }
+
+  ///* item长按
+
+  void _onItemLongPressed(var serialnumber,int index) {
+    ZWHud.showText("你长安了第"+index.toString()+"条数据");
   }
 
   void showCustomDialog(BuildContext context,int position ){

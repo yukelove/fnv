@@ -11,6 +11,9 @@ import 'package:zw_/pages/user_register/register_page.dart';
 import 'package:zw_/pages/user_register/user_info_page.dart';
 import 'package:zw_/pages/charge_time/conserve_energy_config_form_page.dart';
 import 'package:zw_/pages/charge_time/charge_config_form_page.dart';
+import 'package:zw_/pages/tools/date_time_picker_page.dart';
+import 'package:zw_/pages/user_login/modify_password.dart';
+import 'package:zw_/pages/user_register/widgets/account_cancel_widget.dart';
 import 'not_found_page.dart';
 
 
@@ -25,6 +28,11 @@ const USER_INFO_PAGE = "USER_INFO_PAGE";
 const CONSERVE_ENERGY_CONFIG_PAGE = "CONSERVE_ENERGY_CONFIG_PAGE";
 const CONSERVE_ENERGY_CONFIG_FORM_PAGE = "CONSERVE_ENERGY_CONFIG_FORM_PAGE";
 const CHARGE_CONFIG_FORM_PAGE = "CHARGE_CONFIG_FORM_PAGE";
+const DATE_TIME_PICKER_PAGE = "DATE_TIME_PICKER_PAGE";
+const MODIFY_PASSWORD = "MODIFY_PASSWORD";
+const ACCOUNT_CANCEL_WIDGET = "ACCOUNT_CANCEL_WIDGET";
+
+
 
 class RouterManager {
   static final FluroRouter router = FluroRouter();
@@ -101,6 +109,18 @@ class RouterManager {
       List data = (parameters["serialnumber"] ?? []);
       String serialNum = data.length == 0 ? "" : data.first as String;
       return ChargeConfigFormPage(serialnumber: serialNum,);
+    }));
+
+    router.define(DATE_TIME_PICKER_PAGE,handler:Handler(handlerFunc: (BuildContext? context,Map<String,List<String>> parameters){
+      return DateTimePickerPage(timeCallback: (String value) {  },);
+    }));
+
+    router.define(MODIFY_PASSWORD,handler:Handler(handlerFunc: (BuildContext? context,Map<String,List<String>> parameters){
+      return ModifyPassword();
+    }));
+
+    router.define(ACCOUNT_CANCEL_WIDGET,handler:Handler(handlerFunc: (BuildContext? context,Map<String,List<String>> parameters){
+      return AccountCancelWidget();
     }));
   }
 

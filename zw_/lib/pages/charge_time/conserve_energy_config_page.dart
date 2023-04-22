@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zw_/generated/l10n.dart';
 import 'package:zw_/components/app_bar.dart';
-import 'package:zw_/config/img_config/image_assets.dart';
-import 'package:zw_/config/img_config/image_config.dart';
-import 'package:zw_/config/screen_util.dart';
 import 'package:zw_/pages/user_login/networking/user_networking.dart';
 import 'package:zw_/router/router_manager.dart';
 

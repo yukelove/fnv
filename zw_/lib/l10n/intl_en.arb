@@ -8,6 +8,8 @@
 "save": "Save",
 "forgotpassword": "Forgot Password",
 "loginpassword": "Password",
+"old_password": "Old password",
+"new_password": "New password",
 "confirm": "Confirm",
 "cancel": "Cancel",
 "devicelist": "Device List",
@@ -23,6 +25,9 @@
 "changepassword": "Change Password",
 "wechat": "Wechat",
 "accountcancel": "Account Cancellation",
+"cancel_reason":"Cancellation Reason",
+"cancel_tips":"Please fill in the reason for your account cancellation. Note: Once your account is cancelled, you will not be able to use our company's apps and related products. Please operate with caution!",
+"account_cancel_success":"Account Cancellation Success",
 "logout": "Log Out",
 "config": "Config",
 "updatedevicename": "Update device name",
@@ -39,6 +44,8 @@
 "mobilephone_email_need":"Mobile Phone or email can not empty！",
 "mobilephone_password_need":"Mobile Phone and email and password can not empty!",
 "user_agree_select_need":"You need to check Agree to User Agreement and Privacy Policy!",
+"modify_password":"Modify password",
+"modify_password_success":"Modify password success",
 "retrieve_password":"Retrieve password",
 "validate_code":"Validate code",
 "get_validate_code":"get validate code",
@@ -58,5 +65,7 @@
 "pv_input":"PV Input",
 "conserve_energy_config":"Conserve Energy Config",
 "power_supply_setting":"Power Supply Setting",
-"charge_config":"Charge Config"
+"charge_config":"Charge Config",
+"field_need":"need field can not empty",
+"save_success":"Save Success"
  }

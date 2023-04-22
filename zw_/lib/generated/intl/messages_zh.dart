@@ -23,6 +23,8 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "acchargerate": MessageLookupByLibrary.simpleMessage("AC 充电功率"),
+        "account_cancel_success":
+            MessageLookupByLibrary.simpleMessage("账号注销成功"),
         "accountcancel": MessageLookupByLibrary.simpleMessage("注销账号"),
         "accountmanage": MessageLookupByLibrary.simpleMessage("账户管理"),
         "accountsettings": MessageLookupByLibrary.simpleMessage("账号设置"),
@@ -32,6 +34,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "agrementdesc": MessageLookupByLibrary.simpleMessage("已认真阅读并同意"),
         "buzzer": MessageLookupByLibrary.simpleMessage("蜂鸣"),
         "cancel": MessageLookupByLibrary.simpleMessage("取消"),
+        "cancel_reason": MessageLookupByLibrary.simpleMessage("注销原因"),
+        "cancel_tips": MessageLookupByLibrary.simpleMessage(
+            "请填写您注销账号原因。注：账号一旦注销，您将无法使用本公司app及相关产品，请谨慎操作！"),
         "carcharge": MessageLookupByLibrary.simpleMessage("车充"),
         "changepassword": MessageLookupByLibrary.simpleMessage("修改密码"),
         "charge_config": MessageLookupByLibrary.simpleMessage("电池充电配置"),
@@ -44,6 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "devicelist": MessageLookupByLibrary.simpleMessage("设备列表"),
         "email": MessageLookupByLibrary.simpleMessage("邮箱"),
         "emailorphonenumer": MessageLookupByLibrary.simpleMessage("邮箱 或 手机号码"),
+        "field_need": MessageLookupByLibrary.simpleMessage("必填项不能为空"),
         "forgotpassword": MessageLookupByLibrary.simpleMessage("忘记密码"),
         "get_validate_code": MessageLookupByLibrary.simpleMessage("获取验证码"),
         "headavatar": MessageLookupByLibrary.simpleMessage("头像"),
@@ -59,9 +65,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("电话或邮箱不能为空！"),
         "mobilephone_password_need":
             MessageLookupByLibrary.simpleMessage("电话号码、邮箱、密码不能为空！"),
+        "modify_password": MessageLookupByLibrary.simpleMessage("修改密码"),
+        "modify_password_success":
+            MessageLookupByLibrary.simpleMessage("修改密码成功"),
         "name_password_need":
             MessageLookupByLibrary.simpleMessage("账号和密码不能为空！"),
+        "new_password": MessageLookupByLibrary.simpleMessage("新密码"),
         "nickname": MessageLookupByLibrary.simpleMessage("昵称"),
+        "old_password": MessageLookupByLibrary.simpleMessage("旧密码"),
         "others": MessageLookupByLibrary.simpleMessage("其他"),
         "out": MessageLookupByLibrary.simpleMessage("输出"),
         "password_need": MessageLookupByLibrary.simpleMessage("密码不能为空"),
@@ -77,6 +88,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("重置密码成功"),
         "retrieve_password": MessageLookupByLibrary.simpleMessage("找回密码"),
         "save": MessageLookupByLibrary.simpleMessage("保存"),
+        "save_success": MessageLookupByLibrary.simpleMessage("保存成功"),
         "screenbrightness": MessageLookupByLibrary.simpleMessage("屏幕亮度"),
         "serviceagreement": MessageLookupByLibrary.simpleMessage("服务协议"),
         "standbytime": MessageLookupByLibrary.simpleMessage("待机时间"),

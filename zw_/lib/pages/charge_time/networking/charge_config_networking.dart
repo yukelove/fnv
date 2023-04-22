@@ -6,19 +6,21 @@ import 'package:zw_/pages/user_login/user_info/user_info.dart';
 import 'package:zw_/utils/local_cache.dart';
 import 'package:zw_/utils/log_utils.dart';
 import 'package:zw_/utils/zw_hud.dart';
-import 'package:zw_/pages/charge_time/state/conserve_energy_config_model.dart';
 
+import '../state/charge_config_model.dart';
+import 'dart:convert';
 
-class ConserveEnergyConfigNetworking {
-  static Future<bool> timeConfigSave(
-      ConserveEnergyConfigModel conserveEnergyConfigModel) async {
-     if (conserveEnergyConfigModel.serialnumber.isEmpty) {
+class ChargeConfigNetworking {
+  static Future<bool> timeConfigSave( ChargeConfigModel chargeConfigModel) async {
+    if (chargeConfigModel.serialnumber.isEmpty || chargeConfigModel.times9.isEmpty || chargeConfigModel.timeSwitch9.isNaN) {
       ZWHud.showText(S.current.field_need);
       return false;
     }
 
     ZWHud.showLoading(S.current.toast_requesting);
-    var param = conserveEnergyConfigModel.toJson();
+
+    print(chargeConfigModel.toJson());
+    Map<String, dynamic>? param  = chargeConfigModel.toJson();
     var result = await NetworkingManager.shared().postAsync(
         url: Api.SET_DEVICES_SWITCH_CONFIG, data: param);
     var code = result["code"];
@@ -35,20 +37,18 @@ class ConserveEnergyConfigNetworking {
   static Future<Map> timeConfigQuery( String serialNumber) async {
     ZWHud.showLoading(S.current.toast_requesting);
     var param = {
-      "serialnumber": serialNumber,
+      "serialNumber": serialNumber,
       "language": "CN"
     };
     var result = await NetworkingManager.shared().postAsync(
         url: Api.QUERY_DEVICES_SWITCH_CONFIG, data: param);
-    ZWLogUtil.d("query info === ${result}");
-    Map map = (result["data"]?? {}) as Map;
+    Map map = (result["data"] ?? {}) as Map;
     ZWLogUtil.d(map);
+    ZWLogUtil.d("query info === ${result}");
     if (result is Map) {
       var code = result['code'];
       var msg = result['msg'];
-      if (null != code &&
-          code.toString().isNotEmpty &&
-          code.toString().compareTo("1") > -1) {
+      if (null != code && code.toString().isNotEmpty && code.toString().compareTo("1") > -1) {
         ZWHud.dismissLoadig();
       } else {
         if (null != msg) {

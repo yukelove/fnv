@@ -24,6 +24,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "acchargerate":
             MessageLookupByLibrary.simpleMessage("AC charging rate"),
+        "account_cancel_success": MessageLookupByLibrary.simpleMessage(
+            "Account Cancellation Success"),
         "accountcancel":
             MessageLookupByLibrary.simpleMessage("Account Cancellation"),
         "accountmanage": MessageLookupByLibrary.simpleMessage("Account Manage"),
@@ -37,6 +39,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "I have read and agreed to all contents of the"),
         "buzzer": MessageLookupByLibrary.simpleMessage("Buzzer"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "cancel_reason":
+            MessageLookupByLibrary.simpleMessage("Cancellation Reason"),
+        "cancel_tips": MessageLookupByLibrary.simpleMessage(
+            "Please fill in the reason for your account cancellation. Note: Once your account is cancelled, you will not be able to use our company\'s apps and related products. Please operate with caution!"),
         "carcharge": MessageLookupByLibrary.simpleMessage("Car charge"),
         "changepassword":
             MessageLookupByLibrary.simpleMessage("Change Password"),
@@ -51,6 +57,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emailorphonenumer":
             MessageLookupByLibrary.simpleMessage("Email or Phone Number"),
+        "field_need":
+            MessageLookupByLibrary.simpleMessage("need field can not empty"),
         "forgotpassword":
             MessageLookupByLibrary.simpleMessage("Forgot Password"),
         "get_validate_code":
@@ -68,9 +76,15 @@ class MessageLookup extends MessageLookupByLibrary {
             "Mobile Phone or email can not empty！"),
         "mobilephone_password_need": MessageLookupByLibrary.simpleMessage(
             "Mobile Phone and email and password can not empty!"),
+        "modify_password":
+            MessageLookupByLibrary.simpleMessage("Modify password"),
+        "modify_password_success":
+            MessageLookupByLibrary.simpleMessage("Modify password success"),
         "name_password_need": MessageLookupByLibrary.simpleMessage(
             "Username or password cannot be empty!"),
+        "new_password": MessageLookupByLibrary.simpleMessage("New password"),
         "nickname": MessageLookupByLibrary.simpleMessage("Nick Name"),
+        "old_password": MessageLookupByLibrary.simpleMessage("Old password"),
         "others": MessageLookupByLibrary.simpleMessage("Others"),
         "out": MessageLookupByLibrary.simpleMessage("Out"),
         "password_need":
@@ -93,6 +107,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "retrieve_password":
             MessageLookupByLibrary.simpleMessage("Retrieve password"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
+        "save_success": MessageLookupByLibrary.simpleMessage("Save Success"),
         "screenbrightness":
             MessageLookupByLibrary.simpleMessage("Screen Brightness"),
         "serviceagreement":

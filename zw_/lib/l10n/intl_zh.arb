@@ -7,6 +7,8 @@
 "save": "保存",
 "forgotpassword": "忘记密码",
 "loginpassword": "密码",
+"old_password": "旧密码",
+"new_password": "新密码",
 "confirm": "确认",
 "cancel": "取消",
 "devicelist": "设备列表",
@@ -22,6 +24,9 @@
 "changepassword": "修改密码",
 "wechat": "微信",
 "accountcancel": "注销账号",
+"cancel_reason":"注销原因",
+"cancel_tips":"请填写您注销账号原因。注：账号一旦注销，您将无法使用本公司app及相关产品，请谨慎操作！",
+"account_cancel_success":"账号注销成功",
 "logout": "退出登录",
 "config":"配置",
 
@@ -39,6 +44,8 @@
 "mobilephone_email_need":"电话或邮箱不能为空！",
 "mobilephone_password_need":"电话号码、邮箱、密码不能为空！",
 "user_agree_select_need":"需勾选同意用户协议和隐私政策！",
+"modify_password":"修改密码",
+"modify_password_success":"修改密码成功",
 "retrieve_password":"找回密码",
 "validate_code":"验证码",
 "get_validate_code":"获取验证码",
@@ -57,5 +64,7 @@
 "pv_input":"太阳能输入",
 "conserve_energy_config":"节能运行配置",
 "power_supply_setting":"供电配置",
-"charge_config":"电池充电配置"
+"charge_config":"电池充电配置",
+"field_need":"必填项不能为空",
+"save_success":"保存成功"
 }

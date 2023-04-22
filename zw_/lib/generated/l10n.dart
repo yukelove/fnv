@@ -140,6 +140,26 @@ class S {
     );
   }
 
+  /// `Old password`
+  String get old_password {
+    return Intl.message(
+      'Old password',
+      name: 'old_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New password`
+  String get new_password {
+    return Intl.message(
+      'New password',
+      name: 'new_password',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Confirm`
   String get confirm {
     return Intl.message(
@@ -285,6 +305,36 @@ class S {
     return Intl.message(
       'Account Cancellation',
       name: 'accountcancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancellation Reason`
+  String get cancel_reason {
+    return Intl.message(
+      'Cancellation Reason',
+      name: 'cancel_reason',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please fill in the reason for your account cancellation. Note: Once your account is cancelled, you will not be able to use our company's apps and related products. Please operate with caution!`
+  String get cancel_tips {
+    return Intl.message(
+      'Please fill in the reason for your account cancellation. Note: Once your account is cancelled, you will not be able to use our company\'s apps and related products. Please operate with caution!',
+      name: 'cancel_tips',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account Cancellation Success`
+  String get account_cancel_success {
+    return Intl.message(
+      'Account Cancellation Success',
+      name: 'account_cancel_success',
       desc: '',
       args: [],
     );
@@ -445,6 +495,26 @@ class S {
     return Intl.message(
       'You need to check Agree to User Agreement and Privacy Policy!',
       name: 'user_agree_select_need',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Modify password`
+  String get modify_password {
+    return Intl.message(
+      'Modify password',
+      name: 'modify_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Modify password success`
+  String get modify_password_success {
+    return Intl.message(
+      'Modify password success',
+      name: 'modify_password_success',
       desc: '',
       args: [],
     );
@@ -635,6 +705,26 @@ class S {
     return Intl.message(
       'Charge Config',
       name: 'charge_config',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `need field can not empty`
+  String get field_need {
+    return Intl.message(
+      'need field can not empty',
+      name: 'field_need',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save Success`
+  String get save_success {
+    return Intl.message(
+      'Save Success',
+      name: 'save_success',
       desc: '',
       args: [],
     );

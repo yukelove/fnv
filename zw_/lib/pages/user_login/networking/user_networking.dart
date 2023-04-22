@@ -99,7 +99,7 @@ class UserNetworking {
 
   static Future<bool> retrievePassword({required String mobilePhone, required String email, required String validateCode, required String password}) async{
     ZWHud.showLoading(S.current.toast_requesting);
-    var param = {"mobilePhone":mobilePhone,"email":email};
+    var param = {"mobilephone":mobilePhone,"email":email,"password":password,"validateCode":validateCode};
     try {
       var result = await NetworkingManager.shared().postAsync(
           url: Api.RETRIEVE_PASSWORD, data: param);
@@ -108,6 +108,70 @@ class UserNetworking {
       if (null != code && code
           .toString()
           .isNotEmpty && code.toString().compareTo("1") > -1) {
+        return true;
+      } else {
+        if (null != msg) {
+          ZWHud.showText(msg.toString());
+        }
+        return false;
+      }
+    }catch(e){
+      ZWHud.showText(e.toString());
+      return false;
+    }finally{
+    }
+  }
+
+  static Future<bool> modifyPassword({required String validateCode, required String password, required String confirmPassword}) async{
+    ZWHud.showLoading(S.current.toast_requesting);
+    UserInfo user = UserInfo.user();
+    ZWLogUtil.d("userid"+user.userid);
+    var param = {"userid":user.userid,"oldpassword":password,"newpassword":confirmPassword,"validateCode":validateCode};
+    try {
+      var result = await NetworkingManager.shared().postAsync(
+          url: Api.MODIFY_PASSWORD, data: param);
+      var code = result['code'];
+      var msg = result['msg'];
+      if (null != code && code
+          .toString()
+          .isNotEmpty && code.toString().compareTo("1") > -1) {
+        return true;
+      } else {
+        if (null != msg) {
+          ZWHud.showText(msg.toString());
+        }
+        return false;
+      }
+    }catch(e){
+      ZWHud.showText(e.toString());
+      return false;
+    }finally{
+    }
+  }
+
+
+  static Future<bool> accountCancel(String password,String cancelReason) async{
+    ZWHud.showLoading(S.current.toast_requesting);
+    UserInfo user = UserInfo.user();
+    ZWLogUtil.d("userid"+user.userid);
+    var param = {
+      "userid":user.userid,
+      "password":password,
+      "username":"",
+      "avatar":"",
+      "telephone":"",
+      "email":"",
+      "mobilephone":"",
+      "opType":"D",
+      "status":"2",
+      "token":"202303080013"
+    };
+    try {
+      var result = await NetworkingManager.shared().postAsync(
+          url: Api.USER_UPDATE, data: param);
+      var code = result['code'];
+      var msg = result['msg'];
+      if (null != code && code.toString().isNotEmpty && code.toString().compareTo("1") > -1) {
         return true;
       } else {
         if (null != msg) {
