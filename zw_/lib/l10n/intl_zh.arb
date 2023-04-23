@@ -66,5 +66,8 @@
 "power_supply_setting":"供电配置",
 "charge_config":"电池充电配置",
 "field_need":"必填项不能为空",
-"save_success":"保存成功"
+"save_success":"保存成功",
+
+"modify_user_info":"修改用户信息",
+"select_image":"选择头像"
 }

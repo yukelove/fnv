@@ -32,12 +32,12 @@ class _ModifyPasswordState extends State<ModifyPassword> {
       ),
       body: Column(
         children: [
-          Container(
-            padding: EdgeInsets.only(top: 70),
-            child: ImageAssets.image(
-                imgName: ImageAssetsConfig.IMAGE_LOGO,
-                size: Size(330.0.w, 85.0.w)),
-          ),
+          // Container(
+          //   padding: EdgeInsets.only(top: 10),
+          //   child: ImageAssets.image(
+          //       imgName: ImageAssetsConfig.IMAGE_LOGO,
+          //       size: Size(330.0.w, 25.0.w)),
+          // ),
           Expanded(
               child: SingleChildScrollView(
                 child: Container(

@@ -52,6 +52,9 @@ class _UserInfoItemState extends State<UserInfoItem> {
                           // Navigator.push(context,  PopRoute(child: AccountCancelWidget()));
                           String path = "${ACCOUNT_CANCEL_WIDGET}";
                           RouterManager.jump(context, path);
+                        }else if(S.current.headavatar == itemTitle || S.current.nickname == itemTitle || S.current.mobilephone == itemTitle){
+                          String path = "${MODIFY_USER_INFO_WIDGET}";
+                          RouterManager.jump(context, path);
                         }
                       },
                       child: Container(

@@ -51,7 +51,7 @@ class _EquipmentGridItemState extends State<EquipmentGridItem> {
                     margin: EdgeInsets.only(
                         left: SpacerConfig.SPACER_15(), bottom: 5),
                     child: Text(
-                      "Device 1",
+                      widget.itemModel.devicename,
                       style: TextStyle(
                         color: ColorsRes.color_white,
                         fontSize: FontRes.font_sp12,

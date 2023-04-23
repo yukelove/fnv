@@ -14,6 +14,8 @@ import 'package:zw_/pages/charge_time/charge_config_form_page.dart';
 import 'package:zw_/pages/tools/date_time_picker_page.dart';
 import 'package:zw_/pages/user_login/modify_password.dart';
 import 'package:zw_/pages/user_register/widgets/account_cancel_widget.dart';
+import 'package:zw_/pages/user_login/user_info/modify_user_info_widget.dart';
+import 'package:zw_/pages/user_login/user_info/crop_image_page.dart';
 import 'not_found_page.dart';
 
 
@@ -31,7 +33,8 @@ const CHARGE_CONFIG_FORM_PAGE = "CHARGE_CONFIG_FORM_PAGE";
 const DATE_TIME_PICKER_PAGE = "DATE_TIME_PICKER_PAGE";
 const MODIFY_PASSWORD = "MODIFY_PASSWORD";
 const ACCOUNT_CANCEL_WIDGET = "ACCOUNT_CANCEL_WIDGET";
-
+const MODIFY_USER_INFO_WIDGET = "MODIFY_USER_INFO_WIDGET";
+const CROP_IMAGE_PAGE = "CROP_IMAGE_PAGE";
 
 
 class RouterManager {
@@ -112,7 +115,12 @@ class RouterManager {
     }));
 
     router.define(DATE_TIME_PICKER_PAGE,handler:Handler(handlerFunc: (BuildContext? context,Map<String,List<String>> parameters){
-      return DateTimePickerPage(timeCallback: (String value) {  },);
+      List data = (parameters["chargeTime"] ?? []);
+      String chargeTime = data.length == 0 ? "" : data.first as String;
+      print("chargeTime="+chargeTime);
+      return DateTimePickerPage(timeCallback: (String value) {
+        print("call back value ="+value);
+      },chargeTime:chargeTime);
     }));
 
     router.define(MODIFY_PASSWORD,handler:Handler(handlerFunc: (BuildContext? context,Map<String,List<String>> parameters){
@@ -122,6 +130,17 @@ class RouterManager {
     router.define(ACCOUNT_CANCEL_WIDGET,handler:Handler(handlerFunc: (BuildContext? context,Map<String,List<String>> parameters){
       return AccountCancelWidget();
     }));
+
+    router.define(MODIFY_USER_INFO_WIDGET,handler:Handler(handlerFunc: (BuildContext? context,Map<String,List<String>> parameters){
+      return ModifyUserInfoWidget();
+    }));
+
+    // router.define(CROP_IMAGE_PAGE,handler:Handler(handlerFunc: (BuildContext? context,Map<String,List<String>> parameters){
+    //   List data = (parameters["originalImage"] ?? []);
+    //   String filepath = data.first as String;
+    //   return CropImagePage(filePath:filepath);
+    // }));
+
   }
 
   //返回

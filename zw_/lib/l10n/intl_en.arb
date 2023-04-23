@@ -67,5 +67,8 @@
 "power_supply_setting":"Power Supply Setting",
 "charge_config":"Charge Config",
 "field_need":"need field can not empty",
-"save_success":"Save Success"
+"save_success":"Save Success",
+
+"modify_user_info":"Modify User Info",
+"select_image":"Select image"
  }

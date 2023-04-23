@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'package:zw_/pages/tools/fnv_tools.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_cupertino_date_picker/flutter_cupertino_date_picker.dart';
 import 'package:zw_/generated/l10n.dart';
 import 'package:zw_/components/app_bar.dart';
 import 'package:zw_/utils/zw_hud.dart';
@@ -119,28 +121,28 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
       // serialnumber = chargeConfigModel.serialnumber;
       timeSwitch9  = chargeConfigModel.timeSwitch9;
       // times9       = value['times9'].toString();
-      times9Ctr.text = addStr(chargeConfigModel.times9,":");
+      times9Ctr.text = FnvTools.addStr(chargeConfigModel.times9,":");
       timeSwitch10 = chargeConfigModel.timeSwitch10;
       // times10      = value['times10'].toString();
-      times10Ctr.text = addStr(chargeConfigModel.times10,":");
+      times10Ctr.text = FnvTools.addStr(chargeConfigModel.times10,":");
       timeSwitch11 = chargeConfigModel.timeSwitch11;
       // times11      = value['times11'].toString();
-      times11Ctr.text = addStr(chargeConfigModel.times11,":");
+      times11Ctr.text = FnvTools.addStr(chargeConfigModel.times11,":");
       timeSwitch12 = chargeConfigModel.timeSwitch12;
       // times12      = value['times12'].toString();
-      times12Ctr.text = addStr(chargeConfigModel.times12,":");
+      times12Ctr.text = FnvTools.addStr(chargeConfigModel.times12,":");
       timeSwitch13 = chargeConfigModel.timeSwitch13;
       // times13      = value['times13'].toString();
-      times13Ctr.text = addStr(chargeConfigModel.times13,":");
+      times13Ctr.text = FnvTools.addStr(chargeConfigModel.times13,":");
       timeSwitch14 = chargeConfigModel.timeSwitch14;
       // times14      = value['times14'].toString();
-      times14Ctr.text = addStr(chargeConfigModel.times14,":");
+      times14Ctr.text = FnvTools.addStr(chargeConfigModel.times14,":");
       // timeSwitch15 = chargeConfigModel.timeSwitch15;
       // times15      = value['times15'].toString();
-      times15Ctr.text = addStr(chargeConfigModel.times15,":");
+      times15Ctr.text = FnvTools.addStr(chargeConfigModel.times15,":");
       // timeSwitch16 = chargeConfigModel.timeSwitch16;
       // times16      = value['times16'].toString();
-      times16Ctr.text = addStr(chargeConfigModel.times16,":");
+      times16Ctr.text = FnvTools.addStr(chargeConfigModel.times16,":");
       });
     });
 
@@ -200,6 +202,7 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                                 child: Column(
                                     children: [
                                       TextFormField(
+                                        readOnly:true,
                                         decoration: InputDecoration(
                                             hintText: '  hhmm  ',
                                         ),
@@ -213,7 +216,7 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                                         },
                                         onChanged: (value) {
                                           print('time9 onChanged');
-                                          chargeConfigModel.times9 = this.replaceStr(value, ":");
+                                          chargeConfigModel.times9 = FnvTools.replaceStr(value, ":");
                                         }
                                       ),
                                     ]
@@ -225,8 +228,27 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                                   icon: Icon(Icons.access_time),
                                   padding: EdgeInsets.zero,
                                   onPressed: () {
-                                    String path = "${DATE_TIME_PICKER_PAGE}";
-                                    RouterManager.jump(context, path);
+                                    DatePicker.showDatePicker(
+                                      context,
+                                      pickerMode: DateTimePickerMode.time,
+                                      initialDateTime: DateTime.parse("2023-01-01 "+times9Ctr.text),
+                                      dateFormat: "HH:mm",// show TimePicker
+                                      onConfirm: (dateTime, List<int> index) {
+                                        setState(() {
+                                          // 初始及修改保存后的时间
+                                          int hour  = dateTime.hour;
+                                          int mini  = dateTime.minute;
+                                          print("选择时间："+dateTime.toString());
+                                          times9Ctr.text=FnvTools.strRepair(hour,mini,-1,":");
+                                          chargeConfigModel.times9=FnvTools.strRepair(hour,mini,-1,"");
+                                        });
+                                      }
+                                    );
+                                    // String path = "${DATE_TIME_PICKER_PAGE}?chargeTime=${times9Ctr.text}";
+                                    // RouterManager.jump(context, path).then((value){
+                                    //   print("call back");
+                                    //   print("value="+value.toString());
+                                    // });
                                   },
                                 )
                               ),
@@ -247,10 +269,11 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                                 child: Column(
                                     children: [
                                       TextFormField(
+                                        readOnly:true,
                                         decoration: InputDecoration(hintText: '  hhmm  '),
                                         controller: times10Ctr,
                                         validator: (value) {
-                                          RegExp reg = new RegExp(r'^\d{2}\:\d{2}$'); //匹配手机号是否为11位
+                                          RegExp reg = new RegExp(r'^\d{2}\:\d{2}$');
                                           if (!reg.hasMatch(value!)) {
                                             return '格式错误';
                                           }
@@ -258,19 +281,36 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                                         },
                                         onChanged: (value) {
                                           print('time10 onChanged');
-                                          chargeConfigModel.times10 = this.replaceStr(value, ":");
+                                          chargeConfigModel.times10 = FnvTools.replaceStr(value, ":");
                                         },
                                       )]
                                 ),
                                 flex: 2,
                               ),
-                              Expanded(child:
-                              IconButton(
+                              Expanded(
+                                  child: IconButton(
                                 icon: Icon(Icons.access_time),
                                 padding: EdgeInsets.zero,
                                 onPressed: () {
-                                  String path = "${DATE_TIME_PICKER_PAGE}";
-                                  RouterManager.jump(context, path);
+                                  DatePicker.showDatePicker(
+                                      context,
+                                      pickerMode: DateTimePickerMode.time,
+                                      initialDateTime: DateTime.parse("2023-01-01 "+times10Ctr.text),
+                                      dateFormat: "HH:mm",// show TimePicker
+                                      onConfirm: (dateTime, List<int> index) {
+                                        setState(() {
+                                          // 初始及修改保存后的时间
+                                          int hour  = dateTime.hour;
+                                          int mini  = dateTime.minute;
+                                          print("选择时间："+dateTime.toString());
+                                          times10Ctr.text=FnvTools.strRepair(hour,mini,-1,":");
+                                          chargeConfigModel.times10=FnvTools.strRepair(hour,mini,-1,"");
+                                        });
+                                      }
+                                  );
+
+                                  // String path = "${DATE_TIME_PICKER_PAGE}";
+                                  // RouterManager.jump(context, path);
                                 },
                               )
                               ),
@@ -278,7 +318,6 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                                 child: Checkbox(
                                     value: timeSwitch9==1?true:false,
                                     onChanged: (v) {
-                                      print(v);
                                       setState(() {
                                         this.chargeConfigModel.timeSwitch9=v!?1:0;
                                         this.timeSwitch9=v!?1:0;
@@ -312,10 +351,11 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                                 child: Column(
                                     children: [
                                       TextFormField(
+                                        readOnly:true,
                                         decoration: InputDecoration(hintText: '  hhmm  '),
                                         controller: times11Ctr,
                                         validator: (value) {
-                                          RegExp reg = new RegExp(r'^\d{2}\:\d{2}$'); //匹配手机号是否为11位
+                                          RegExp reg = new RegExp(r'^\d{2}\:\d{2}$');
                                           if (!reg.hasMatch(value!)) {
                                             return '格式错误';
                                           }
@@ -323,7 +363,7 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                                         },
                                         onChanged: (value) {
                                           print('time11 onChanged');
-                                          chargeConfigModel.times11 = this.replaceStr(value, ":");
+                                          chargeConfigModel.times11 = FnvTools.replaceStr(value, ":");
                                         },
                                       )]
                                 ),
@@ -334,8 +374,23 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                                   icon: Icon(Icons.access_time),
                                   padding: EdgeInsets.zero,
                                   onPressed: () {
-                                    String path = "${DATE_TIME_PICKER_PAGE}";
-                                    RouterManager.jump(context, path);
+                                    DatePicker.showDatePicker(
+                                        context,
+                                        pickerMode: DateTimePickerMode.time,
+                                        initialDateTime: DateTime.parse("2023-01-01 "+times11Ctr.text),
+                                        dateFormat: "HH:mm",// show TimePicker
+                                        onConfirm: (dateTime, List<int> index) {
+                                          setState(() {
+                                            // 初始及修改保存后的时间
+                                            int hour  = dateTime.hour;
+                                            int mini  = dateTime.minute;
+                                            times11Ctr.text=FnvTools.strRepair(hour,mini,-1,":");
+                                            chargeConfigModel.times11=FnvTools.strRepair(hour,mini,-1,"");
+                                          });
+                                        }
+                                    );
+                                    // String path = "${DATE_TIME_PICKER_PAGE}";
+                                    // RouterManager.jump(context, path);
                                   },
                                 )
                               ),
@@ -356,10 +411,11 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                                 child: Column(
                                     children: [
                                       TextFormField(
+                                        readOnly:true,
                                         decoration: InputDecoration(hintText: '  hhmm  '),
                                         controller: times12Ctr,
                                         validator: (value) {
-                                          RegExp reg = new RegExp(r'^\d{2}\:\d{2}$'); //匹配手机号是否为11位
+                                          RegExp reg = new RegExp(r'^\d{2}\:\d{2}$');
                                           if (!reg.hasMatch(value!)) {
                                             return '格式错误';
                                           }
@@ -367,7 +423,7 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                                         },
                                         onChanged: (value) {
                                           print('time12 onChanged');
-                                          chargeConfigModel.times12 = this.replaceStr(value, ":");
+                                          chargeConfigModel.times12 = FnvTools.replaceStr(value, ":");
                                         },
                                       )]
                                 ),
@@ -378,8 +434,23 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                                   icon: Icon(Icons.access_time),
                                   padding: EdgeInsets.zero,
                                   onPressed: () {
-                                    String path = "${DATE_TIME_PICKER_PAGE}";
-                                    RouterManager.jump(context, path);
+                                    DatePicker.showDatePicker(
+                                        context,
+                                        pickerMode: DateTimePickerMode.time,
+                                        initialDateTime: DateTime.parse("2023-01-01 "+times12Ctr.text),
+                                        dateFormat: "HH:mm",// show TimePicker
+                                        onConfirm: (dateTime, List<int> index) {
+                                          setState(() {
+                                            // 初始及修改保存后的时间
+                                            int hour  = dateTime.hour;
+                                            int mini  = dateTime.minute;
+                                            times12Ctr.text=FnvTools.strRepair(hour,mini,-1,":");
+                                            chargeConfigModel.times12=FnvTools.strRepair(hour,mini,-1,"");
+                                          });
+                                        }
+                                    );
+                                    // String path = "${DATE_TIME_PICKER_PAGE}";
+                                    // RouterManager.jump(context, path);
                                   },
                                 )
                               ),
@@ -387,7 +458,6 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                                 child: Checkbox(
                                     value: timeSwitch11==1?true:false,
                                     onChanged: (v) {
-                                      print(v);
                                       setState(() {
                                         this.chargeConfigModel.timeSwitch11=v!?1:0;
                                         this.timeSwitch11=v!?1:0;
@@ -422,10 +492,11 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                                 child: Column(
                                     children: [
                                       TextFormField(
+                                        readOnly:true,
                                         decoration: InputDecoration(hintText: '  hhmm  '),
                                         controller: times13Ctr,
                                         validator: (value) {
-                                          RegExp reg = new RegExp(r'^\d{2}\:\d{2}$'); //匹配手机号是否为11位
+                                          RegExp reg = new RegExp(r'^\d{2}\:\d{2}$');
                                           if (!reg.hasMatch(value!)) {
                                             return '格式错误';
                                           }
@@ -433,7 +504,7 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                                         },
                                         onChanged: (value) {
                                           print('time13 onChanged');
-                                          chargeConfigModel.times13 = this.replaceStr(value, ":");
+                                          chargeConfigModel.times13 = FnvTools.replaceStr(value, ":");
                                         },
                                       )]
                                 ),
@@ -444,8 +515,23 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                                   icon: Icon(Icons.access_time),
                                   padding: EdgeInsets.zero,
                                   onPressed: () {
-                                    String path = "${DATE_TIME_PICKER_PAGE}";
-                                    RouterManager.jump(context, path);
+                                    DatePicker.showDatePicker(
+                                        context,
+                                        pickerMode: DateTimePickerMode.time,
+                                        initialDateTime: DateTime.parse("2023-01-01 "+times13Ctr.text),
+                                        dateFormat: "HH:mm",// show TimePicker
+                                        onConfirm: (dateTime, List<int> index) {
+                                          setState(() {
+                                            // 初始及修改保存后的时间
+                                            int hour  = dateTime.hour;
+                                            int mini  = dateTime.minute;
+                                            times13Ctr.text=FnvTools.strRepair(hour,mini,-1,":");
+                                            chargeConfigModel.times13=FnvTools.strRepair(hour,mini,-1,"");
+                                          });
+                                        }
+                                    );
+                                    // String path = "${DATE_TIME_PICKER_PAGE}";
+                                    // RouterManager.jump(context, path);
                                   },
                                 )
                               ),
@@ -466,10 +552,11 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                                 child: Column(
                                     children: [
                                       TextFormField(
+                                        readOnly:true,
                                         decoration: InputDecoration(hintText: '  hhmm  '),
                                         controller: times14Ctr,
                                         validator: (value) {
-                                          RegExp reg = new RegExp(r'^\d{2}\:\d{2}$'); //匹配手机号是否为11位
+                                          RegExp reg = new RegExp(r'^\d{2}\:\d{2}$');
                                           if (!reg.hasMatch(value!)) {
                                             return '格式错误';
                                           }
@@ -477,7 +564,7 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                                         },
                                         onChanged: (value) {
                                           print('time14 onChanged');
-                                          chargeConfigModel.times14 = this.replaceStr(value, ":");
+                                          chargeConfigModel.times14 = FnvTools.replaceStr(value, ":");
                                         },
                                       )]
                                 ),
@@ -488,8 +575,23 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                                   icon: Icon(Icons.access_time),
                                   padding: EdgeInsets.zero,
                                   onPressed: () {
-                                    String path = "${DATE_TIME_PICKER_PAGE}";
-                                    RouterManager.jump(context, path);
+                                    DatePicker.showDatePicker(
+                                        context,
+                                        pickerMode: DateTimePickerMode.time,
+                                        initialDateTime: DateTime.parse("2023-01-01 "+times14Ctr.text),
+                                        dateFormat: "HH:mm",// show TimePicker
+                                        onConfirm: (dateTime, List<int> index) {
+                                          setState(() {
+                                            // 初始及修改保存后的时间
+                                            int hour  = dateTime.hour;
+                                            int mini  = dateTime.minute;
+                                            times14Ctr.text=FnvTools.strRepair(hour,mini,-1,":");
+                                            chargeConfigModel.times14=FnvTools.strRepair(hour,mini,-1,"");
+                                          });
+                                        }
+                                    );
+                                    // String path = "${DATE_TIME_PICKER_PAGE}";
+                                    // RouterManager.jump(context, path);
                                   },
                                 )
                               ),
@@ -532,10 +634,11 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                                 child: Column(
                                     children: [
                                       TextFormField(
+                                        readOnly:true,
                                         decoration: InputDecoration(hintText: '  hhmm  '),
                                         controller: times15Ctr,
                                         validator: (value) {
-                                          RegExp reg = new RegExp(r'^\d{2}\:\d{2}$'); //匹配手机号是否为11位
+                                          RegExp reg = new RegExp(r'^\d{2}\:\d{2}$');
                                           if (!reg.hasMatch(value!)) {
                                             return '格式错误';
                                           }
@@ -543,8 +646,7 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                                         },
                                         onChanged: (value) {
                                           print('time15 onChanged');
-                                          print(this.replaceStr(value, ":"));
-                                          chargeConfigModel.times15 = this.replaceStr(value, ":");
+                                          chargeConfigModel.times15 = FnvTools.replaceStr(value, ":");
                                           print(chargeConfigModel.times15);
                                         },
                                       )]
@@ -556,8 +658,25 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                                 icon: Icon(Icons.access_time),
                                 padding: EdgeInsets.zero,
                                 onPressed: () {
-                                  String path = "${DATE_TIME_PICKER_PAGE}";
-                                  RouterManager.jump(context, path);
+                                  DatePicker.showDatePicker(
+                                      context,
+                                      pickerMode: DateTimePickerMode.time,
+                                      initialDateTime: DateTime.parse("2023-01-01 "+times15Ctr.text),
+                                      dateFormat: "HH:mm",// show TimePicker
+                                      onConfirm: (dateTime, List<int> index) {
+                                        setState(() {
+                                          // 初始及修改保存后的时间
+                                          int hour  = dateTime.hour;
+                                          int mini  = dateTime.minute;
+                                          print("选择时间："+dateTime.toString());
+                                          times15Ctr.text=FnvTools.strRepair(hour,mini,-1,":");
+                                          chargeConfigModel.times15=FnvTools.strRepair(hour,mini,-1,"");
+                                        });
+                                      }
+                                  );
+
+                                  // String path = "${DATE_TIME_PICKER_PAGE}";
+                                  // RouterManager.jump(context, path);
                                 },
                               )
                               ),
@@ -578,10 +697,11 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                                 child: Column(
                                     children: [
                                       TextFormField(
+                                        readOnly:true,
                                         decoration: InputDecoration(hintText: '  hhmm  '),
                                         controller: times16Ctr,
                                         validator: (value) {
-                                          RegExp reg = new RegExp(r'^\d{2}\:\d{2}$'); //匹配手机号是否为11位
+                                          RegExp reg = new RegExp(r'^\d{2}\:\d{2}$');
                                           if (!reg.hasMatch(value!)) {
                                             return '格式错误';
                                           }
@@ -589,7 +709,7 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                                         },
                                         onChanged: (value) {
                                           print('time16 onChanged');
-                                          chargeConfigModel.times16 = this.replaceStr(value, ":");
+                                          chargeConfigModel.times16 = FnvTools.replaceStr(value, ":");
                                         },
                                       )
 
@@ -597,15 +717,31 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                                 ),
                                 flex: 2,
                               ),
-                              Expanded(child:
-                              IconButton(
-                                icon: Icon(Icons.access_time),
-                                padding: EdgeInsets.zero,
-                                onPressed: () {
-                                  String path = "${DATE_TIME_PICKER_PAGE}";
-                                  RouterManager.jump(context, path);
-                                },
-                              )
+                              Expanded(
+                                child:IconButton(
+                                  icon: Icon(Icons.access_time),
+                                  padding: EdgeInsets.zero,
+                                  onPressed: () {
+                                    DatePicker.showDatePicker(
+                                        context,
+                                        pickerMode: DateTimePickerMode.time,
+                                        initialDateTime: DateTime.parse("2023-01-01 "+times16Ctr.text),
+                                        dateFormat: "HH:mm",// show TimePicker
+                                        onConfirm: (dateTime, List<int> index) {
+                                          setState(() {
+                                            // 初始及修改保存后的时间
+                                            int hour  = dateTime.hour;
+                                            int mini  = dateTime.minute;
+                                            times16Ctr.text=FnvTools.strRepair(hour,mini,-1,":");
+                                            chargeConfigModel.times16=FnvTools.strRepair(hour,mini,-1,"");
+                                          });
+                                        }
+                                    );
+
+                                    // String path = "${DATE_TIME_PICKER_PAGE}";
+                                    // RouterManager.jump(context, path);
+                                  },
+                                )
                               ),
                               Expanded(
                                 child: Checkbox(
@@ -680,14 +816,29 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
      }
   }
 
-  String addStr(String targetStr,String addStr){
-    String strPrefix  =  targetStr.substring(0,2);
-    String strSuffix  =  targetStr.substring(2);
-    return strPrefix+addStr+strSuffix;
-  }
-
-  String replaceStr(String targetStr,String replaceStr){
-    return  targetStr.replaceAll(":", "");
-  }
+  // String addStr(String targetStr,String addStr){
+  //   String strPrefix  =  targetStr.substring(0,2);
+  //   String strSuffix  =  targetStr.substring(2);
+  //   return strPrefix+addStr+strSuffix;
+  // }
+  //
+  // String replaceStr(String targetStr,String replaceStr){
+  //   return  targetStr.replaceAll(":", "");
+  // }
+  //
+  // String strRepair(int hour, int mini, int sec,String splitStr) {
+  //   if(hour.isNaN || mini.isNaN || hour<0 || mini<0){
+  //     return "00"+splitStr+"00";
+  //   }else{
+  //     String hourStr  = hour.bitLength==2?hour.toString():"0"+hour.toString();
+  //     String miniStr  = mini.bitLength==2?mini.toString():"0"+mini.toString();
+  //     if(sec.isNaN || sec<0){
+  //       return hourStr+splitStr+miniStr;
+  //     }else{
+  //       String secStr  = sec.bitLength==2?sec.toString():"0"+sec.toString();
+  //       return hourStr+splitStr+miniStr+splitStr+secStr;
+  //     }
+  //   }
+  // }
 
 }

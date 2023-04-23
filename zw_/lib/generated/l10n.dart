@@ -729,6 +729,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Modify User Info`
+  String get modify_user_info {
+    return Intl.message(
+      'Modify User Info',
+      name: 'modify_user_info',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select image`
+  String get select_image {
+    return Intl.message(
+      'Select image',
+      name: 'select_image',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

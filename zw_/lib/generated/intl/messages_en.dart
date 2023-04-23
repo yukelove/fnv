@@ -80,6 +80,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Modify password"),
         "modify_password_success":
             MessageLookupByLibrary.simpleMessage("Modify password success"),
+        "modify_user_info":
+            MessageLookupByLibrary.simpleMessage("Modify User Info"),
         "name_password_need": MessageLookupByLibrary.simpleMessage(
             "Username or password cannot be empty!"),
         "new_password": MessageLookupByLibrary.simpleMessage("New password"),
@@ -110,6 +112,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "save_success": MessageLookupByLibrary.simpleMessage("Save Success"),
         "screenbrightness":
             MessageLookupByLibrary.simpleMessage("Screen Brightness"),
+        "select_image": MessageLookupByLibrary.simpleMessage("Select image"),
         "serviceagreement":
             MessageLookupByLibrary.simpleMessage("Service Agreement"),
         "standbytime":

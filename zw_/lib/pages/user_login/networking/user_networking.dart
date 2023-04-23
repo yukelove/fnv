@@ -185,4 +185,39 @@ class UserNetworking {
     }finally{
     }
   }
+
+  static Future<bool> modifyUserInfo(String userName,String avatar,String phoneNmuber) async{
+    ZWHud.showLoading(S.current.toast_requesting);
+    UserInfo user = UserInfo.user();
+    ZWLogUtil.d("userid"+user.userid);
+    var param = {
+      "userid":user.userid,
+      "username":userName.isEmpty?user.username:userName,
+      "avatar":avatar.isEmpty?user.avatar:avatar,
+      "telephone":phoneNmuber.isEmpty?user.telephone:phoneNmuber,
+      "email":user.email,
+      "mobilephone":phoneNmuber.isEmpty?user.telephone:phoneNmuber,
+      "opType":"U",
+      "status":"1",
+      "token":"202303080013"
+    };
+    try {
+      var result = await NetworkingManager.shared().postAsync(
+          url: Api.USER_UPDATE, data: param);
+      var code = result['code'];
+      var msg = result['msg'];
+      if (null != code && code.toString().isNotEmpty && code.toString().compareTo("1") > -1) {
+        return true;
+      } else {
+        if (null != msg) {
+          ZWHud.showText(msg.toString());
+        }
+        return false;
+      }
+    }catch(e){
+      ZWHud.showText(e.toString());
+      return false;
+    }finally{
+    }
+  }
 }

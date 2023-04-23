@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cupertino_date_picker/flutter_cupertino_date_picker.dart';
 import 'package:zw_/generated/l10n.dart';
 import 'package:zw_/components/app_bar.dart';
 import 'package:zw_/pages/charge_time/networking/conserve_energy_config_networking.dart';
 import 'package:zw_/utils/zw_hud.dart';
 import 'package:zw_/router/router_manager.dart';
 import 'package:zw_/pages/charge_time/state/conserve_energy_config_model.dart';
+
+import '../tools/fnv_tools.dart';
 
 class ConserveEnergyConfigFormPage extends StatefulWidget {
    String serialnumber="";
@@ -218,6 +221,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                 child: Column(
                                     children: [
                                       TextFormField(
+                                        readOnly:true,
                                         decoration: InputDecoration(hintText: '  hhmm  '),
                                         controller: times1Ctr,
                                         validator: (value) {
@@ -239,8 +243,23 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                   icon: Icon(Icons.access_time),
                                   padding: EdgeInsets.zero,
                                   onPressed: () {
-                                    String path = "${DATE_TIME_PICKER_PAGE}";
-                                    RouterManager.jump(context, path);
+                                    DatePicker.showDatePicker(
+                                        context,
+                                        pickerMode: DateTimePickerMode.time,
+                                        initialDateTime: DateTime.parse("2023-01-01 "+times1Ctr.text),
+                                        dateFormat: "HH:mm",// show TimePicker
+                                        onConfirm: (dateTime, List<int> index) {
+                                          setState(() {
+                                            // 初始及修改保存后的时间
+                                            int hour  = dateTime.hour;
+                                            int mini  = dateTime.minute;
+                                            times1Ctr.text=FnvTools.strRepair(hour,mini,-1,":");
+                                            conserveEnergyConfigModel.times1=FnvTools.strRepair(hour,mini,-1,"");
+                                          });
+                                        }
+                                    );
+                                    // String path = "${DATE_TIME_PICKER_PAGE}";
+                                    // RouterManager.jump(context, path);
                                   },
                                 )
                               ),
@@ -313,6 +332,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                 child: Column(
                                     children: [
                                       TextFormField(
+                                        readOnly:true,
                                         decoration: InputDecoration(hintText: '  hhmm  '),
                                         controller: times2Ctr,
                                         validator: (value) {
@@ -335,8 +355,24 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                     icon: Icon(Icons.access_time),
                                     padding: EdgeInsets.zero,
                                     onPressed: () {
-                                      String path = "${DATE_TIME_PICKER_PAGE}";
-                                      RouterManager.jump(context, path);
+                                      DatePicker.showDatePicker(
+                                          context,
+                                          pickerMode: DateTimePickerMode.time,
+                                          initialDateTime: DateTime.parse("2023-01-01 "+times2Ctr.text),
+                                          dateFormat: "HH:mm",// show TimePicker
+                                          onConfirm: (dateTime, List<int> index) {
+                                            setState(() {
+                                              // 初始及修改保存后的时间
+                                              int hour  = dateTime.hour;
+                                              int mini  = dateTime.minute;
+                                              times2Ctr.text=FnvTools.strRepair(hour,mini,-1,":");
+                                              conserveEnergyConfigModel.times2=FnvTools.strRepair(hour,mini,-1,"");
+                                            });
+                                          }
+                                      );
+
+                                      // String path = "${DATE_TIME_PICKER_PAGE}";
+                                      // RouterManager.jump(context, path);
                                     },
                                   )
                               ),
@@ -409,6 +445,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                 child: Column(
                                     children: [
                                       TextFormField(
+                                        readOnly:true,
                                         decoration: InputDecoration(hintText: '  hhmm  '),
                                         controller: times3Ctr,
                                         validator: (value) {
@@ -431,8 +468,23 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                     icon: Icon(Icons.access_time),
                                     padding: EdgeInsets.zero,
                                     onPressed: () {
-                                      String path = "${DATE_TIME_PICKER_PAGE}";
-                                      RouterManager.jump(context, path);
+                                      DatePicker.showDatePicker(
+                                          context,
+                                          pickerMode: DateTimePickerMode.time,
+                                          initialDateTime: DateTime.parse("2023-01-01 "+times3Ctr.text),
+                                          dateFormat: "HH:mm",// show TimePicker
+                                          onConfirm: (dateTime, List<int> index) {
+                                            setState(() {
+                                              // 初始及修改保存后的时间
+                                              int hour  = dateTime.hour;
+                                              int mini  = dateTime.minute;
+                                              times3Ctr.text=FnvTools.strRepair(hour,mini,-1,":");
+                                              conserveEnergyConfigModel.times3=FnvTools.strRepair(hour,mini,-1,"");
+                                            });
+                                          }
+                                      );
+                                      // String path = "${DATE_TIME_PICKER_PAGE}";
+                                      // RouterManager.jump(context, path);
                                     },
                                   )
                               ),
@@ -505,6 +557,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                 child: Column(
                                     children: [
                                       TextFormField(
+                                        readOnly:true,
                                         decoration: InputDecoration(hintText: '  hhmm  '),
                                         controller: times5Ctr,
                                         validator: (value) {
@@ -527,8 +580,23 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                     icon: Icon(Icons.access_time),
                                     padding: EdgeInsets.zero,
                                     onPressed: () {
-                                      String path = "${DATE_TIME_PICKER_PAGE}";
-                                      RouterManager.jump(context, path);
+                                      DatePicker.showDatePicker(
+                                          context,
+                                          pickerMode: DateTimePickerMode.time,
+                                          initialDateTime: DateTime.parse("2023-01-01 "+times4Ctr.text),
+                                          dateFormat: "HH:mm",// show TimePicker
+                                          onConfirm: (dateTime, List<int> index) {
+                                            setState(() {
+                                              // 初始及修改保存后的时间
+                                              int hour  = dateTime.hour;
+                                              int mini  = dateTime.minute;
+                                              times4Ctr.text=FnvTools.strRepair(hour,mini,-1,":");
+                                              conserveEnergyConfigModel.times4=FnvTools.strRepair(hour,mini,-1,"");
+                                            });
+                                          }
+                                      );
+                                      // String path = "${DATE_TIME_PICKER_PAGE}";
+                                      // RouterManager.jump(context, path);
                                     },
                                   )
                               ),
@@ -601,6 +669,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                 child: Column(
                                     children: [
                                       TextFormField(
+                                        readOnly:true,
                                         decoration: InputDecoration(hintText: '  hhmm  '),
                                         controller: times5Ctr,
                                         validator: (value) {
@@ -623,8 +692,23 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                     icon: Icon(Icons.access_time),
                                     padding: EdgeInsets.zero,
                                     onPressed: () {
-                                      String path = "${DATE_TIME_PICKER_PAGE}";
-                                      RouterManager.jump(context, path);
+                                      DatePicker.showDatePicker(
+                                          context,
+                                          pickerMode: DateTimePickerMode.time,
+                                          initialDateTime: DateTime.parse("2023-01-01 "+times5Ctr.text),
+                                          dateFormat: "HH:mm",// show TimePicker
+                                          onConfirm: (dateTime, List<int> index) {
+                                            setState(() {
+                                              // 初始及修改保存后的时间
+                                              int hour  = dateTime.hour;
+                                              int mini  = dateTime.minute;
+                                              times5Ctr.text=FnvTools.strRepair(hour,mini,-1,":");
+                                              conserveEnergyConfigModel.times5=FnvTools.strRepair(hour,mini,-1,"");
+                                            });
+                                          }
+                                      );
+                                      // String path = "${DATE_TIME_PICKER_PAGE}";
+                                      // RouterManager.jump(context, path);
                                     },
                                   )
                               ),
@@ -697,6 +781,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                 child: Column(
                                     children: [
                                       TextFormField(
+                                        readOnly:true,
                                         decoration: InputDecoration(hintText: '  hhmm  '),
                                         controller: times6Ctr,
                                         validator: (value) {
@@ -719,8 +804,23 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                     icon: Icon(Icons.access_time),
                                     padding: EdgeInsets.zero,
                                     onPressed: () {
-                                      String path = "${DATE_TIME_PICKER_PAGE}";
-                                      RouterManager.jump(context, path);
+                                      DatePicker.showDatePicker(
+                                          context,
+                                          pickerMode: DateTimePickerMode.time,
+                                          initialDateTime: DateTime.parse("2023-01-01 "+times6Ctr.text),
+                                          dateFormat: "HH:mm",// show TimePicker
+                                          onConfirm: (dateTime, List<int> index) {
+                                            setState(() {
+                                              // 初始及修改保存后的时间
+                                              int hour  = dateTime.hour;
+                                              int mini  = dateTime.minute;
+                                              times6Ctr.text=FnvTools.strRepair(hour,mini,-1,":");
+                                              conserveEnergyConfigModel.times6=FnvTools.strRepair(hour,mini,-1,"");
+                                            });
+                                          }
+                                      );
+                                      // String path = "${DATE_TIME_PICKER_PAGE}";
+                                      // RouterManager.jump(context, path);
                                     },
                                   )
                               ),
@@ -793,6 +893,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                 child: Column(
                                     children: [
                                       TextFormField(
+                                        readOnly:true,
                                         decoration: InputDecoration(hintText: '  hhmm  '),
                                         controller: times7Ctr,
                                         validator: (value) {
@@ -815,8 +916,23 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                     icon: Icon(Icons.access_time),
                                     padding: EdgeInsets.zero,
                                     onPressed: () {
-                                      String path = "${DATE_TIME_PICKER_PAGE}";
-                                      RouterManager.jump(context, path);
+                                      DatePicker.showDatePicker(
+                                          context,
+                                          pickerMode: DateTimePickerMode.time,
+                                          initialDateTime: DateTime.parse("2023-01-01 "+times7Ctr.text),
+                                          dateFormat: "HH:mm",// show TimePicker
+                                          onConfirm: (dateTime, List<int> index) {
+                                            setState(() {
+                                              // 初始及修改保存后的时间
+                                              int hour  = dateTime.hour;
+                                              int mini  = dateTime.minute;
+                                              times7Ctr.text=FnvTools.strRepair(hour,mini,-1,":");
+                                              conserveEnergyConfigModel.times7=FnvTools.strRepair(hour,mini,-1,"");
+                                            });
+                                          }
+                                      );
+                                      // String path = "${DATE_TIME_PICKER_PAGE}";
+                                      // RouterManager.jump(context, path);
                                     },
                                   )
                               ),
@@ -890,6 +1006,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                 child: Column(
                                     children: [
                                       TextFormField(
+                                        readOnly:true,
                                         decoration: InputDecoration(hintText: '  hhmm  '),
                                         controller: times8Ctr,
                                         validator: (value) {
@@ -912,8 +1029,23 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                     icon: Icon(Icons.access_time),
                                     padding: EdgeInsets.zero,
                                     onPressed: () {
-                                      String path = "${DATE_TIME_PICKER_PAGE}";
-                                      RouterManager.jump(context, path);
+                                      DatePicker.showDatePicker(
+                                          context,
+                                          pickerMode: DateTimePickerMode.time,
+                                          initialDateTime: DateTime.parse("2023-01-01 "+times8Ctr.text),
+                                          dateFormat: "HH:mm",// show TimePicker
+                                          onConfirm: (dateTime, List<int> index) {
+                                            setState(() {
+                                              // 初始及修改保存后的时间
+                                              int hour  = dateTime.hour;
+                                              int mini  = dateTime.minute;
+                                              times8Ctr.text=FnvTools.strRepair(hour,mini,-1,":");
+                                              conserveEnergyConfigModel.times8=FnvTools.strRepair(hour,mini,-1,"");
+                                            });
+                                          }
+                                      );
+                                      // String path = "${DATE_TIME_PICKER_PAGE}";
+                                      // RouterManager.jump(context, path);
                                     },
                                   )
                               ),

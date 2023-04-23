@@ -68,6 +68,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "modify_password": MessageLookupByLibrary.simpleMessage("修改密码"),
         "modify_password_success":
             MessageLookupByLibrary.simpleMessage("修改密码成功"),
+        "modify_user_info": MessageLookupByLibrary.simpleMessage("修改用户信息"),
         "name_password_need":
             MessageLookupByLibrary.simpleMessage("账号和密码不能为空！"),
         "new_password": MessageLookupByLibrary.simpleMessage("新密码"),
@@ -90,6 +91,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "save": MessageLookupByLibrary.simpleMessage("保存"),
         "save_success": MessageLookupByLibrary.simpleMessage("保存成功"),
         "screenbrightness": MessageLookupByLibrary.simpleMessage("屏幕亮度"),
+        "select_image": MessageLookupByLibrary.simpleMessage("选择头像"),
         "serviceagreement": MessageLookupByLibrary.simpleMessage("服务协议"),
         "standbytime": MessageLookupByLibrary.simpleMessage("待机时间"),
         "toast_requesting": MessageLookupByLibrary.simpleMessage("请求中..."),
