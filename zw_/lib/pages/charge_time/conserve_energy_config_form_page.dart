@@ -559,7 +559,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                       TextFormField(
                                         readOnly:true,
                                         decoration: InputDecoration(hintText: '  hhmm  '),
-                                        controller: times5Ctr,
+                                        controller: times4Ctr,
                                         validator: (value) {
                                           RegExp reg = new RegExp(r'^\d{2}\:\d{2}$');
                                           if (!reg.hasMatch(value!)) {

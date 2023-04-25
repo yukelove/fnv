@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "DC": MessageLookupByLibrary.simpleMessage("直流"),
         "acchargerate": MessageLookupByLibrary.simpleMessage("AC 充电功率"),
         "account_cancel_success":
             MessageLookupByLibrary.simpleMessage("账号注销成功"),
@@ -46,6 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("节能运行配置"),
         "device": MessageLookupByLibrary.simpleMessage("设备"),
         "device_detail": MessageLookupByLibrary.simpleMessage("设备详情"),
+        "device_input": MessageLookupByLibrary.simpleMessage("输入功率"),
         "devicelist": MessageLookupByLibrary.simpleMessage("设备列表"),
         "email": MessageLookupByLibrary.simpleMessage("邮箱"),
         "emailorphonenumer": MessageLookupByLibrary.simpleMessage("邮箱 或 手机号码"),
@@ -95,7 +97,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "serviceagreement": MessageLookupByLibrary.simpleMessage("服务协议"),
         "standbytime": MessageLookupByLibrary.simpleMessage("待机时间"),
         "toast_requesting": MessageLookupByLibrary.simpleMessage("请求中..."),
+        "turn_off": MessageLookupByLibrary.simpleMessage("关闭电源"),
+        "turn_on": MessageLookupByLibrary.simpleMessage("打开电源"),
         "type": MessageLookupByLibrary.simpleMessage("类型"),
+        "update_success": MessageLookupByLibrary.simpleMessage("更新成功"),
         "updatedevicename": MessageLookupByLibrary.simpleMessage("更新设备名称"),
         "user_agree_select_need":
             MessageLookupByLibrary.simpleMessage("需勾选同意用户协议和隐私政策！"),

@@ -1,3 +1,5 @@
+
+import 'package:zw_/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:zw_/config/colors_config/color_config.dart';
 import 'package:zw_/config/font_config/font_config.dart';
@@ -5,12 +7,17 @@ import 'package:zw_/config/img_config/image_assets.dart';
 import 'package:zw_/config/img_config/image_config.dart';
 import 'package:zw_/config/screen_util.dart';
 import 'package:zw_/config/spacer_config/SpacerConfig.dart';
+import 'package:zw_/pages/equipment_list/state/equipment_model.dart';
+import 'package:zw_/utils/zw_hud.dart';
+
+import '../networking/equipment_detail_networking.dart';
 
 class EquipmentSwitchType extends StatefulWidget {
   final String imgName;
   final String powerValue;
-  final bool switchOff;
-  EquipmentSwitchType({Key? key,required this.imgName,required this.powerValue,this.switchOff = false}) : super(key: key);
+  late  bool switchOff;
+  late EquipmentModel model;
+  EquipmentSwitchType({Key? key,required this.imgName,required this.powerValue,this.switchOff = false, required this.model}) : super(key: key);
 
   @override
   State<EquipmentSwitchType> createState() => _EquipmentSwitchTypeState();
@@ -24,13 +31,31 @@ class _EquipmentSwitchTypeState extends State<EquipmentSwitchType> {
         children: [
           Center(
               child: Container(
-                  decoration: BoxDecoration(
-                      color: widget.switchOff ? ColorsRes.color_30CB96 : ColorsRes.color_7F8A8D,
-                      borderRadius: BorderRadius.circular(12.0.w),
-                      border: Border.all(color: ColorsRes.color_929090)),
-                  child: ImageAssets.image(
-                      imgName: ImageAssetsConfig.IMAGE_SWITCH_OFF,
-                      size: Size(24.0.w, 24.0.w)))),
+                  width: 20,
+                  height: 20,
+                  // decoration: BoxDecoration(
+                  //     color: widget.switchOff ? ColorsRes.color_30CB96 : ColorsRes.color_7F8A8D,
+                  //     borderRadius: BorderRadius.circular(12.0.w),
+                  //     border: Border.all(color: ColorsRes.color_929090),
+                  // ),
+                  child: GestureDetector(
+                      onTap:callInterface,
+                      child: Container(
+                        color: widget.switchOff ? ColorsRes.color_30CB96 : ColorsRes.color_7F8A8D,
+                        child:ImageAssets.image(
+                          imgName: ImageAssetsConfig.IMAGE_SWITCH_OFF,
+                          size: Size(30.0.w, 30.0.w)
+                        ),
+                      )
+                    // child: IconButton(
+                    //   icon: Icon(Icons.lock),
+                    //   onPressed: callInterface,
+                    //   color: Colors.grey,
+                    //   highlightColor: Colors.green,
+                    // ),
+                  )
+              )
+          ),
           Container(
             height: SpacerConfig.SPACER_5(),
           ),
@@ -39,7 +64,7 @@ class _EquipmentSwitchTypeState extends State<EquipmentSwitchType> {
             width: 67.0.w,
             height: 71.0.w,
             decoration: BoxDecoration(
-                color: ColorsRes.color_B4B4BC,
+                color: widget.switchOff ? ColorsRes.color_B4B4BC : ColorsRes.color_7F8A8D,
                 borderRadius: BorderRadius.circular(10.0.w)),
             padding: EdgeInsets.only(top: 5.0.w, bottom: 5.0.w),
             child: Column(
@@ -63,4 +88,36 @@ class _EquipmentSwitchTypeState extends State<EquipmentSwitchType> {
       ),
     );
   }
+
+  void callInterface(){
+    print("call interface");
+    setState(() {
+      if(widget.switchOff){
+        ZWHud.showLoading(S.current.turn_off);
+        widget.switchOff = false;
+        EquipmentDetailNetworking.editEquipmentInfo(widget.model).then((value){
+          if(value){
+            print("call interface success");
+          }else{
+            print("call interface fail");
+          }
+        });
+        ZWHud.dismissLoadig();
+      }else {
+        ZWHud.showLoading(S.current.turn_on);
+        widget.switchOff = true;
+        EquipmentDetailNetworking.editEquipmentInfo(widget.model).then((value){
+          if(value){
+            print("call interface success");
+          }else{
+            print("call interface fail");
+          }
+        });
+        ZWHud.dismissLoadig();
+      }
+    });
+
+  }
 }
+
+

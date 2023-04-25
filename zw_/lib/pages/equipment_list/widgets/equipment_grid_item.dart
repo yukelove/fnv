@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:zw_/config/colors_config/color_config.dart';
 import 'package:zw_/config/font_config/font_config.dart';
@@ -62,7 +60,7 @@ class _EquipmentGridItemState extends State<EquipmentGridItem> {
                   Container(
                     margin: EdgeInsets.only(right: SpacerConfig.SPACER_30()),
                     child: Text(
-                      "45%",
+                      widget.itemModel.dumpenergy.toString()+"%",
                       style: TextStyle(
                         color: ColorsRes.color_white,
                         fontSize: FontRes.font_sp12,
@@ -77,7 +75,7 @@ class _EquipmentGridItemState extends State<EquipmentGridItem> {
                 child: LinearProgressIndicator(
                   backgroundColor: ColorsRes.color_black,
                   valueColor: AlwaysStoppedAnimation(ColorsRes.color_40F717),
-                  value: Random(100).nextDouble(),
+                  value: widget.itemModel.dumpenergy,
                 ),
               )
             ],

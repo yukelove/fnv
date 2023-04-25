@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zw_/generated/l10n.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zw_/components/app_bar.dart';
 import 'package:zw_/config/colors_config/color_config.dart';
@@ -24,9 +25,16 @@ class EquipmentDetail extends StatefulWidget {
 }
 
 class _EquipmentDetailState extends State<EquipmentDetail> {
+
+
   @override
   Widget build(BuildContext context) {
     var switchOff = false;
+    var switchOffAC = false;
+    var switchOffTypeC = false;
+    var switchOffUSB = false;
+    var switchOffLed = false;
+    var switchOffDC = false;
     return BlocProvider(
         lazy: false,
         create: (_) {
@@ -44,13 +52,12 @@ class _EquipmentDetailState extends State<EquipmentDetail> {
         },
         child: BlocBuilder<EquipmentDetailCubit, EquipmentDetailState>(
           builder: (ctx, state) {
-            //
             EquipmentModel model = state.model;
             return Scaffold(
               appBar: PreferredSize(
                   preferredSize: Size.fromHeight(54),
                   child: CustomAppBar(
-                    title: "设备详情",
+                    title: S.current.device_detail,
                     leadingIcon: ImageAssetsConfig.IMAGE_LEFT_ARROR,
                     actionIcon: ImageAssetsConfig.IMAGE_SETTING,
                     leadingCallBack: () {
@@ -80,7 +87,7 @@ class _EquipmentDetailState extends State<EquipmentDetail> {
                                 left: 10.0.w,
                                 top: 10.0.w,
                                 child: Text(
-                                  "Input",
+                                  S.current.input,
                                   style: TextStyle(fontWeight: FontWeight.bold),
                                 )),
                             Positioned(
@@ -147,14 +154,14 @@ class _EquipmentDetailState extends State<EquipmentDetail> {
                                   Container(
                                       margin: EdgeInsets.only(top: 5.0.w),
                                       child: Text(
-                                        "Type",
+                                        S.current.type,
                                         style: TextStyle(
                                             fontSize: FontRes.font_sp14,
                                             fontWeight: FontWeight.bold),
                                       )),
                                   Container(
                                       margin: EdgeInsets.only(bottom: 5.0.w),
-                                      child: Text("Out",
+                                      child: Text(S.current.out,
                                           style: TextStyle(
                                               fontSize: FontRes.font_sp14,
                                               fontWeight: FontWeight.bold)))
@@ -168,22 +175,28 @@ class _EquipmentDetailState extends State<EquipmentDetail> {
                                 children: [
                                   EquipmentSwitchType(
                                     imgName: ImageAssetsConfig.IMAGE_AC,
-                                    powerValue: "${model.outPower}",
-                                    switchOff: true,
+                                    powerValue: "${model.acPower}",
+                                    switchOff: switchOffAC,
+                                    model: model,
                                   ),
                                   EquipmentSwitchType(
-                                      imgName:
-                                          ImageAssetsConfig.IMAGE_VOICEMAIL,
-                                      powerValue: "${model.acPower}",
-                                      switchOff: false),
+                                      imgName: ImageAssetsConfig.IMAGE_VOICEMAIL,
+                                      powerValue: "${model.typecPower}",
+                                      switchOff: switchOffTypeC,
+                                      model: model,
+                                  ),
                                   EquipmentSwitchType(
                                       imgName: ImageAssetsConfig.IMAGE_BOX,
-                                      powerValue: "${model.dcPower}",
-                                      switchOff: true),
+                                      powerValue: "${model.usbPower}",
+                                      switchOff: switchOffUSB,
+                                      model: model,
+                                  ),
                                   EquipmentSwitchType(
                                       imgName: ImageAssetsConfig.IMAGE_SUNSHINE,
                                       powerValue: "${model.ledPower}",
-                                      switchOff: true),
+                                      switchOff: switchOffLed,
+                                      model: model,
+                                  ),
                                 ],
                               ),
                             ),
@@ -204,7 +217,7 @@ class _EquipmentDetailState extends State<EquipmentDetail> {
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("PV Input ",
+                                Text(S.current.pv_input,
                                     style: TextStyle(
                                         fontSize: FontRes.font_sp16,
                                         fontWeight: FontWeight.bold)),
@@ -221,7 +234,7 @@ class _EquipmentDetailState extends State<EquipmentDetail> {
                                 children: [
                                   Text.rich(TextSpan(children: [
                                     TextSpan(
-                                        text: "${model.pvInputPower}",
+                                        text: "${model.pvInputVoltage}",
                                         style: TextStyle(
                                             fontSize: FontRes.font_sp20,
                                             fontWeight: FontWeight.bold)),
@@ -232,7 +245,7 @@ class _EquipmentDetailState extends State<EquipmentDetail> {
                                   ])),
                                   Text.rich(TextSpan(children: [
                                     TextSpan(
-                                        text: "${model.deviceTempc}",
+                                        text: "${model.pvInputPower}",
                                         style: TextStyle(
                                             fontSize: FontRes.font_sp20,
                                             fontWeight: FontWeight.bold)),
@@ -265,7 +278,7 @@ class _EquipmentDetailState extends State<EquipmentDetail> {
                               child: Center(
                                   child: Container(
                                       decoration: BoxDecoration(
-                                          color: switchOff
+                                          color: switchOffDC
                                               ? ColorsRes.color_30CB96
                                               : ColorsRes.color_7F8A8D,
                                           borderRadius:
@@ -273,8 +286,7 @@ class _EquipmentDetailState extends State<EquipmentDetail> {
                                           border: Border.all(
                                               color: ColorsRes.color_929090)),
                                       child: ImageAssets.image(
-                                          imgName: ImageAssetsConfig
-                                              .IMAGE_SWITCH_OFF,
+                                          imgName: ImageAssetsConfig.IMAGE_SWITCH_OFF,
                                           size: Size(24.0.w, 24.0.w)))),
                             ),
                             Container(
@@ -297,12 +309,12 @@ class _EquipmentDetailState extends State<EquipmentDetail> {
                                             child:
                                                 Text.rich(TextSpan(children: [
                                               TextSpan(
-                                                  text: "DC ",
+                                                  text: S.current.DC,
                                                   style: TextStyle(
                                                       fontSize:
                                                           FontRes.font_sp12)),
                                               TextSpan(
-                                                  text: "${model.deviceTempc}V",
+                                                  text: "${model.dcPower}V",
                                                   style: TextStyle(
                                                       fontSize:
                                                           FontRes.font_sp12)),

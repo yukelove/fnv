@@ -182,7 +182,7 @@ class _EquipmentInfoEditPageState extends State<EquipmentInfoEditPage> {
           return new AlertDialog(
             title:new Text("点击提示"),
             content:new SingleChildScrollView(
-                child:new ListBody(children: [new Text("${"点击到第"+position.toString()+"条数据"}")])),
+                child:new ListBody(children: [new Text("${"开发中，敬请期待!"+position.toString()}")])),
             actions: [
               new TextButton(
                 child:new Text("取消"),

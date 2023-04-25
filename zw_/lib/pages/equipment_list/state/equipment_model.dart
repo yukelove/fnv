@@ -35,6 +35,7 @@ class EquipmentModel {
   late double ledPower;
   late double dcPower;
   late double pvInputPower;
+  late double pvInputVoltage;
   late double totalInputPower;
   late double totalOutputPower;
   EquipmentModel(
@@ -57,6 +58,7 @@ class EquipmentModel {
       double ledPower = 0.0,
       double dcPower = 0.0,
       double pvInputPower = 0.0,
+      double pvInputVoltage = 0.0,
       double totalInputPower = 0.0,
       double totalOutputPower = 0.0}) {
     this.serialnumber = serialnumber;
@@ -78,6 +80,7 @@ class EquipmentModel {
     this.ledPower = ledPower;
     this.dcPower = dcPower;
     this.pvInputPower = pvInputPower;
+    this.pvInputVoltage = pvInputVoltage;
     this.totalInputPower = totalInputPower;
     this.totalOutputPower = totalOutputPower;
   }
@@ -102,6 +105,7 @@ class EquipmentModel {
     double ledPower = (map["ledPower"] ?? 0.0) as double;
     double dcPower = (map["dcPower"] ?? 0.0) as double;
     double pvInputPower = (map["pvInputPower"] ?? 0.0) as double;
+    double pvInputVoltage = (map["pvInputVoltage"] ?? 0.0) as double;
     double totalInputPower = (map["totalInputPower"] ?? 0.0) as double;
     double totalOutputPower = (map["totalOutputPower"] ?? 0.0) as double;
     return EquipmentModel(
@@ -124,8 +128,37 @@ class EquipmentModel {
         ledPower: ledPower,
         dcPower: dcPower,
         pvInputPower: pvInputPower,
+        pvInputVoltage: pvInputVoltage,
         totalInputPower: totalInputPower,
         totalOutputPower: totalOutputPower
         );
   }
+
+
+  Map<String, dynamic> toJson() =>
+      <String, dynamic>{
+        'serialnumber': serialnumber,
+        'devicename':devicename,
+        'deviceenname':deviceenname,
+        'icon':icon,
+        'dumpenergy':dumpenergy,
+        'sort':sort,
+        'status':status,
+        'deviceTempf':deviceTempf,
+        'deviceTempc':deviceTempc,
+        'batteryCellTempf':batteryCellTempf,
+        'batteryCellTempc':batteryCellTempc,
+        'inputPower':inputPower,
+        'outPower':outPower,
+        'acPower':acPower,
+        'usbPower':usbPower,
+        'typecPower':typecPower,
+        'ledPower':ledPower,
+        'dcPower':dcPower,
+        'pvInputPower':pvInputPower,
+        'pvInputVoltage':pvInputVoltage,
+        'totalInputPower':totalInputPower,
+        'totalOutputPower':totalOutputPower,
+  };
+
 }

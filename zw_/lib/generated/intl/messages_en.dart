@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "DC": MessageLookupByLibrary.simpleMessage("Direct Current"),
         "acchargerate":
             MessageLookupByLibrary.simpleMessage("AC charging rate"),
         "account_cancel_success": MessageLookupByLibrary.simpleMessage(
@@ -53,6 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Conserve Energy Config"),
         "device": MessageLookupByLibrary.simpleMessage("Device"),
         "device_detail": MessageLookupByLibrary.simpleMessage("Device Detail"),
+        "device_input": MessageLookupByLibrary.simpleMessage("Input"),
         "devicelist": MessageLookupByLibrary.simpleMessage("Device List"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emailorphonenumer":
@@ -119,7 +121,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Stand by time of equipment"),
         "toast_requesting":
             MessageLookupByLibrary.simpleMessage("Requesting..."),
+        "turn_off": MessageLookupByLibrary.simpleMessage("turn off"),
+        "turn_on": MessageLookupByLibrary.simpleMessage("turn on"),
         "type": MessageLookupByLibrary.simpleMessage("Type"),
+        "update_success":
+            MessageLookupByLibrary.simpleMessage("Update Success"),
         "updatedevicename":
             MessageLookupByLibrary.simpleMessage("Update device name"),
         "user_agree_select_need": MessageLookupByLibrary.simpleMessage(

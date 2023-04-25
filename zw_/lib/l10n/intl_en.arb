@@ -63,12 +63,17 @@
 "type":"Type",
 "out":"Out",
 "pv_input":"PV Input",
+"DC":"Direct Current",
 "conserve_energy_config":"Conserve Energy Config",
 "power_supply_setting":"Power Supply Setting",
 "charge_config":"Charge Config",
 "field_need":"need field can not empty",
 "save_success":"Save Success",
+"update_success":"Update Success",
 
 "modify_user_info":"Modify User Info",
-"select_image":"Select image"
+"select_image":"Select image",
+"device_input":"Input",
+"turn_off":"turn off",
+"turn_on":"turn on"
  }

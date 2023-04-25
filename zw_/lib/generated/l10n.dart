@@ -680,6 +680,16 @@ class S {
     );
   }
 
+  /// `Direct Current`
+  String get DC {
+    return Intl.message(
+      'Direct Current',
+      name: 'DC',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Conserve Energy Config`
   String get conserve_energy_config {
     return Intl.message(
@@ -730,6 +740,16 @@ class S {
     );
   }
 
+  /// `Update Success`
+  String get update_success {
+    return Intl.message(
+      'Update Success',
+      name: 'update_success',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Modify User Info`
   String get modify_user_info {
     return Intl.message(
@@ -745,6 +765,36 @@ class S {
     return Intl.message(
       'Select image',
       name: 'select_image',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Input`
+  String get device_input {
+    return Intl.message(
+      'Input',
+      name: 'device_input',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `turn off`
+  String get turn_off {
+    return Intl.message(
+      'turn off',
+      name: 'turn_off',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `turn on`
+  String get turn_on {
+    return Intl.message(
+      'turn on',
+      name: 'turn_on',
       desc: '',
       args: [],
     );
