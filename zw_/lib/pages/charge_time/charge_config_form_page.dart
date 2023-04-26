@@ -325,8 +325,8 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                                         this.timeSwitch10=v!?1:0;
                                       });
                                     },
-                                    activeColor: Colors.blue,
-                                    checkColor:Colors.white
+                                    activeColor: Colors.grey,
+                                    checkColor:Colors.black
                                 ),
                                 flex: 1,
                               ),
@@ -465,8 +465,8 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                                         this.timeSwitch12=v!?1:0;
                                       });
                                     },
-                                    activeColor: Colors.blue,
-                                    checkColor:Colors.white
+                                    activeColor: Colors.grey,
+                                    checkColor:Colors.black
                                 ),
                                 flex: 1,
                               ),
@@ -607,8 +607,8 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                                         this.timeSwitch14=v!?1:0;
                                       });
                                     },
-                                    activeColor: Colors.blue,
-                                    checkColor:Colors.white
+                                    activeColor: Colors.white,
+                                    checkColor:Colors.black
                                 ),
                                 flex: 1,
                               ),
@@ -752,8 +752,8 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                                         this.chargeConfigModel.timeSwitch16=v!?1:0;
                                       });
                                     },
-                                    activeColor: Colors.blue,
-                                    checkColor:Colors.white
+                                    activeColor: Colors.grey,
+                                    checkColor:Colors.black
                                 ),
                                 flex: 1,
                               ),
@@ -785,7 +785,14 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                           });
                         }
                       },
-                      child: Text('提交'),
+                      child: Text(S.current.commit_button),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.black,
+                          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                          textStyle: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.normal,
+                              color:Color(0xff4c505b))),
                     )
                 ),
                 SizedBox(
@@ -800,6 +807,13 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                         // this.initState();
                       },
                       child: Text('重置'),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.black,
+                          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                          textStyle: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.normal,
+                              color:Color(0xff4c505b))),
                     ))
               ],
             )

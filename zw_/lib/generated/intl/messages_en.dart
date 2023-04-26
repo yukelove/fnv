@@ -34,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Account Settings"),
         "add_device_fail": MessageLookupByLibrary.simpleMessage(
             "Add device fail, please retry!"),
+        "add_device_manual": MessageLookupByLibrary.simpleMessage("+ Add +"),
         "add_device_success":
             MessageLookupByLibrary.simpleMessage("Add device success!"),
         "agrementdesc": MessageLookupByLibrary.simpleMessage(
@@ -48,6 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "changepassword":
             MessageLookupByLibrary.simpleMessage("Change Password"),
         "charge_config": MessageLookupByLibrary.simpleMessage("Charge Config"),
+        "commit_button": MessageLookupByLibrary.simpleMessage("Commit"),
         "config": MessageLookupByLibrary.simpleMessage("Config"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
         "conserve_energy_config":
@@ -67,6 +69,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("get validate code"),
         "headavatar": MessageLookupByLibrary.simpleMessage("Head Avater"),
         "input": MessageLookupByLibrary.simpleMessage("Input"),
+        "input_device_number":
+            MessageLookupByLibrary.simpleMessage("Input device number :"),
         "invitecode": MessageLookupByLibrary.simpleMessage("Invite Code"),
         "limitdischargeandcharge":
             MessageLookupByLibrary.simpleMessage("Lismits discharge/charge"),
@@ -102,6 +106,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "register_success": MessageLookupByLibrary.simpleMessage(
             "Account registration succeeded!"),
+        "reset_button": MessageLookupByLibrary.simpleMessage("Reset"),
         "reset_password":
             MessageLookupByLibrary.simpleMessage(" Reset Password "),
         "reset_password_fail":

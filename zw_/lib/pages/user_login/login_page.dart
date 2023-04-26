@@ -65,16 +65,20 @@ class _LoginPageState extends State<LoginPage> {
                 imgName: ImageAssetsConfig.IMAGE_LOGO,
                 size: Size(330.0.w, 85.0.w)),
           ),
-          Row(
-            children: [
-              Container(
-                padding: EdgeInsets.only(left: 30, top: 30),
-                child: Text(
-                  S.of(context).login,
-                  style: TextStyle(color: Colors.black, fontSize: 33),
-                ),
-              ),
-            ],
+          // Row(
+          //   children: [
+          //     Container(
+          //       padding: EdgeInsets.only(left: 30, top: 30),
+          //       child: Text(
+          //         S.of(context).login,
+          //         style: TextStyle(color: Colors.black, fontSize: 33),
+          //       ),
+          //     ),
+          //   ],
+          // ),
+          SizedBox(
+            width: 100,
+            height: 70,
           ),
           Expanded(
             child: SingleChildScrollView(

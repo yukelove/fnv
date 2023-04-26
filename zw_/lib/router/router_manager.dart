@@ -15,7 +15,7 @@ import 'package:zw_/pages/tools/date_time_picker_page.dart';
 import 'package:zw_/pages/user_login/modify_password.dart';
 import 'package:zw_/pages/user_register/widgets/account_cancel_widget.dart';
 import 'package:zw_/pages/user_login/user_info/modify_user_info_widget.dart';
-import 'package:zw_/pages/user_login/user_info/crop_image_page.dart';
+import 'package:zw_/pages/equipment_add/add_equipment_manual.dart';
 import 'not_found_page.dart';
 
 
@@ -35,7 +35,7 @@ const MODIFY_PASSWORD = "MODIFY_PASSWORD";
 const ACCOUNT_CANCEL_WIDGET = "ACCOUNT_CANCEL_WIDGET";
 const MODIFY_USER_INFO_WIDGET = "MODIFY_USER_INFO_WIDGET";
 const CROP_IMAGE_PAGE = "CROP_IMAGE_PAGE";
-
+const ADD_EQUIPMENT_MANUAL = "ADD_EQUIPMENT_MANUAL";
 
 class RouterManager {
   static final FluroRouter router = FluroRouter();
@@ -135,6 +135,9 @@ class RouterManager {
       return ModifyUserInfoWidget();
     }));
 
+    router.define(ADD_EQUIPMENT_MANUAL,handler:Handler(handlerFunc: (BuildContext? context,Map<String,List<String>> parameters){
+      return AddEquipmentManual();
+    }));
     // router.define(CROP_IMAGE_PAGE,handler:Handler(handlerFunc: (BuildContext? context,Map<String,List<String>> parameters){
     //   List data = (parameters["originalImage"] ?? []);
     //   String filepath = data.first as String;

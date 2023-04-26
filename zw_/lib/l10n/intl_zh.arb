@@ -13,6 +13,8 @@
 "cancel": "取消",
 "devicelist": "设备列表",
 "device": "设备",
+"add_device_manual":"--- 手动添加 ---",
+"input_device_number":"输入设备序列号：",
 "accountmanage": "账户管理",
 "personalsettings": "个人信息设置",
 "headavatar": "头像",
@@ -66,6 +68,8 @@
 "conserve_energy_config":"节能运行配置",
 "power_supply_setting":"供电配置",
 "charge_config":"电池充电配置",
+"commit_button":"提交",
+"reset_button":"重置",
 "field_need":"必填项不能为空",
 "save_success":"保存成功",
 "update_success":"更新成功",
@@ -76,4 +80,5 @@
 "device_input":"输入功率",
 "turn_off":"关闭电源",
 "turn_on":"打开电源"
+
 }

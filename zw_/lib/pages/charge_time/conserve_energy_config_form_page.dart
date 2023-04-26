@@ -273,8 +273,8 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                         this.timeSwitch1=v!?1:0;
                                       });
                                     },
-                                    activeColor: Colors.blue,
-                                    checkColor:Colors.white
+                                    activeColor: Colors.grey,
+                                    checkColor:Colors.black
                                 ),
                                 flex: 1,
                               ),
@@ -386,8 +386,8 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                         this.timeSwitch2=v!?1:0;
                                       });
                                     },
-                                    activeColor: Colors.blue,
-                                    checkColor:Colors.white
+                                    activeColor: Colors.grey,
+                                    checkColor:Colors.black
                                 ),
                                 flex: 1,
                               ),
@@ -498,8 +498,8 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                         this.timeSwitch3=v!?1:0;
                                       });
                                     },
-                                    activeColor: Colors.blue,
-                                    checkColor:Colors.white
+                                    activeColor: Colors.grey,
+                                    checkColor:Colors.black
                                 ),
                                 flex: 1,
                               ),
@@ -610,8 +610,8 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                         this.timeSwitch4=v!?1:0;
                                       });
                                     },
-                                    activeColor: Colors.blue,
-                                    checkColor:Colors.white
+                                    activeColor: Colors.grey,
+                                    checkColor:Colors.black
                                 ),
                                 flex: 1,
                               ),
@@ -722,8 +722,8 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                         this.timeSwitch5=v!?1:0;
                                       });
                                     },
-                                    activeColor: Colors.blue,
-                                    checkColor:Colors.white
+                                    activeColor: Colors.grey,
+                                    checkColor:Colors.black
                                 ),
                                 flex: 1,
                               ),
@@ -834,8 +834,8 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                         this.timeSwitch6=v!?1:0;
                                       });
                                     },
-                                    activeColor: Colors.blue,
-                                    checkColor:Colors.white
+                                    activeColor: Colors.grey,
+                                    checkColor:Colors.black
                                 ),
                                 flex: 1,
                               ),
@@ -946,8 +946,8 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                         this.timeSwitch7=v!?1:0;
                                       });
                                     },
-                                    activeColor: Colors.blue,
-                                    checkColor:Colors.white
+                                    activeColor: Colors.grey,
+                                    checkColor:Colors.black
 
                                 ),
                                 flex: 1,
@@ -1059,8 +1059,8 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                         this.timeSwitch8=v!?1:0;
                                       });
                                     },
-                                    activeColor: Colors.blue,
-                                    checkColor:Colors.white
+                                    activeColor: Colors.grey,
+                                    checkColor:Colors.black
 
                                 ),
                                 flex: 1,
@@ -1089,6 +1089,13 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                         }
                       },
                       child: Text('提交'),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.black,
+                          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                          textStyle: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.normal,
+                              color:Color(0xff4c505b))),
                     )),
                 SizedBox(
                   width: 20,
@@ -1101,7 +1108,15 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                         });
                       },
                       child: Text('重置'),
-                    ))
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.black,
+                          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                          textStyle: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.normal,
+                              color:Color(0xff4c505b))),
+                    )
+                )
               ],
             )
           ],

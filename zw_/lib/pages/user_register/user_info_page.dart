@@ -66,30 +66,45 @@ class _UserInfoPageState extends State<UserInfoPage> {
                 children: [
                   Stack(
                     children: [
-                      new TextButton(
-                        child: ImageAssets.image(
-                          imgName: ImageAssetsConfig.IMAGE_LOGIN_REGISTER_BG,size: Size(237.0.w,61.0.w)),
+                      // new TextButton(
+                      //   child: ImageAssets.image(
+                      //     imgName: ImageAssetsConfig.IMAGE_LOGIN_REGISTER_BG,size: Size(237.0.w,61.0.w)),
+                      //   onPressed: () {
+                      //     RouterManager.logOut(
+                      //         context, LOGIN_PAGE);
+                      //   },
+                      // ),
+                      new ElevatedButton(
                         onPressed: () {
                           RouterManager.logOut(
                               context, LOGIN_PAGE);
                         },
+                        child: Text(S.current.logout),
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.black,
+                            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                            textStyle: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.normal,
+                                color:Color(0xff4c505b))),
                       ),
-                      Positioned(
-                        left: 70,
-                        top: 20,
-                        child:InkWell(
-                            child: Text(
-                              S.current.logout,
-                              style: TextStyle(
-                                  fontSize: FontRes.font_sp18
-                              ),
-                            ),
-                            onTap: (){
-                              RouterManager.logOut(
-                                  context, LOGIN_PAGE);
-                            }
-                        ),
-                        ),
+
+                      // Positioned(
+                      //   left: 70,
+                      //   top: 20,
+                      //   child:InkWell(
+                      //       child: Text(
+                      //         S.current.logout,
+                      //         style: TextStyle(
+                      //             fontSize: FontRes.font_sp18
+                      //         ),
+                      //       ),
+                      //       onTap: (){
+                      //         RouterManager.logOut(
+                      //             context, LOGIN_PAGE);
+                      //       }
+                      //   ),
+                      //   ),
                     ],
                   ),
                 ],

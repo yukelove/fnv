@@ -41,82 +41,131 @@ class _ListPageState extends State<ListPage> {
         builder: (ctx, state) {
           cubit = BlocProvider.of<EquipmentCubit>(ctx);
           return Scaffold(
-            appBar: PreferredSize(
-                preferredSize: Size.fromHeight(54),
-                child: CustomAppBar(
-                  title: S.of(context).devicelist,
-                  leadingIcon: ImageAssetsConfig.IMAGE_USRE,
-                  actionIcon: ImageAssetsConfig.IMAGE_PLUS,
-                  leadingCallBack: () {
-                    //用户信息
-                    RouterManager.jump(context, USER_INFO_PAGE);
-                  },
-                  actionCallBack: () {
-                    //添加设备
-                    RouterManager.jump(context, EQUIPMENT_ADD_PAGE)
-                        .then((value) {
-                      //路由返回时添加设备
-                      String equipmentCode = value["qrcode"] as String;
-                      EquipmentAddNetworking.addEquipment(
-                          equipmentCode: equipmentCode).then((val){
-                            //添加完成后重新加载设备列表
-                            cubit.getEquipmentList();
-                          });
-                      
-                    });
-                  },
-                )),
-            body: Container(
-              child: Column(
-                children: [
-                  Container(
-                    margin: EdgeInsets.symmetric(
-                        vertical: SpacerConfig.SPACER_15(),
-                        horizontal: SpacerConfig.SPACER_15()),
-                    child: Row(
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(left: 10.0.w),
-                          child: Text(
-                            S.of(context).device,
-                            style: TextStyle(
-                                fontSize: FontRes.font_sp16,
-                                fontWeight: FontWeight.w800),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    child: GridView.builder(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: SpacerConfig.SPACER_15()),
-                        itemCount: state.list.length,
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          childAspectRatio: 1.3,
-                          // crossAxisSpacing: SpacerConfig.SPACER_10(),
-                          // mainAxisSpacing: SpacerConfig.SPACER_10(),
-                        ),
-                        itemBuilder: (ctx, index) {
-                          var model = state.list[index];
-                          return EquipmentGridItem(
-                            itemModel: model,
-                            itemClick: (itemModel) {
-                              //进入设备详情
-                              String path = "${EQUIPMENT_DETAIL_PAGE}?serialnumber=${model.serialnumber}";
-                              RouterManager.jump(
-                                  context, path);
-                            },
-                          );
-                        }),
-                  ),
-                ],
-              ),
-            ),
+            appBar: _appBar(),
+            body: _body(state),
           );
         },
       ),
     );
   }
+
+  /**
+   * appbar
+   */
+  PreferredSize _appBar(){
+    return PreferredSize(
+        preferredSize: Size.fromHeight(54),
+        child: CustomAppBar(
+          title: S.of(context).devicelist,
+          leadingIcon: ImageAssetsConfig.IMAGE_USRE,
+          actionIcon: ImageAssetsConfig.IMAGE_PLUS,
+          leadingCallBack: () {
+            //用户信息
+            RouterManager.jump(context, USER_INFO_PAGE);
+          },
+          actionCallBack: () {
+            //添加设备
+            RouterManager.jump(context, EQUIPMENT_ADD_PAGE)
+                .then((value) {
+              //路由返回时添加设备
+              String equipmentCode = value["qrcode"] as String;
+              EquipmentAddNetworking.addEquipment(
+                  equipmentCode: equipmentCode).then((val){
+                //添加完成后重新加载设备列表
+                cubit.getEquipmentList();
+              });
+
+            });
+          },
+        ));
+  }
+
+  /**
+   * body
+   */
+  Container _body(EquipmentState state){
+    return  Container(
+      child: Column(
+        children: [
+          Container(
+            margin: EdgeInsets.symmetric(
+                vertical: SpacerConfig.SPACER_15(),
+                horizontal: SpacerConfig.SPACER_15()),
+            child: Row(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(left: 10.0.w),
+                  child: Text(
+                    S.of(context).device,
+                    style: TextStyle(
+                        fontSize: FontRes.font_sp16,
+                        fontWeight: FontWeight.w800),
+                  ),
+                )
+              ],
+            ),
+          ),
+          Expanded(
+            child: GridView.builder(
+                padding: EdgeInsets.symmetric(
+                    horizontal: SpacerConfig.SPACER_15()),
+                itemCount: state.list.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 1.3,
+                  // crossAxisSpacing: SpacerConfig.SPACER_10(),
+                  // mainAxisSpacing: SpacerConfig.SPACER_10(),
+                ),
+                itemBuilder: (ctx, index) {
+                  var model = state.list[index];
+                  return EquipmentGridItem(
+                    itemModel: model,
+                    itemClick: (itemModel) {
+                      //进入设备详情
+                      String path = "${EQUIPMENT_DETAIL_PAGE}?serialnumber=${model.serialnumber}";
+                      RouterManager.jump(
+                          context, path);
+                    },
+                  );
+                }),
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(
+                vertical: SpacerConfig.SPACER_15(),
+                horizontal: SpacerConfig.SPACER_15()),
+            child: Row(
+              children: [
+                Container(
+                alignment: Alignment.bottomCenter,//设置控件内容的位置
+                padding: const EdgeInsets.all(1),//设置内边距
+                // margin: const EdgeInsets.all(1),//设置整体浮动
+                  margin: EdgeInsets.only(left: 120.0.w),
+                 child: Positioned(
+                    left: 70,
+                    top: 20,
+                    child:InkWell(
+                        child: Text(
+                          S.of(context).add_device_manual,
+                          style: TextStyle(
+                              fontSize: FontRes.font_sp18
+                          ),
+                        ),
+                        onTap: (){
+                          RouterManager.jump(
+                              context, ADD_EQUIPMENT_MANUAL).then((value) {
+                                cubit.getEquipmentList();
+                              }
+                          );
+                        }
+                    ),
+                    ),
+                )
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
 }

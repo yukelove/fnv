@@ -200,6 +200,26 @@ class S {
     );
   }
 
+  /// `+ Add +`
+  String get add_device_manual {
+    return Intl.message(
+      '+ Add +',
+      name: 'add_device_manual',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Input device number :`
+  String get input_device_number {
+    return Intl.message(
+      'Input device number :',
+      name: 'input_device_number',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Account Manage`
   String get accountmanage {
     return Intl.message(
@@ -715,6 +735,26 @@ class S {
     return Intl.message(
       'Charge Config',
       name: 'charge_config',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Commit`
+  String get commit_button {
+    return Intl.message(
+      'Commit',
+      name: 'commit_button',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reset`
+  String get reset_button {
+    return Intl.message(
+      'Reset',
+      name: 'reset_button',
       desc: '',
       args: [],
     );

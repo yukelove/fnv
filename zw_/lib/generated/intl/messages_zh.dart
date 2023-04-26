@@ -31,6 +31,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "accountsettings": MessageLookupByLibrary.simpleMessage("账号设置"),
         "add_device_fail":
             MessageLookupByLibrary.simpleMessage("设备添加失败，请重新扫描二维码!"),
+        "add_device_manual":
+            MessageLookupByLibrary.simpleMessage("--- 手动添加 ---"),
         "add_device_success": MessageLookupByLibrary.simpleMessage("设备添加成功!"),
         "agrementdesc": MessageLookupByLibrary.simpleMessage("已认真阅读并同意"),
         "buzzer": MessageLookupByLibrary.simpleMessage("蜂鸣"),
@@ -41,6 +43,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "carcharge": MessageLookupByLibrary.simpleMessage("车充"),
         "changepassword": MessageLookupByLibrary.simpleMessage("修改密码"),
         "charge_config": MessageLookupByLibrary.simpleMessage("电池充电配置"),
+        "commit_button": MessageLookupByLibrary.simpleMessage("提交"),
         "config": MessageLookupByLibrary.simpleMessage("配置"),
         "confirm": MessageLookupByLibrary.simpleMessage("确认"),
         "conserve_energy_config":
@@ -56,6 +59,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "get_validate_code": MessageLookupByLibrary.simpleMessage("获取验证码"),
         "headavatar": MessageLookupByLibrary.simpleMessage("头像"),
         "input": MessageLookupByLibrary.simpleMessage("输入"),
+        "input_device_number": MessageLookupByLibrary.simpleMessage("输入设备序列号："),
         "invitecode": MessageLookupByLibrary.simpleMessage("邀请码"),
         "limitdischargeandcharge":
             MessageLookupByLibrary.simpleMessage("放电/充电上下限"),
@@ -85,6 +89,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pv_input": MessageLookupByLibrary.simpleMessage("太阳能输入"),
         "register": MessageLookupByLibrary.simpleMessage("注册"),
         "register_success": MessageLookupByLibrary.simpleMessage("账号注册成功！"),
+        "reset_button": MessageLookupByLibrary.simpleMessage("重置"),
         "reset_password": MessageLookupByLibrary.simpleMessage("重置密码"),
         "reset_password_fail": MessageLookupByLibrary.simpleMessage("重置密码失败"),
         "reset_password_success":

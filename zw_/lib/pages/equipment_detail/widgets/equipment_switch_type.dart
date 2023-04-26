@@ -68,6 +68,13 @@ class _EquipmentSwitchTypeState extends State<EquipmentSwitchType> {
                     size: Size(20.0.w, 20.0.w)),
                 Text.rich(TextSpan(children: [
                   TextSpan(
+                      text: widget.type,
+                      style: TextStyle(
+                          fontSize: FontRes.font_sp12,
+                          fontWeight: FontWeight.bold)),
+                ])),
+                Text.rich(TextSpan(children: [
+                  TextSpan(
                       text: widget.powerValue,
                       style: TextStyle(
                           fontSize: FontRes.font_sp12,
