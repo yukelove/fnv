@@ -35,7 +35,6 @@ class EquipmentDetailNetworking {
 
   //修改设备信息
   static Future<bool> editEquipmentInfo(EquipmentModel model) async{
-
     bool re = validateProperties(model);
     if(re) {
       var param = model.toJson();
@@ -47,11 +46,9 @@ class EquipmentDetailNetworking {
         ZWHud.showText(msg.toString());
         return false;
       } else {
-        ZWHud.showText(S.current.update_success);
         return true;
       }
     }else{
-      ZWHud.showText(S.current.field_need);
       return false;
     }
   }

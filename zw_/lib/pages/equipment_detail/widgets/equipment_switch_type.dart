@@ -10,14 +10,15 @@ import 'package:zw_/config/spacer_config/SpacerConfig.dart';
 import 'package:zw_/pages/equipment_list/state/equipment_model.dart';
 import 'package:zw_/utils/zw_hud.dart';
 
-import '../networking/equipment_detail_networking.dart';
+import 'package:zw_/pages/equipment_detail/networking/equipment_detail_networking.dart';
 
 class EquipmentSwitchType extends StatefulWidget {
   final String imgName;
   final String powerValue;
   late  bool switchOff;
   late EquipmentModel model;
-  EquipmentSwitchType({Key? key,required this.imgName,required this.powerValue,this.switchOff = false, required this.model}) : super(key: key);
+  late String type;
+  EquipmentSwitchType({Key? key,required this.imgName,required this.powerValue,this.switchOff = false, required this.model,required this.type}) : super(key: key);
 
   @override
   State<EquipmentSwitchType> createState() => _EquipmentSwitchTypeState();
@@ -33,26 +34,18 @@ class _EquipmentSwitchTypeState extends State<EquipmentSwitchType> {
               child: Container(
                   width: 20,
                   height: 20,
-                  // decoration: BoxDecoration(
-                  //     color: widget.switchOff ? ColorsRes.color_30CB96 : ColorsRes.color_7F8A8D,
-                  //     borderRadius: BorderRadius.circular(12.0.w),
-                  //     border: Border.all(color: ColorsRes.color_929090),
-                  // ),
+                  decoration: BoxDecoration(
+                      color: widget.switchOff ? ColorsRes.color_30CB96 : ColorsRes.color_7F8A8D,
+                      borderRadius: BorderRadius.circular(12.0.w),
+                      border: Border.all(color: ColorsRes.color_929090),
+                  ),
                   child: GestureDetector(
+                      behavior: HitTestBehavior.opaque,
                       onTap:callInterface,
-                      child: Container(
-                        color: widget.switchOff ? ColorsRes.color_30CB96 : ColorsRes.color_7F8A8D,
                         child:ImageAssets.image(
                           imgName: ImageAssetsConfig.IMAGE_SWITCH_OFF,
                           size: Size(30.0.w, 30.0.w)
                         ),
-                      )
-                    // child: IconButton(
-                    //   icon: Icon(Icons.lock),
-                    //   onPressed: callInterface,
-                    //   color: Colors.grey,
-                    //   highlightColor: Colors.green,
-                    // ),
                   )
               )
           ),
@@ -97,6 +90,7 @@ class _EquipmentSwitchTypeState extends State<EquipmentSwitchType> {
         widget.switchOff = false;
         EquipmentDetailNetworking.editEquipmentInfo(widget.model).then((value){
           if(value){
+            ZWHud.showText("关闭电源");
             print("call interface success");
           }else{
             print("call interface fail");
@@ -108,6 +102,7 @@ class _EquipmentSwitchTypeState extends State<EquipmentSwitchType> {
         widget.switchOff = true;
         EquipmentDetailNetworking.editEquipmentInfo(widget.model).then((value){
           if(value){
+            ZWHud.showText("打开电源");
             print("call interface success");
           }else{
             print("call interface fail");

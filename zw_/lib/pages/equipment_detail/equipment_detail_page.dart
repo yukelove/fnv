@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:zw_/generated/l10n.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,28 +15,40 @@ import 'package:zw_/pages/equipment_detail/state/equipment_detail_state.dart';
 import 'package:zw_/pages/equipment_detail/widgets/equipment_switch_type.dart';
 import 'package:zw_/pages/equipment_list/state/equipment_model.dart';
 import 'package:zw_/router/router_manager.dart';
+import 'package:zw_/utils/zw_hud.dart';
+import 'package:zw_/pages/dashboard/AnnulusDashboardProgressBar.dart';
+import 'package:zw_/pages/tools/lineprogress/GradientLinearProgressBar.dart';
 
 class EquipmentDetail extends StatefulWidget {
   String serialnumber = "";
   EquipmentDetail({Key? key, String serialnumber = ""}) : super(key: key) {
     this.serialnumber = serialnumber;
   }
+  var switchOff = false;
+  var switchOffAC = false;
+  var switchOffTypeC = false;
+  var switchOffUSB = false;
+  var switchOffLed = false;
+  var switchOffDC = false;
 
   @override
   State<EquipmentDetail> createState() => _EquipmentDetailState();
+
+
 }
+
 
 class _EquipmentDetailState extends State<EquipmentDetail> {
 
+  @override
+  void initState(){
+    super.initState();
+    Timer.periodic(Duration(seconds: 5),(_) => getTaskDetails());
+  }
 
   @override
   Widget build(BuildContext context) {
-    var switchOff = false;
-    var switchOffAC = false;
-    var switchOffTypeC = false;
-    var switchOffUSB = false;
-    var switchOffLed = false;
-    var switchOffDC = false;
+
     return BlocProvider(
         lazy: false,
         create: (_) {
@@ -64,7 +78,7 @@ class _EquipmentDetailState extends State<EquipmentDetail> {
                       RouterManager.goBack(context);
                     },
                     actionCallBack: () {
-                      //进入设备详情
+                      //进入设备设置详情
                       String path = "${EQUIPMENT_INFO_EDIT_PAGE}?serialnumber=${model.serialnumber}";
                       RouterManager.jump(context, path);
                     },
@@ -73,6 +87,92 @@ class _EquipmentDetailState extends State<EquipmentDetail> {
                 child: Container(
                   child: Column(
                     children: [
+                      //温度计
+                      Container(
+                        margin:
+                            EdgeInsets.only(right: SpacerConfig.SPACER_30(),left: SpacerConfig.SPACER_30()),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              child:
+                              AnnulusDashboardProgressBar(
+                                centerText: model.dumpenergy.toString(),
+                                centerTextUnit: "%",
+                                bottomText: "电池电量",
+                                sweepScale: model.dumpenergy,
+                              ),
+                              // ImageAssets.image(
+                              //     imgName:
+                              //     ImageAssetsConfig.IMAGE_TEMPERATURE_RED,
+                              //     size: Size(113.0.w, 204.0.w)),
+                            ),
+                            Container(
+                              child:
+                              AnnulusDashboardProgressBar(
+                                centerText: model.batteryCellTempc.toString(),
+                                centerTextUnit: "°C",
+                                bottomText: "电池温度",
+                                sweepScale: model.batteryCellTempc,
+                              ),
+                              // ImageAssets.image(
+                              //     imgName:
+                              //     ImageAssetsConfig.IMAGE_TEMPERATURE_RED,
+                              //     size: Size(113.0.w, 204.0.w)),
+                            ),
+                            // Stack(
+                            //   children: [
+                            //     AnnulusDashboardProgressBar(
+                            //       centerText: "80",
+                            //       centerTextUnit: "%",
+                            //       bottomText: "电量",
+                            //       sweepScale: 80,
+                            //     ),
+                            //   ],
+                            // ),
+                            // ImageAssets.image(
+                            //     imgName:
+                            //         ImageAssetsConfig.IMAGE_TEMPERATURE_WHITE,
+                            //     size: Size(39.0.w, 200.0.w))
+                          ],
+                        ),
+                      ),
+                      // Container(
+                      //     width: 200.0.w,
+                      //     height: 71.0.w,
+                      //     child: Stack(
+                      //       children: [
+                      //         GradientLinearProgressBar(
+                      //             strokeCapRound: true,
+                      //             strokeWidth: 10,
+                      //             colors: [Color(0xfffff7d7)],
+                      //             backgroundColor: Colors.transparent,
+                      //             value: 100 / 100,
+                      //             stops:[1]
+                      //         ),
+                      //         GradientLinearProgressBar(
+                      //             strokeCapRound: true,
+                      //             strokeWidth: 10,
+                      //             colors: [Colors.blueAccent],
+                      //             backgroundColor: Colors.transparent,
+                      //             value: 80 / 100,
+                      //             stops:[1]
+                      //         )
+                      //       ],
+                      //     ),
+                      // ),
+                      //分割线
+                      Container(
+                        margin: EdgeInsets.only(
+                            left: SpacerConfig.SPACER_15(),
+                            right: SpacerConfig.SPACER_15()),
+                        height: 2.0,
+                        color: Colors.black,
+                      ),
+                      SizedBox(
+                        width: 20,
+                        height: 20,
+                      ),
                       //头部电压
                       Container(
                         width: 215.0.w,
@@ -103,35 +203,6 @@ class _EquipmentDetailState extends State<EquipmentDetail> {
                                 ])))
                           ],
                         ),
-                      ),
-                      //温度计
-                      Container(
-                        margin:
-                            EdgeInsets.only(right: SpacerConfig.SPACER_15()),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            ImageAssets.image(
-                                imgName:
-                                    ImageAssetsConfig.IMAGE_TEMPERATURE_RED,
-                                size: Size(113.0.w, 234.0.w)),
-                            ImageAssets.image(
-                                imgName: ImageAssetsConfig.IMAGE_DEVICE,
-                                size: Size(211.0.w, 171.0.w)),
-                            ImageAssets.image(
-                                imgName:
-                                    ImageAssetsConfig.IMAGE_TEMPERATURE_WHITE,
-                                size: Size(39.0.w, 200.0.w))
-                          ],
-                        ),
-                      ),
-                      //分割线
-                      Container(
-                        margin: EdgeInsets.only(
-                            left: SpacerConfig.SPACER_15(),
-                            right: SpacerConfig.SPACER_15()),
-                        height: 1.0,
-                        color: Colors.black,
                       ),
                       //各开关状态信息
                       Container(
@@ -176,26 +247,30 @@ class _EquipmentDetailState extends State<EquipmentDetail> {
                                   EquipmentSwitchType(
                                     imgName: ImageAssetsConfig.IMAGE_AC,
                                     powerValue: "${model.acPower}",
-                                    switchOff: switchOffAC,
+                                    switchOff: widget.switchOffAC,
                                     model: model,
+                                    type : "AC",
                                   ),
                                   EquipmentSwitchType(
                                       imgName: ImageAssetsConfig.IMAGE_VOICEMAIL,
                                       powerValue: "${model.typecPower}",
-                                      switchOff: switchOffTypeC,
+                                      switchOff: widget.switchOffTypeC,
                                       model: model,
+                                      type : "TypeC",
                                   ),
                                   EquipmentSwitchType(
                                       imgName: ImageAssetsConfig.IMAGE_BOX,
                                       powerValue: "${model.usbPower}",
-                                      switchOff: switchOffUSB,
+                                      switchOff: widget.switchOffUSB,
                                       model: model,
+                                      type : "USB",
                                   ),
                                   EquipmentSwitchType(
                                       imgName: ImageAssetsConfig.IMAGE_SUNSHINE,
                                       powerValue: "${model.ledPower}",
-                                      switchOff: switchOffLed,
+                                      switchOff: widget.switchOffLed,
                                       model: model,
+                                      type : "LED",
                                   ),
                                 ],
                               ),
@@ -265,29 +340,40 @@ class _EquipmentDetailState extends State<EquipmentDetail> {
                         width: 363.0.w,
                         height: 69.0.w,
                         margin: EdgeInsets.only(top: 60.0.w),
-                        decoration: BoxDecoration(
-                            // color: ColorsRes.color_9C9494,
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: ColorsRes.color_929090)),
+
                         child: Stack(
                           clipBehavior: Clip.none,
                           children: [
                             Positioned(
-                              right: 10,
-                              top: -10,
-                              child: Center(
+                                right: 10,
+                                top: -10,
+                                child: Center(
                                   child: Container(
                                       decoration: BoxDecoration(
-                                          color: switchOffDC
-                                              ? ColorsRes.color_30CB96
-                                              : ColorsRes.color_7F8A8D,
-                                          borderRadius:
-                                              BorderRadius.circular(12.0.w),
-                                          border: Border.all(
-                                              color: ColorsRes.color_929090)),
-                                      child: ImageAssets.image(
-                                          imgName: ImageAssetsConfig.IMAGE_SWITCH_OFF,
-                                          size: Size(24.0.w, 24.0.w)))),
+                                          color: widget.switchOffDC ? ColorsRes.color_40F717 : ColorsRes.color_7F8A8D,
+                                          borderRadius: BorderRadius.circular(12.0.w),
+                                          border: Border.all(color: ColorsRes.color_929090)
+                                      ),
+                                      child: GestureDetector(
+                                          behavior: HitTestBehavior.opaque,
+                                          onTap: () {
+                                            print("单击发生");
+                                            setState(() {
+                                              //TODO  调用开关接口，更新界面状态
+                                              if(widget.switchOffDC){
+                                                this.widget.switchOffDC = false;
+                                                ZWHud.showText(S.current.turn_off);
+                                              }else{
+                                                widget.switchOffDC = true;
+                                                ZWHud.showText(S.current.turn_on);
+                                              }
+                                            });
+                                          },
+                                          child: ImageAssets.image(
+                                              imgName: ImageAssetsConfig.IMAGE_SWITCH_OFF,
+                                              size: Size(24.0.w, 24.0.w)))
+                                  ),
+                                )
                             ),
                             Container(
                               child: Row(
@@ -359,6 +445,11 @@ class _EquipmentDetailState extends State<EquipmentDetail> {
                               ),
                             ),
                           ],
+                        ),
+                        decoration: BoxDecoration(
+                          // color: ColorsRes.color_9C9494,
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(color: ColorsRes.color_929090)
                         ),
                       ),
                     ],
@@ -450,5 +541,17 @@ class _EquipmentDetailState extends State<EquipmentDetail> {
         ),
       ),
     );
+  }
+
+  getTaskDetails() {
+    print("定时刷新");
+    setState(() {
+      if(widget.switchOffDC){
+        widget.switchOffDC = false;
+      }else{
+        widget.switchOffDC = true;
+      }
+    });
+
   }
 }
