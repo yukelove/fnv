@@ -839,6 +839,216 @@ class S {
       args: [],
     );
   }
+
+  /// `battery temperature`
+  String get battery_temperature {
+    return Intl.message(
+      'battery temperature',
+      name: 'battery_temperature',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `battery capacity`
+  String get battery_capacity {
+    return Intl.message(
+      'battery capacity',
+      name: 'battery_capacity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Charge 1 :`
+  String get charge_1 {
+    return Intl.message(
+      'Charge 1 :',
+      name: 'charge_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Charge 2 :`
+  String get charge_2 {
+    return Intl.message(
+      'Charge 2 :',
+      name: 'charge_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Charge 3 :`
+  String get charge_3 {
+    return Intl.message(
+      'Charge 3 :',
+      name: 'charge_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Charge 4 :`
+  String get charge_4 {
+    return Intl.message(
+      'Charge 4 :',
+      name: 'charge_4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Charge 5 :`
+  String get charge_5 {
+    return Intl.message(
+      'Charge 5 :',
+      name: 'charge_5',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Charge 6 :`
+  String get charge_6 {
+    return Intl.message(
+      'Charge 6 :',
+      name: 'charge_6',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Charge 7 :`
+  String get charge_7 {
+    return Intl.message(
+      'Charge 7 :',
+      name: 'charge_7',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Charge 8 :`
+  String get charge_8 {
+    return Intl.message(
+      'Charge 8 :',
+      name: 'charge_8',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `time`
+  String get time {
+    return Intl.message(
+      'time',
+      name: 'time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `battery`
+  String get battery {
+    return Intl.message(
+      'battery',
+      name: 'battery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `city power`
+  String get city_power {
+    return Intl.message(
+      'city power',
+      name: 'city_power',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Moudle1`
+  String get module1 {
+    return Intl.message(
+      'Moudle1',
+      name: 'module1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Moudle2`
+  String get module2 {
+    return Intl.message(
+      'Moudle2',
+      name: 'module2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Moudle3`
+  String get module3 {
+    return Intl.message(
+      'Moudle3',
+      name: 'module3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Moudle4`
+  String get module4 {
+    return Intl.message(
+      'Moudle4',
+      name: 'module4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Moudle5`
+  String get module5 {
+    return Intl.message(
+      'Moudle5',
+      name: 'module5',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Moudle6`
+  String get module6 {
+    return Intl.message(
+      'Moudle6',
+      name: 'module6',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Moudle7`
+  String get module7 {
+    return Intl.message(
+      'Moudle7',
+      name: 'module7',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Moudle8`
+  String get module8 {
+    return Intl.message(
+      'Moudle8',
+      name: 'module8',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -158,7 +158,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
   }
 
   SingleChildScrollView _body() {
-    const SUPPLY_TYPE = ['电池', '市电'];
+    var SUPPLY_TYPE = [S.current.battery, S.current.city_power];
     return SingleChildScrollView(
       child: Container(
         padding: EdgeInsets.all(20),
@@ -174,7 +174,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                               Expanded(
                                 child:  RichText(
                                       text: new TextSpan(
-                                            text: "模式1 :",
+                                            text: S.current.module1,
                                             style: TextStyle(
                                                color: Colors.black,
                                                fontSize: 16.0,
@@ -189,7 +189,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                   isExpanded: true,
                                   decoration: InputDecoration(hintText: '供电方式'),
                                   // 设置默认值
-                                  value: '市电',
+                                  value: S.current.city_power,
                                   // 选择回调
                                   onChanged: (String? newPosition) {
                                     setState(() {
@@ -207,7 +207,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                               Expanded(
                                 child:  RichText(
                                     text: new TextSpan(
-                                        text: "时间:",
+                                        text: S.current.time,
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 16.0,
@@ -285,7 +285,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                               Expanded(
                                 child:  RichText(
                                     text: new TextSpan(
-                                        text: "模式2 :",
+                                        text: S.current.module2,
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 16.0,
@@ -300,7 +300,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                   isExpanded: true,
                                   decoration: InputDecoration(hintText: '供电方式'),
                                   // 设置默认值
-                                  value: '电池',
+                                  value: S.current.battery,
                                   // 选择回调
                                   onChanged: (String? newPosition) {
                                     setState(() {
@@ -318,7 +318,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                               Expanded(
                                 child:  RichText(
                                     text: new TextSpan(
-                                        text: "时间:",
+                                        text: S.current.time,
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 16.0,
@@ -398,7 +398,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                               Expanded(
                                 child:  RichText(
                                     text: new TextSpan(
-                                        text: "模式3 :",
+                                        text: S.current.module3,
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 16.0,
@@ -413,7 +413,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                   isExpanded: true,
                                   decoration: InputDecoration(hintText: '供电方式'),
                                   // 设置默认值
-                                  value: '市电',
+                                  value: S.current.city_power,
                                   // 选择回调
                                   onChanged: (String? newPosition) {
                                     setState(() {
@@ -431,7 +431,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                               Expanded(
                                 child:  RichText(
                                     text: new TextSpan(
-                                        text: "时间:",
+                                        text: S.current.time,
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 16.0,
@@ -510,7 +510,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                               Expanded(
                                 child:  RichText(
                                     text: new TextSpan(
-                                        text: "模型4 :",
+                                        text: S.current.module4,
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 16.0,
@@ -525,7 +525,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                   isExpanded: true,
                                   decoration: InputDecoration(hintText: '供电方式'),
                                   // 设置默认值
-                                  value: '电池',
+                                  value: S.current.battery,
                                   // 选择回调
                                   onChanged: (String? newPosition) {
                                     setState(() {
@@ -543,7 +543,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                               Expanded(
                                 child:  RichText(
                                     text: new TextSpan(
-                                        text: "时间:",
+                                        text: S.current.time,
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 16.0,
@@ -622,7 +622,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                               Expanded(
                                 child:  RichText(
                                     text: new TextSpan(
-                                        text: "模式5 :",
+                                        text: S.current.module5,
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 16.0,
@@ -637,7 +637,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                   isExpanded: true,
                                   decoration: InputDecoration(hintText: '供电方式'),
                                   // 设置默认值
-                                  value: '市电',
+                                  value: S.current.city_power,
                                   // 选择回调
                                   onChanged: (String? newPosition) {
                                     setState(() {
@@ -655,7 +655,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                               Expanded(
                                 child:  RichText(
                                     text: new TextSpan(
-                                        text: "时间:",
+                                        text: S.current.time,
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 16.0,
@@ -734,7 +734,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                               Expanded(
                                 child:  RichText(
                                     text: new TextSpan(
-                                        text: "模式6 :",
+                                        text: S.current.module6,
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 16.0,
@@ -749,7 +749,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                   isExpanded: true,
                                   decoration: InputDecoration(hintText: '供电方式'),
                                   // 设置默认值
-                                  value: '电池',
+                                  value: S.current.battery,
                                   // 选择回调
                                   onChanged: (String? newPosition) {
                                     setState(() {
@@ -767,7 +767,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                               Expanded(
                                 child:  RichText(
                                     text: new TextSpan(
-                                        text: "时间:",
+                                        text: S.current.time,
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 16.0,
@@ -846,7 +846,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                               Expanded(
                                 child:  RichText(
                                     text: new TextSpan(
-                                        text: "模式7 :",
+                                        text: S.current.module7,
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 16.0,
@@ -861,7 +861,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                   isExpanded: true,
                                   decoration: InputDecoration(hintText: '供电方式'),
                                   // 设置默认值
-                                  value: '市电',
+                                  value: S.current.city_power,
                                   // 选择回调
                                   onChanged: (String? newPosition) {
                                     setState(() {
@@ -879,7 +879,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                               Expanded(
                                 child:  RichText(
                                     text: new TextSpan(
-                                        text: "时间:",
+                                        text: S.current.time,
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 16.0,
@@ -959,7 +959,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                               Expanded(
                                 child:  RichText(
                                     text: new TextSpan(
-                                        text: "模式8 :",
+                                        text: S.current.module8,
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 16.0,
@@ -974,7 +974,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                                   isExpanded: true,
                                   decoration: InputDecoration(hintText: '供电方式'),
                                   // 设置默认值
-                                  value: '电池',
+                                  value: S.current.battery,
                                   // 选择回调
                                   onChanged: (String? newPosition) {
                                     setState(() {
@@ -992,7 +992,7 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                               Expanded(
                                 child:  RichText(
                                     text: new TextSpan(
-                                        text: "时间:",
+                                        text: S.current.time,
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 16.0,
@@ -1100,23 +1100,23 @@ class _ConserveEnergyConfigFormPage extends State<ConserveEnergyConfigFormPage> 
                 SizedBox(
                   width: 20,
                 ),
-                Expanded(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        _formkey.currentState!.reset();
-                        setState(() {
-                        });
-                      },
-                      child: Text('重置'),
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.black,
-                          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                          textStyle: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.normal,
-                              color:Color(0xff4c505b))),
-                    )
-                )
+                // Expanded(
+                //     child: ElevatedButton(
+                //       onPressed: () {
+                //         _formkey.currentState!.reset();
+                //         setState(() {
+                //         });
+                //       },
+                //       child: Text('重置'),
+                //       style: ElevatedButton.styleFrom(
+                //           backgroundColor: Colors.black,
+                //           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                //           textStyle: TextStyle(
+                //               fontSize: 15,
+                //               fontWeight: FontWeight.normal,
+                //               color:Color(0xff4c505b))),
+                //     )
+                // )
               ],
             )
           ],

@@ -39,6 +39,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Add device success!"),
         "agrementdesc": MessageLookupByLibrary.simpleMessage(
             "I have read and agreed to all contents of the"),
+        "battery": MessageLookupByLibrary.simpleMessage("battery"),
+        "battery_capacity":
+            MessageLookupByLibrary.simpleMessage("battery capacity"),
+        "battery_temperature":
+            MessageLookupByLibrary.simpleMessage("battery temperature"),
         "buzzer": MessageLookupByLibrary.simpleMessage("Buzzer"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "cancel_reason":
@@ -48,7 +53,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "carcharge": MessageLookupByLibrary.simpleMessage("Car charge"),
         "changepassword":
             MessageLookupByLibrary.simpleMessage("Change Password"),
+        "charge_1": MessageLookupByLibrary.simpleMessage("Charge 1 :"),
+        "charge_2": MessageLookupByLibrary.simpleMessage("Charge 2 :"),
+        "charge_3": MessageLookupByLibrary.simpleMessage("Charge 3 :"),
+        "charge_4": MessageLookupByLibrary.simpleMessage("Charge 4 :"),
+        "charge_5": MessageLookupByLibrary.simpleMessage("Charge 5 :"),
+        "charge_6": MessageLookupByLibrary.simpleMessage("Charge 6 :"),
+        "charge_7": MessageLookupByLibrary.simpleMessage("Charge 7 :"),
+        "charge_8": MessageLookupByLibrary.simpleMessage("Charge 8 :"),
         "charge_config": MessageLookupByLibrary.simpleMessage("Charge Config"),
+        "city_power": MessageLookupByLibrary.simpleMessage("city power"),
         "commit_button": MessageLookupByLibrary.simpleMessage("Commit"),
         "config": MessageLookupByLibrary.simpleMessage("Config"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
@@ -88,6 +102,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Modify password success"),
         "modify_user_info":
             MessageLookupByLibrary.simpleMessage("Modify User Info"),
+        "module1": MessageLookupByLibrary.simpleMessage("Moudle1"),
+        "module2": MessageLookupByLibrary.simpleMessage("Moudle2"),
+        "module3": MessageLookupByLibrary.simpleMessage("Moudle3"),
+        "module4": MessageLookupByLibrary.simpleMessage("Moudle4"),
+        "module5": MessageLookupByLibrary.simpleMessage("Moudle5"),
+        "module6": MessageLookupByLibrary.simpleMessage("Moudle6"),
+        "module7": MessageLookupByLibrary.simpleMessage("Moudle7"),
+        "module8": MessageLookupByLibrary.simpleMessage("Moudle8"),
         "name_password_need": MessageLookupByLibrary.simpleMessage(
             "Username or password cannot be empty!"),
         "new_password": MessageLookupByLibrary.simpleMessage("New password"),
@@ -124,6 +146,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Service Agreement"),
         "standbytime":
             MessageLookupByLibrary.simpleMessage("Stand by time of equipment"),
+        "time": MessageLookupByLibrary.simpleMessage("time"),
         "toast_requesting":
             MessageLookupByLibrary.simpleMessage("Requesting..."),
         "turn_off": MessageLookupByLibrary.simpleMessage("turn off"),

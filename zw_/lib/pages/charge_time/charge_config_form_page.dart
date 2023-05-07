@@ -188,7 +188,7 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                               Expanded(
                                 child:  RichText(
                                       text: new TextSpan(
-                                            text: "充电1 :",
+                                            text: S.current.charge_1,
                                             style: TextStyle(
                                                color: Colors.black,
                                                fontSize: 16.0,
@@ -337,7 +337,7 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                               Expanded(
                                 child:  RichText(
                                     text: new TextSpan(
-                                        text: "充电2 :",
+                                        text: S.current.charge_2,
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 16.0,
@@ -477,7 +477,7 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                               Expanded(
                                 child:  RichText(
                                     text: new TextSpan(
-                                        text: "充电3 :",
+                                        text: S.current.charge_3,
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 16.0,
@@ -619,7 +619,7 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                               Expanded(
                                 child:  RichText(
                                     text: new TextSpan(
-                                        text: "充电4 :",
+                                        text: S.current.charge_4,
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 16.0,
@@ -798,23 +798,23 @@ class _ChargeConfigFormPage extends State<ChargeConfigFormPage> {
                 SizedBox(
                   width: 20,
                 ),
-                Expanded(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        _formkey.currentState!.reset();
-                        setState(() {
-                        });
-                        // this.initState();
-                      },
-                      child: Text('重置'),
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.black,
-                          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                          textStyle: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.normal,
-                              color:Color(0xff4c505b))),
-                    ))
+                // Expanded(
+                //     child: ElevatedButton(
+                //       onPressed: () {
+                //         _formkey.currentState!.reset();
+                //         setState(() {
+                //         });
+                //         // this.initState();
+                //       },
+                //       child: Text('重置'),
+                //       style: ElevatedButton.styleFrom(
+                //           backgroundColor: Colors.black,
+                //           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                //           textStyle: TextStyle(
+                //               fontSize: 15,
+                //               fontWeight: FontWeight.normal,
+                //               color:Color(0xff4c505b))),
+                //     ))
               ],
             )
           ],

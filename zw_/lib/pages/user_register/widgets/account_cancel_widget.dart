@@ -142,8 +142,8 @@ class _AccountCancelWidgetState extends State<AccountCancelWidget> {
                               borderRadius:BorderRadius.all(Radius.circular(4.0)),
                               //
                               gradient: LinearGradient(colors: [
-                                Color(0xFFFF7F16),
-                                Color(0xFFEF3500)
+                                Colors.black,
+                                Colors.black
                               ]
                               )
                           ),

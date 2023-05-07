@@ -43,7 +43,8 @@ class _EquipmentDetailState extends State<EquipmentDetail> {
   @override
   void initState(){
     super.initState();
-    Timer.periodic(Duration(seconds: 5),(_) => getTaskDetails());
+    //定时数据显示
+    // Timer.periodic(Duration(seconds: 5),(_) => getTaskDetails());
   }
 
   @override
@@ -99,7 +100,7 @@ class _EquipmentDetailState extends State<EquipmentDetail> {
                               AnnulusDashboardProgressBar(
                                 centerText: model.dumpenergy.toString(),
                                 centerTextUnit: "%",
-                                bottomText: "电池电量",
+                                bottomText: S.current.battery_capacity,
                                 sweepScale: model.dumpenergy,
                               ),
                               // ImageAssets.image(
@@ -112,7 +113,7 @@ class _EquipmentDetailState extends State<EquipmentDetail> {
                               AnnulusDashboardProgressBar(
                                 centerText: model.batteryCellTempc.toString(),
                                 centerTextUnit: "°C",
-                                bottomText: "电池温度",
+                                bottomText: S.current.battery_temperature,
                                 sweepScale: model.batteryCellTempc,
                               ),
                               // ImageAssets.image(

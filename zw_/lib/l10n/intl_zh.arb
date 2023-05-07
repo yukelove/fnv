@@ -58,7 +58,7 @@
 "validate_code_need":"验证码不能为空",
 "password_need":"密码不能为空",
 "add_device_success":"设备添加成功!",
-"add_device_fail":"设备添加失败，请重新扫描二维码!",
+"add_device_fail":"设备添加失败，请重新操作!",
 "device_detail":"设备详情",
 "input":"输入",
 "type":"类型",
@@ -79,6 +79,26 @@
 
 "device_input":"输入功率",
 "turn_off":"关闭电源",
-"turn_on":"打开电源"
-
+"turn_on":"打开电源",
+"battery_temperature":"电池温度",
+"battery_capacity":"电池电量",
+"charge_1":"充电1 :",
+"charge_2":"充电2 :",
+"charge_3":"充电3 :",
+"charge_4":"充电4 :",
+"charge_5":"充电5 :",
+"charge_6":"充电6 :",
+"charge_7":"充电7 :",
+"charge_8":"充电8 :",
+"time":"时间",
+"battery":"电池",
+"city_power":"市电",
+"module1":"模式1",
+"module2":"模式2",
+"module3":"模式3",
+"module4":"模式4",
+"module5":"模式5",
+"module6":"模式6",
+"module7":"模式7",
+"module8":"模式8"
 }

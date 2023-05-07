@@ -1,4 +1,3 @@
-import 'package:fluro/fluro.dart';
 import 'package:flutter/gestures.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:zw_/generated/l10n.dart';
@@ -7,7 +6,6 @@ import 'package:zw_/config/img_config/image_assets.dart';
 import 'package:zw_/config/img_config/image_config.dart';
 import 'package:zw_/config/screen_util.dart';
 import 'package:zw_/pages/user_login/networking/user_networking.dart';
-import 'package:zw_/pages/user_register/register_page.dart';
 import 'package:zw_/router/router_manager.dart';
 import 'package:zw_/utils/zw_hud.dart';
 
@@ -29,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
     _tapServer = TapGestureRecognizer()
       ..onTap = () {
         print('点击 服务条款');
-        final Uri url = new Uri(scheme: "https", host: "www.baidu.com");
+        final Uri url =  Uri.parse("http://101.43.96.59/fnv_fwxy.html");
         _launchUrl(url);
       };
     _tapPolicy = TapGestureRecognizer()
@@ -65,17 +63,6 @@ class _LoginPageState extends State<LoginPage> {
                 imgName: ImageAssetsConfig.IMAGE_LOGO,
                 size: Size(330.0.w, 85.0.w)),
           ),
-          // Row(
-          //   children: [
-          //     Container(
-          //       padding: EdgeInsets.only(left: 30, top: 30),
-          //       child: Text(
-          //         S.of(context).login,
-          //         style: TextStyle(color: Colors.black, fontSize: 33),
-          //       ),
-          //     ),
-          //   ],
-          // ),
           SizedBox(
             width: 100,
             height: 70,
@@ -272,4 +259,6 @@ class _LoginPageState extends State<LoginPage> {
       setState(() {});
     }
   }
+
+
 }

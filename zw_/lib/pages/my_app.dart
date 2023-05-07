@@ -7,6 +7,7 @@ import 'package:zw_/networking/networking_manager.dart';
 import 'package:zw_/pages/home_page.dart';
 import 'package:zw_/router/router_manager.dart';
 import 'package:zw_/generated/l10n.dart';
+import 'dart:io' show Platform;
 
 class MyAppPage extends StatelessWidget {
   const MyAppPage({Key? key}) : super(key: key);
@@ -43,5 +44,17 @@ class MyAppPage extends StatelessWidget {
       },
       navigatorObservers: [BotToastNavigatorObserver(),],
     );
+  }
+
+  String getLocalLanguage(){
+    if (Platform.isAndroid) {
+      // Android-specific code
+      return "Android";
+    } else if (Platform.isIOS) {
+      // iOS-specific code
+      return "IOS";
+    }else {
+      return "";
+    }
   }
 }

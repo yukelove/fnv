@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:zw_/config/screen_util.dart';
 import 'package:zw_/pages/user_login/networking/user_networking.dart';
 import 'package:zw_/router/router_manager.dart';
@@ -193,6 +194,10 @@ class _ModifyUserInfoWidgetState extends State<ModifyUserInfoWidget> {
                                 child: TextField(
                                   controller: _phoneNumberController,
                                   textAlign: TextAlign.center,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(RegExp('[0-9]')),
+                                    LengthLimitingTextInputFormatter(11)
+                                  ],
                                   style: TextStyle(color: Colors.black,fontSize: 14.0,),
                                   decoration: InputDecoration(
                                     enabledBorder: OutlineInputBorder(
@@ -240,7 +245,7 @@ class _ModifyUserInfoWidgetState extends State<ModifyUserInfoWidget> {
                             decoration: BoxDecoration(
                               color: Color(0XFF2B95E9),
                               borderRadius:BorderRadius.all(Radius.circular(4.0)),
-                              gradient: LinearGradient(colors: [Color(0xFFFF7F16),Color(0xFFEF3500)])
+                              gradient: LinearGradient(colors: [Colors.black,Colors.black])
                             ),
                             child: Text(
                               S.current.save,

@@ -26,7 +26,7 @@ class EquipmentAddNetworking {
         ZWHud.showText(S.current.add_device_success);
         return true;
       } else {
-        ZWHud.showText(S.current.add_device_fail + "  "+msg.toString());
+        ZWHud.showText(S.current.add_device_fail + "  ["+msg.toString()+"]");
         return false;
       }
     } else {
